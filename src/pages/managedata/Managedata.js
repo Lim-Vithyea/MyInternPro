@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
+import Usertable from "../../components/Usertable";
 
 const Managedata = () => {
   //get schooldata
@@ -112,8 +113,9 @@ const Managedata = () => {
             Save
           </button>
         </div>
-      </form>
+      </form>   
     </div>
+    <Usertable/>
     </div>
   );
 };
