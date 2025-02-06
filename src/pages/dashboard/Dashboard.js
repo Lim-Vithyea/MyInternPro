@@ -55,7 +55,7 @@ const Dashboard = () => {
           <DetailCard 
             title={"Total staff"} 
             link={"https://github.com/Lim-Vithyea"} 
-            value={"1263"} 
+            value={"N/A"} 
             text_color={"text-red-500"}/>
           <DetailCard 
             title={"Total School"} 
@@ -65,7 +65,7 @@ const Dashboard = () => {
           <DetailCard 
             title={"No title"} 
             link={"https://github.com/Lim-Vithyea"} 
-            value={"1263"} 
+            value={"N/A"} 
             text_color={"text-green-500"}/>
         </div>
       </div>

@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import Usertable from "../../components/Usertable";
+import { getSchool } from "../../Services/Getschool";
 
 const Managedata = () => {
   
@@ -16,15 +17,24 @@ const Managedata = () => {
   });
   //get schooldata
   useEffect(() => {
-    const fetchSchools = async () => {
+    // const fetchSchools = async () => {
+    //   try {
+    //     const response = await axios.get("http://localhost:3002/api/school");
+    //     setSchools(response.data);
+    //   } catch (error) {
+    //     console.error("Error fetching schools:", error);
+    //   }
+    // };
+    // fetchSchools();
+    const getSchoolData = async () =>{
       try {
-        const response = await axios.get("http://localhost:3002/api/school");
-        setSchools(response.data);
-      } catch (error) {
-        console.error("Error fetching schools:", error);
+        const data = await getSchool();
+        setSchools(data);
+      } catch {
+        console.log("can't fetch");
       }
-    };
-    fetchSchools();
+    }
+ getSchoolData();
   }, []);
   // Handle text input changes
   const handleChange = (e) => {
