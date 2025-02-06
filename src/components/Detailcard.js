@@ -1,3 +1,4 @@
+
 function DetailCard({ title, value, link, text_color}) {
     return (
         <div className='h-[180px] max-w-[100%] rounded-lg shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]'>

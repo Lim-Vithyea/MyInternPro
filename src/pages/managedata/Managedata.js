@@ -5,6 +5,15 @@ import { useEffect } from "react";
 import Usertable from "../../components/Usertable";
 
 const Managedata = () => {
+  
+  const [message, setMessage] = useState("");
+  const [schools, setSchools] = useState([]);
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+    role: "",
+    schoolid: "",
+  });
   //get schooldata
   useEffect(() => {
     const fetchSchools = async () => {
@@ -17,25 +26,13 @@ const Managedata = () => {
     };
     fetchSchools();
   }, []);
-
-  const [message, setMessage] = useState("");
-  const [schools, setSchools] = useState([]);
-  const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-    role: "",
-    schoolid: "",
-  });
-
   // Handle text input changes
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
   // Handle form submission
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -65,14 +62,14 @@ const Managedata = () => {
           <div className="sm:col-span-4 grid grid-cols-1 sm:grid-cols-4 gap-4 mt-7">
             <div>
               <label className="block text-sm font-medium text-gray-700">Username</label>
-              <input type="text" name="username" id="username"  required
+              <input type="text" name="username" id="username"  required placeholder="Enter your username"
                 className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm"
                 onChange={handleChange}
                 value={formData.username}/>
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">Password</label>
-              <input type="password" name="password" id="password"
+              <input type="password" name="password" id="password" placeholder="Enter your password"
                 className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm"
                 required
                 onChange={handleChange}

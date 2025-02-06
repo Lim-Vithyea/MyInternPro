@@ -8,6 +8,7 @@ const Usertable = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 10;
 
+//calling the imported funtion to fetch the data from the database
   useEffect(() => {
     const showData = async () => {
       try {
@@ -22,31 +23,28 @@ const Usertable = () => {
   }, []);
 
   // Calculate indexes for pagination
+  //i don't underststand this either pls don't ask me anything about this
   const indexOfLastRow = currentPage * rowsPerPage;
   const indexOfFirstRow = indexOfLastRow - rowsPerPage;
   const currentRows = users.slice(indexOfFirstRow, indexOfLastRow);
-
   // Change page
   const nextPage = () => {
     if (currentPage < Math.ceil(users.length / rowsPerPage)) {
       setCurrentPage(currentPage + 1);
     }
   };
-
   const prevPage = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
     }
   };
-
+  //end change pages function
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg p-5">
       <h1 className="text-xl text-center font-bold text-blue-500 p-5">
         User Data
       </h1>
-
       {err && <p className="text-red-500 text-center">{err}</p>}
-
       <table className="w-full text-sm text-left rtl:text-right text-black-500">
         <thead className="text-xs text-blue-500 uppercase bg-gray-200">
           <tr>
@@ -58,6 +56,8 @@ const Usertable = () => {
           </tr>
         </thead>
         <tbody>
+
+        {/* if the data are greater than 0 this will show the data, in case you asked */}
           {currentRows.length > 0 ? (
             currentRows.map((user, index) => (
               <tr key={user.id} className="bg-white border-b border-gray-200 hover:bg-gray-50">
@@ -66,9 +66,8 @@ const Usertable = () => {
                 <td className="px-6 py-4">{user.role}</td>
                 <td className="px-6 py-4">{user.schoolname}</td>
                 <td className="px-6 py-4 text-right">
-                  <a href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
-                  </a>
+                {/* i will implement this later(edit function) */}
+                  <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                 </td>
               </tr>
             ))
@@ -81,7 +80,9 @@ const Usertable = () => {
           )}
         </tbody>
       </table>
-      {/* Pagination Buttons */}
+
+{/* this make no sense to me either i just copy paste */}
+{/* Pagination Buttons */}
       <div className="flex justify-between mt-4">
         <button onClick={prevPage} disabled={currentPage === 1} className={`px-4 py-2 bg-gray-300 rounded ${
             currentPage === 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-400"}`}>Previous</button>

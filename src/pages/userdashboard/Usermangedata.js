@@ -25,7 +25,6 @@ const Usermangedata = () => {
               <input type="text" id="grade" className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" required />
             </div>
           </div>
-
           {/* Second Row */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-4">
             <div>
