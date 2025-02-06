@@ -45,7 +45,8 @@ const Usertable = () => {
         User Data
       </h1>
       {err && <p className="text-red-500 text-center">{err}</p>}
-      <table className="w-full text-sm text-left rtl:text-right text-black-500">
+      <div className="overflow-x-auto">
+      <table className="min-w-full text-sm text-left rtl:text-right text-black-500">
         <thead className="text-xs text-blue-500 uppercase bg-gray-200">
           <tr>
             <th scope="col" className="px-6 py-3">No</th>
@@ -80,7 +81,7 @@ const Usertable = () => {
           )}
         </tbody>
       </table>
-
+      </div>
 {/* this make no sense to me either i just copy paste */}
 {/* Pagination Buttons */}
       <div className="flex justify-between mt-4">
@@ -94,7 +95,10 @@ const Usertable = () => {
         </button>
       </div>
     </div>
+    
   );
 };
 
 export default Usertable;
+
+
