@@ -12,7 +12,10 @@
     "react-chartjs-2": "^5.3.0",
     "react-dom": "^19.0.0",
     "react-scripts": "5.0.1"
+<<<<<<< HEAD
     
+=======
+>>>>>>> d423c6701bc1f0e85a49c64e136560d063062909
   },
   "scripts": {
     "start": "react-scripts start",

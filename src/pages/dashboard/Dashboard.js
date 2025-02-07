@@ -48,23 +48,19 @@ const Dashboard = () => {
       <div className='mx-3 my-4'>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
           <DetailCard 
-            title={"Total User"} 
-            link={"https://github.com/Lim-Vithyea"} 
+            title={"Total User"}  
             value={totalUser} 
             text_color={"text-blue-500"}/>
           <DetailCard 
             title={"Total staff"} 
-            link={"https://github.com/Lim-Vithyea"} 
             value={"N/A"} 
             text_color={"text-red-500"}/>
           <DetailCard 
             title={"Total School"} 
-            link={"https://github.com/Lim-Vithyea"} 
             value={totalSchool} 
             text_color={"text-yellow-500"}/>
           <DetailCard 
             title={"No title"} 
-            link={"https://github.com/Lim-Vithyea"} 
             value={"N/A"} 
             text_color={"text-green-500"}/>
         </div>
