@@ -2,6 +2,9 @@
 import React, { useEffect, useState } from "react";
 import { showUserData } from "../Services/Showuser";
 import UserEditComponent from "./UserEditComponenet";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
+import * as XLSX from "xlsx";
 
 const Usertable = () => {
   const [users, setUsers] = useState([]);
@@ -11,7 +14,15 @@ const Usertable = () => {
   const [search, setSearch] = useState("");
   const [isEdit, setEdit] = useState(false);
   const rowsPerPage = 10;
-
+  
+ //excel
+  const exportToExcel = (users) => {
+    const ws = XLSX.utils.json_to_sheet(users); // Convert data to sheet
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Users"); // Add sheet to workbook
+    // Download the file
+    XLSX.writeFile(wb, "UserData.xlsx");
+    };
   useEffect(() => {
     const showData = async () => {
       try {
@@ -65,15 +76,44 @@ const Usertable = () => {
       setEdit(false);
     }, 2000);
   } 
+
+  const exportPDF = () => {
+    const doc = new jsPDF();
+    doc.text("User Data", 14, 10); // Title
+
+    const tableColumn = ["No", "Username", "Role", "School Name"]; // Headers
+    const tableRows = users.map((user, index) => [
+      index + 1,
+      user.username,
+      user.role,
+      user.schoolname,
+    ]);
+    doc.autoTable({
+      head: [tableColumn], // Column headers
+      body: tableRows, // Data rows
+      startY: 20, // Start below the title
+    });
+
+    doc.save("UserData.pdf"); // Download PDF
+  };
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg p-5">
       <h1 className="text-xl text-center font-bold text-blue-500 p-5">User Data</h1>
       {err && <p className="text-red-500 text-center">{err}</p>}
       {/* Search Input */}
+      <div className=" gap-5 md:block lg:flex">
       <div className="mb-4">
         <input type="text" placeholder="Search users..." value={search}
           onChange={(e) => setSearch(e.target.value)} 
           className="px-4 py-2 w-full max-w-sm border rounded"/>
+      </div>
+      {/* Export button */}
+      <button onClick={exportPDF} className="mb-4 px-4 py-2 bg-green-500 text-white rounded">
+        Export as PDF
+      </button>
+      <button onClick={() => exportToExcel(users)} className="mb-4 px-4 py-2 bg-green-500 text-white rounded">
+          Export to Excel
+        </button>
       </div>
       <div className="overflow-x-auto">
         <table className="min-w-full text-sm text-left rtl:text-right text-black-500">
