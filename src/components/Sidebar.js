@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { fetchUserData } from "../pages/setting/Serviceuser";
 import LogoutAlert from "./Alert";
-import DropdownManage from "../pages/managedata/DropdownManage";
+import DropdownManage from "./DropdownManage";
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [username, setUsername] = useState({});
@@ -32,7 +32,7 @@ const Sidebar = () => {
   };
 
   const userPageItems1 = [
-    { to: "/landing/managedata", label: "Add New User" },
+    { to: "/landing/managedata", label: "Add new user" },
     { to: "/landing/add-new-student/", label: "New Student" },
    
   ];
@@ -95,7 +95,8 @@ const Sidebar = () => {
                 📊 <span className="ml-3 text-sm md:text-base">Dashboard</span>
               </NavLink>
             </li>
-            {/* <li>
+            {
+            /* <li>
               <NavLink
                 to="/landing/managedata"
                 className={({ isActive }) =>
@@ -113,10 +114,7 @@ const Sidebar = () => {
 
             {/* Dropdown */}
           
-            <DropdownManage title="Manage Data User" items={userPageItems1} />
-
-
-
+            <DropdownManage title="📁 Manage Data" items={userPageItems1} />
             <li>
               <NavLink
                 to="/landing/setting"

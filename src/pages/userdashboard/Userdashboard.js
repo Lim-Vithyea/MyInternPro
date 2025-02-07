@@ -15,10 +15,11 @@ const Userdashboard = () => {
         setUser(data);
       } catch (err) {
         setError(err.response?.data?.error || err.message);
+        console.log(error);
       }
     };
     getUserData();
-  },[]);
+  },[error]);
 
   return (
     <div className="w-[100%] flex flex-row">

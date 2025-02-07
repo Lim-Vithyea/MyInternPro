@@ -40,7 +40,7 @@ const UserEditComponent = () => {
     <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 ">
       <div className="bg-white p-6 rounded-lg shadow-lg ">
         <h1 className="text-center font-semibold">🚨 We are really sorry 🚨</h1>
-       <p className="text-red-500 font-medium text-xs p-[40px]">The feature is currently unavailable, beacause i can't implement the feature </p>
+       <p className="text-red-500 font-medium text-xs p-[40px]">The feature is currently unavailable, because i can't implement the feature </p>
       </div>
     </div>
   );
