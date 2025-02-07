@@ -4,7 +4,6 @@ import { showUserData } from "../Services/Showuser";
 import UserEditComponent from "./UserEditComponenet";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
-import * as XLSX from "xlsx";
 
 const Usertable = () => {
   const [users, setUsers] = useState([]);
@@ -15,14 +14,6 @@ const Usertable = () => {
   const [isEdit, setEdit] = useState(false);
   const rowsPerPage = 10;
   
- //excel
-  const exportToExcel = (users) => {
-    const ws = XLSX.utils.json_to_sheet(users); // Convert data to sheet
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "Users"); // Add sheet to workbook
-    // Download the file
-    XLSX.writeFile(wb, "UserData.xlsx");
-    };
   useEffect(() => {
     const showData = async () => {
       try {
@@ -111,9 +102,7 @@ const Usertable = () => {
       <button onClick={exportPDF} className="mb-4 px-4 py-2 bg-green-500 text-white rounded">
         Export as PDF
       </button>
-      <button onClick={() => exportToExcel(users)} className="mb-4 px-4 py-2 bg-green-500 text-white rounded">
-          Export to Excel
-        </button>
+      
       </div>
       <div className="overflow-x-auto">
         <table className="min-w-full text-sm text-left rtl:text-right text-black-500">
