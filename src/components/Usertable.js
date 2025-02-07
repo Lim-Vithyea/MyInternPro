@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 import { showUserData } from "../Services/Showuser";
+import UserEditComponent from "./UserEditComponenet";
 
 const Usertable = () => {
   const [users, setUsers] = useState([]);
@@ -8,6 +9,7 @@ const Usertable = () => {
   const [err, setErr] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState("");
+  const [isEdit, setEdit] = useState(false);
   const rowsPerPage = 10;
 
   useEffect(() => {
@@ -39,10 +41,10 @@ const Usertable = () => {
   }, [search, users]); // Re-run filtering when search or users data changes
 
   // Calculate indexes for pagination
+  //idk what this is don't ask me anything
   const indexOfLastRow = currentPage * rowsPerPage;
   const indexOfFirstRow = indexOfLastRow - rowsPerPage;
   const currentRows = filteredUsers.slice(indexOfFirstRow, indexOfLastRow);
-
   // Change page
   const nextPage = () => {
     if (currentPage < Math.ceil(filteredUsers.length / rowsPerPage)) {
@@ -54,20 +56,24 @@ const Usertable = () => {
       setCurrentPage(currentPage - 1);
     }
   };
+  //end change page
 
+  //edit function
+  const handlEdit = () =>{
+    setEdit(true);
+    setTimeout(() => {
+      setEdit(false);
+    }, 2000);
+  } 
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg p-5">
       <h1 className="text-xl text-center font-bold text-blue-500 p-5">User Data</h1>
       {err && <p className="text-red-500 text-center">{err}</p>}
       {/* Search Input */}
       <div className="mb-4">
-        <input
-          type="text"
-          placeholder="Search users..."
-          value={search}
+        <input type="text" placeholder="Search users..." value={search}
           onChange={(e) => setSearch(e.target.value)} 
-          className="px-4 py-2 w-full max-w-sm border rounded"
-        />
+          className="px-4 py-2 w-full max-w-sm border rounded"/>
       </div>
       <div className="overflow-x-auto">
         <table className="min-w-full text-sm text-left rtl:text-right text-black-500">
@@ -89,7 +95,7 @@ const Usertable = () => {
                   <td className="px-6 py-4">{user.role}</td>
                   <td className="px-6 py-4">{user.schoolname}</td>
                   <td className="px-6 py-4 text-right">
-                    <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    <button onClick={handlEdit} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>
                   </td>
                 </tr>
               ))
@@ -101,7 +107,7 @@ const Usertable = () => {
           </tbody>
         </table>
       </div>
-
+      {isEdit && <UserEditComponent/>}
       {/* Pagination Buttons */}
       <div className="flex justify-between mt-4">
         <button onClick={prevPage} disabled={currentPage === 1} className={`px-4 py-2 bg-gray-300 rounded ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-400"}`}>

@@ -4,10 +4,12 @@ import axios from "axios";
 import { useEffect } from "react";
 import Usertable from "../../components/Usertable";
 import { getSchool } from "../../Services/Getschool";
+import UserEditComponent from "../../components/UserEditComponenet";
 
 const Managedata = () => {
   
   const [message, setMessage] = useState("");
+  const [isClick,setClick] = useState(false);
   const [schools, setSchools] = useState([]);
   const [formData, setFormData] = useState({
     username: "",
@@ -41,6 +43,13 @@ const Managedata = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+  //show alert when clicking on pf
+  const handleProfileClick = () =>{
+    setClick(true);
+    setTimeout(() => {
+      setClick(false);
+    }, 2000);
+  }
 
   // Handle form submission
   const handleSubmit = async (e) => {
@@ -109,7 +118,7 @@ const Managedata = () => {
           <div className="flex flex-col items-center space-y-4">
             <div className="flex flex-col items-center justify-center space-y-4">
               <div className="flex flex-col items-center justify-center w-32 h-32 rounded-full cursor-pointer hover:bg-blue-100 transition-all">
-              <img src="/images/pf.jpg" alt="user" className="border-[3px] border-blue-500 rounded-full"/>
+              <img onClick={handleProfileClick} src="/images/pf.jpg" alt="user" className="border-[3px] border-blue-500 rounded-full"/>
               </div>
             </div>
           </div>
@@ -123,7 +132,9 @@ const Managedata = () => {
       </form>   
     </div>
     <Usertable/>
+    {isClick && <UserEditComponent/>}
     </div>
+    
   );
 };
 
