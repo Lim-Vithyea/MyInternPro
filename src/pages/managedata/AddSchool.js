@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios';
+import Schooltable from '../../components/Schooltable';
 
 const AddSchool = () => {
 
@@ -25,14 +26,14 @@ const handleSubmit = async (e) => {
   } catch (error) {
     console.error("Error submitting data:", error);
     const errorMsg = error.response?.data?.error || error.response?.data?.details || "Unknown error";
-    setMessage(`Failed to add user: ${errorMsg}`);
+    setMessage(`Failed to add school. School code already exist: ${errorMsg}`);
   }
 };
   return (
     <div>
       <div className="w-full bg-white flex items-center justify-center border-b-2">
-        <img src="/images/P10.png" alt="Emblem" className="w-10 h-10" />
-        <h1 className="text-start pt-3 pb-3 font-bold">Manage Data</h1>
+        <img src="/images/P10.png" alt="Emblem" className="w-6 h-6" />
+        <h1 className="text-start pt-3 pb-3 font-bold text-xs">Manage Data</h1>
       </div>
       <div className='w-[98%] mx-auto mt-4 bg-white rounded-xl p-6 sm:p-8 lg:p-10 shadow-lg'>
         <h1 className='text-start pt-3 pb-3 font-bold text-blue-500 text-xl'>Manage School</h1>
@@ -42,6 +43,7 @@ const handleSubmit = async (e) => {
           <div>
             <label className="block text-sm font-medium text-gray-700">School code (10digits max)</label>
             <input type="number" name="school_code" id="school_code"  required  placeholder="Enter school code"
+                max="9999999999"
                 className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm" 
                 onChange={handleChange} value={schoolData.school_code}/>
           </div>
@@ -60,6 +62,7 @@ const handleSubmit = async (e) => {
         </div>
     </form>
     </div>
+    <Schooltable/>
     </div>
   )
 }

@@ -68,9 +68,9 @@ const Managedata = () => {
   };
   return (
     <div>
-    <div className="w-full bg-white flex items-center justify-center border-b-2">
-        <img src="/images/P10.png" alt="Emblem" className="w-10 h-10" />
-        <h1 className="text-start pt-3 pb-3 font-semibold text-xl">Manage Data</h1>
+     <div className="w-full bg-white flex items-center justify-center border-b-2">
+        <img src="/images/P10.png" alt="Emblem" className="w-6 h-6" />
+        <h1 className="text-start pt-3 pb-3 font-bold text-xs">Manage Data</h1>
       </div>
     <div className="w-[98%] mx-auto mt-4 bg-white rounded-xl p-6 sm:p-8 lg:p-10 shadow-lg">
       <h1 className="font-bold text-xl text-blue-700">Add User</h1>

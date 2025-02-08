@@ -33,9 +33,9 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen">
-      <div className='w-full flex items-center justify-center border-b-2 p-2 md:p-0'>
-        <img src="/images/P10.png" alt="Emblem" className="w-5 h-5 md:w-8 md:h-8 mb-1"/>
-        <h1 className='text-sm md:text-lg lg:text-xl pl-2 font-bold'>Dashboard</h1>
+      <div className="w-full bg-white flex items-center justify-center border-b-2">
+        <img src="/images/P10.png" alt="Emblem" className="w-6 h-6" />
+        <h1 className="text-start pt-3 pb-3 font-bold text-xs">Dashboard</h1>
       </div>
       <div className='w-[95%] md:w-[98%] min-h-[300px] mx-auto my-4 rounded-xl shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] transition-all duration-300'>
         <h1 className='p-4 md:p-5 font-bold text-lg sm:text-xl md:text-xs lg:text-xl'>Overall Data</h1>

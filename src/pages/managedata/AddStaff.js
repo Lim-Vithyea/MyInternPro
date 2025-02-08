@@ -5,8 +5,8 @@ const AddStaff = () => {
     <div className="min-h-screen bg-gray-100">
       {/* Header */}
       <div className="w-full bg-white flex items-center justify-center border-b-2">
-        <img src="/images/P10.png" alt="Emblem" className="w-10 h-10" />
-        <h1 className="text-start pt-3 pb-3 font-bold">Manage Data</h1>
+        <img src="/images/P10.png" alt="Emblem" className="w-6 h-6" />
+        <h1 className="text-start pt-3 pb-3 font-bold text-xs">Manage Data</h1>
       </div>
       {/* Form */}
       <div className="w-[95%] mx-auto my-6 bg-white p-6 rounded-xl shadow-lg">
