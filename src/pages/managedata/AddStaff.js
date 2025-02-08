@@ -1,6 +1,6 @@
 import React from "react";
 
-const AddNewStudent = () => {
+const AddStaff = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Header */}
@@ -10,7 +10,7 @@ const AddNewStudent = () => {
       </div>
       {/* Form */}
       <div className="w-[95%] mx-auto my-6 bg-white p-6 rounded-xl shadow-lg">
-        <h1 className="font-bold text-2xl text-blue-700">Add Student</h1>
+        <h1 className="font-bold text-2xl text-blue-700">Add Staff</h1>
         <form className="mt-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -56,11 +56,11 @@ const AddNewStudent = () => {
 
       {/* Student Data Section */}
       <div className="w-[95%] mx-auto my-6 bg-white p-6 rounded-xl shadow-lg">
-        <h1 className="font-bold text-2xl text-blue-700">Student Data</h1>
+        <h1 className="font-bold text-2xl text-blue-700">Staff Data</h1>
         {/* Student Data Table or List Goes Here */}
       </div>
     </div>
   );
 };
 
-export default AddNewStudent;
+export default AddStaff;

@@ -112,6 +112,7 @@ const Usertable = () => {
             <tr>
               <th scope="col" className="px-6 py-3">No</th>
               <th scope="col" className="px-6 py-3">Username</th>
+              <th scope="col" className="px-6 py-3">School code</th>
               <th scope="col" className="px-6 py-3">Role</th>
               <th scope="col" className="px-6 py-3">School Name</th>
               <th scope="col" className="px-6 py-3 text-right">Actions</th>
@@ -123,6 +124,7 @@ const Usertable = () => {
                 <tr key={user.id} className="bg-white border-b border-gray-200 hover:bg-gray-50">
                   <td className="px-6 py-4">{indexOfFirstRow + index + 1}</td>
                   <td className="px-6 py-4">{user.username}</td>
+                  <td className="px-6 py-4 text-green-500">{user.school_code}</td>
                   <td className="px-6 py-4">{user.role}</td>
                   <td className="px-6 py-4">{user.schoolname}</td>
                   <td className="px-6 py-4 text-right">
