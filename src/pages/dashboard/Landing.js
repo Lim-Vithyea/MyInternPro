@@ -3,7 +3,7 @@ import Sidebar from "../../components/Sidebar";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import Managedata from "../managedata/Managedata";
-import DropdownManage from "../managedata/DropdownManage";
+import DropdownManage from "../../components/DropdownManage";
 import Profile from "../setting/Profile";
 import AddNewStudent from "../managedata/AddNewStudent";
 

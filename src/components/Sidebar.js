@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { fetchUserData } from "../pages/setting/Serviceuser";
 import LogoutAlert from "./Alert";
-import DropdownManage from "../pages/managedata/DropdownManage";
+import DropdownManage from "./DropdownManage";
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [username, setUsername] = useState({});

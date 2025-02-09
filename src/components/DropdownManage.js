@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-const DropdownManage = ({ title, items = [] }) => {
+const DropdownManage = ({ title, items }) => {
   const [open, setOpen] = useState(false);
 
   const toggleDropdown = () => setOpen(!open);
@@ -13,7 +13,7 @@ const DropdownManage = ({ title, items = [] }) => {
         onClick={toggleDropdown}
         className="dropdown-button flex items-center justify-between w-full px-4 py-3 rounded-lg transition-colors hover:bg-gray-700">
         {title}
-        <span>{open ? "▲" : "▼"}</span>
+        <span className=''>{open ? "▲" : "▼"}</span>
       </button>
       {open && (
         <div className="dropdown-content">

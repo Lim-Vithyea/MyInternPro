@@ -4,11 +4,9 @@ const AddNewStudent = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Header */}
-      <div className="w-full bg-[#1B1B69] flex items-center px-6 py-4 shadow-md">
-        <img src="/images/P10.png" alt="Emblem" className="w-12 h-12" />
-        <h1 className="text-white font-bold text-lg sm:text-xl ml-4">
-          Manage Data / Add Student    
-        </h1>
+      <div className="w-full bg-white flex items-center justify-center border-b-2">
+        <img src="/images/P10.png" alt="Emblem" className="w-10 h-10" />
+        <h1 className="text-start pt-3 pb-3 font-bold">Manage Data</h1>
       </div>
 
       {/* Form Section */}

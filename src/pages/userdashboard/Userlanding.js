@@ -42,6 +42,7 @@ const Userlanding = () => {
           <Routes>
             <Route path="/userdashboard" element={<PrivateRoute element={<Userdashboard />} />}/>
             <Route path="/usermanagedata" element={<PrivateRoute element={<Usermangedata />} />}/>
+           
           </Routes>
         </div>
       </div>
