@@ -32,9 +32,10 @@ const Sidebar = () => {
   };
 
   const userPageItems1 = [
-    { to: "/landing/managedata", label: "Add New User" },
-    { to: "/landing/add-new-student/", label: "New Student" },
-   
+    { to: "/landing/managedata", label: "Add new user" },
+    { to: "/landing/add_school/", label: "Add School" },
+    { to: "/landing/add-staff/", label: "Add Staff" }
+    
   ];
   return (
     <div>
@@ -45,10 +46,8 @@ const Sidebar = () => {
       </button>
 
       {isOpen && (
-        <div
-          className="fixed inset-0 bg-black/50 z-40 md:hidden"
-          onClick={toggleSidebar}
-        />
+        <div className="fixed inset-0 bg-black/50 z-40 md:hidden"
+          onClick={toggleSidebar}/>
       )}
 
       <aside
@@ -57,11 +56,8 @@ const Sidebar = () => {
           ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}`}>
         <div className="h-full px-4 py-6 overflow-y-auto relative font-medium flex flex-col">
           <div className="flex justify-center ">
-            <img
-              src="/images/P10.png"
-              alt="Logo"
-              className="w-16 h-16 md:w-20 md:h-20"
-            />
+            <img src="/images/P10.png" alt="Logo"
+              className="w-16 h-16 md:w-20 md:h-20"/>
           </div>
           <p className="text-lg md:text-xl font-bold text-center text-white pb-4">
             នាយកដ្ឋានបឋមសិក្សា
@@ -69,11 +65,8 @@ const Sidebar = () => {
 
           {/* User Profile */}
           <div className="text-center mb-6">
-            <img
-              src={username?.image || "/images/pf.jpg"}
-              alt="user"
-              className="w-16 h-16 md:w-20 md:h-20 mx-auto rounded-full transition-transform hover:scale-110 object-cover"
-            />
+            <img src={username?.image || "/images/pf.jpg"} alt="user"
+              className="w-16 h-16 md:w-20 md:h-20 mx-auto rounded-full transition-transform hover:scale-110 object-cover"/>
             <p className="text-md md:text-lg font-semibold truncate px-2">
               {username.username}
             </p>
@@ -95,7 +88,8 @@ const Sidebar = () => {
                 📊 <span className="ml-3 text-sm md:text-base">Dashboard</span>
               </NavLink>
             </li>
-            {/* <li>
+            {
+            /* <li>
               <NavLink
                 to="/landing/managedata"
                 className={({ isActive }) =>
@@ -113,10 +107,7 @@ const Sidebar = () => {
 
             {/* Dropdown */}
           
-            <DropdownManage title="Manage Data User" items={userPageItems1} />
-
-
-
+            <DropdownManage title="📁 Manage Data" items={userPageItems1} />
             <li>
               <NavLink
                 to="/landing/setting"
