@@ -7,7 +7,7 @@ import Header from "../../components/Header";
 import { Route, Routes } from "react-router-dom";
 import { fetchUserData } from "../setting/Serviceuser";
 import { PrivateRoute } from "../dashboard/Landing";
-import DropdownUser from "../../components/DropdownUser";
+
 
 const Userlanding = () => {
   const [user, setUser] = useState({});
@@ -43,7 +43,7 @@ const Userlanding = () => {
           <Routes>
             <Route path="/userdashboard" element={<PrivateRoute element={<Userdashboard />} />}/>
             <Route path="/usermanagedata" element={<PrivateRoute element={<Usermangedata />} />}/>
-            <Route path="/dropdownUser" element={<PrivateRoute element={<DropdownUser />} />}/>
+           
             <Route path="*" element={<h1>Not Found</h1>} />
           </Routes>
         </div>
