@@ -33,26 +33,7 @@ const Usermangedata = () => {
               <input type="text" id="name-in-latin" className={inputStyle} required/>
             </div>
             <br/>
-            <div>
-              <label htmlFor="family-name" className="block​​ font-bold  text-sm text-gray-700">
-             ថ្នាក់មត្តេយ្យ
-              </label>
-              <input type="text" id="family-name" className={inputStyle} required/>
-            </div>
-            <div>
-              <label htmlFor="given-name"className="block font-bold  text-sm text-gray-700">
-               ចំនួនសិស្សសរុប
-              </label>
-              <input type="text" id="given-name" className={inputStyle}required/>
-            </div>
-            <div>
-              <label
-                htmlFor="name-in-latin"
-                className="block font-bold  text-sm text-gray-700">
-               ចំនួនសិស្សស្រី
-              </label>
-              <input type="text" id="name-in-latin" className={inputStyle} required/>
-            </div><br/>
+            
             <div>
               <label
                 htmlFor="family-name"
