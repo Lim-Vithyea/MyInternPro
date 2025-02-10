@@ -8,7 +8,6 @@ import { Route, Routes } from "react-router-dom";
 import { fetchUserData } from "../setting/Serviceuser";
 import { PrivateRoute } from "../dashboard/Landing";
 
-
 const Userlanding = () => {
   const [user, setUser] = useState({});
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
