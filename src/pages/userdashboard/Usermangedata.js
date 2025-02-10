@@ -34,20 +34,16 @@ const Usermangedata = () => {
             </div>
             <br/>
             <div>
-              <label
-                htmlFor="family-name"
-                className="block​​ font-bold  text-sm text-gray-700">
-              ថ្នាក់ទី១
+              <label htmlFor="family-name" className="block​​ font-bold  text-sm text-gray-700">
+             ថ្នាក់មត្តេយ្យ
               </label>
               <input type="text" id="family-name" className={inputStyle} required/>
             </div>
             <div>
-              <label
-                htmlFor="given-name"
-                className="block font-bold  text-sm text-gray-700">
+              <label htmlFor="given-name"className="block font-bold  text-sm text-gray-700">
                ចំនួនសិស្សសរុប
               </label>
-              <input type="text" id="given-name" className={inputStyle} required/>
+              <input type="text" id="given-name" className={inputStyle}required/>
             </div>
             <div>
               <label
@@ -55,7 +51,7 @@ const Usermangedata = () => {
                 className="block font-bold  text-sm text-gray-700">
                ចំនួនសិស្សស្រី
               </label>
-              <inputn type="text" id="name-in-latin" className={inputStyle} required/>
+              <input type="text" id="name-in-latin" className={inputStyle} required/>
             </div><br/>
             <div>
               <label
