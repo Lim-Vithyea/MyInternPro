@@ -34,7 +34,7 @@ const Sidebar = () => {
   const userPageItems1 = [
     { to: "/landing/managedata", label: "Add new user" },
     { to: "/landing/add_school/", label: "Add School" },
-    { to: "/landing/add-staff/", label: "Add Staff" }
+    { to: "/landing/view-data/", label: "View Data" }
     
   ];
   return (

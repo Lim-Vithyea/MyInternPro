@@ -5,8 +5,8 @@ import Dashboard from "./Dashboard";
 import Managedata from "../managedata/Managedata";
 import DropdownManage from "../../components/DropdownManage";
 import Profile from "../setting/Profile";
-import AddStaff from "../managedata/AddStaff";
 import AddSchool from "../managedata/AddSchool";
+import ViewData from "../managedata/ViewData";
 
 export const PrivateRoute = ({ element }) => {
 
@@ -23,7 +23,7 @@ const Landing = () => {
           <Route path="/dashboard"element={<PrivateRoute element={<Dashboard />} />}/>
           <Route path="/managedata" element={<PrivateRoute element={<Managedata />} />}/>
           <Route path="/managedata" element={<PrivateRoute element={<DropdownManage />} />}/>
-          <Route path="/add-staff" element={<PrivateRoute element={<AddStaff/>} />}/>
+          <Route path="/view-data" element={<PrivateRoute element={<ViewData/>} />}/>
           <Route path="/add_school" element={<PrivateRoute element={<AddSchool/>} />}/>
           <Route path="/setting" element={<PrivateRoute element={<Profile />} />}/>
           <Route path="*" element={<Navigate to="dashboard" />} />
