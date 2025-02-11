@@ -32,9 +32,9 @@ const Sidebar = () => {
   };
 
   const userPageItems1 = [
-    { to: "/landing/managedata", label: "Add new user" },
-    { to: "/landing/add_school/", label: "Add School" },
-    { to: "/landing/view-data/", label: "View Data" }
+    { to: "/landing/managedata", label: "បញ្ជូលអ្នកប្រើប្រាស់" },
+    { to: "/landing/add_school/", label: "បញ្ជូលសាលារៀន គំរូ" },
+    { to: "/landing/view-data/", label: "មើលទិន្នន័យ" }
     
   ];
   return (
@@ -106,8 +106,9 @@ const Sidebar = () => {
             </li> */}
 
             {/* Dropdown */}
-          
+            <div className="khmer-text">
             <DropdownManage title="📁 Manage Data" items={userPageItems1} />
+            </div>
             <li>
               <NavLink
                 to="/landing/setting"

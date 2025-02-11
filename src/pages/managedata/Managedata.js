@@ -6,6 +6,7 @@ import Usertable from "../../components/Usertable";
 import { getSchool } from "../../Services/Getschool";
 import UserEditComponent from "../../components/UserEditComponenet";
 
+
 const Managedata = () => {
   
   const [message, setMessage] = useState("");
@@ -73,7 +74,7 @@ const Managedata = () => {
         <h1 className="text-start pt-3 pb-3 font-bold text-xs">Manage Data</h1>
       </div>
     <div className="w-[98%] mx-auto mt-4 bg-white rounded-xl p-6 sm:p-8 lg:p-10 shadow-lg">
-      <h1 className="font-bold text-xl text-blue-700">Add User</h1>
+      <h1 className="font-bold text-xl text-blue-700 khmer-text">បញ្ចូលអ្នកប្រើប្រាស់</h1>
       {/* message if error */}
       {message && (<div className="mt-4 p-2 bg-blue-100 text-blue-700 rounded">{message}</div>)}
       
@@ -81,14 +82,14 @@ const Managedata = () => {
         <div className="grid grid-cols-1 sm:grid-cols-5 gap-5 items-start">
           <div className="sm:col-span-4 grid grid-cols-1 sm:grid-cols-4 gap-4 mt-7">
             <div>
-              <label className="block text-sm font-medium text-gray-700">Username</label>
+              <label className="block text-sm font-medium text-gray-700 khmer-text">ឈ្មោះអ្នកប្រើប្រាស់</label>
               <input type="text" name="username" id="username"  required placeholder="Enter your username"
                 className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm"
                 onChange={handleChange}
                 value={formData.username}/>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">Password</label>
+              <label className="block text-sm font-medium text-gray-700 khmer-text">លេខសំងាត់</label>
               <input type="password" name="password" id="password" placeholder="Enter your password"
                 className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm"
                 required
@@ -97,7 +98,7 @@ const Managedata = () => {
             </div>
             <div>
               <label htmlFor="role"
-                className="block text-sm font-medium text-gray-700">Role
+                className="block text-sm font-medium text-gray-700 khmer-text">ប្រភេទអ្នកប្រើប្រាស់
               </label>
               <select name="role" id="role" onChange={handleChange} value={formData.role} required
                 className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
@@ -108,7 +109,7 @@ const Managedata = () => {
             </div>
           {/* school */}
             <div>
-              <label htmlFor="schoolid" className="block text-sm font-medium text-gray-700">School</label>
+              <label htmlFor="schoolid" className="block text-sm font-medium text-gray-700 khmer-text">សាលារៀន</label>
               <select name="schoolid" id="schoolid" onChange={handleChange} value={formData.schoolid} required
               className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
                 <option value="">Select School</option>
@@ -126,8 +127,8 @@ const Managedata = () => {
         </div>
         <div className="flex justify-end mt-5 mr-3 ">
           <button type="submit"
-            className="w-[180px] h-[50px] bg-blue-700 rounded-xl hover:bg-blue-400 transition-all duration-300 shadow-lg text-white font-bold">
-            Save
+            className="w-[180px] h-[50px] bg-blue-700 rounded-xl hover:bg-blue-400 transition-all duration-300 shadow-lg text-white font-bold khmer-text">
+            បញ្ជូល
           </button>
         </div>
       </form>   

@@ -36,19 +36,19 @@ const handleSubmit = async (e) => {
         <h1 className="text-start pt-3 pb-3 font-bold text-xs">Manage Data</h1>
       </div>
       <div className='w-[98%] mx-auto mt-4 bg-white rounded-xl p-6 sm:p-8 lg:p-10 shadow-lg'>
-        <h1 className='text-start pt-3 pb-3 font-bold text-blue-500 text-xl'>Manage School</h1>
+        <h1 className='text-start pt-3 pb-3 font-bold text-blue-500 text-xl khmer-text'>គ្រប់គ្រងសាលារៀន</h1>
         {message && (<div className="mt-4 p-2 bg-blue-100 text-blue-700 rounded">{message}</div>)}
         <form className="mt-6" onSubmit={handleSubmit}>
           <div className='flex gap-10'>
           <div>
-            <label className="block text-sm font-medium text-gray-700">School code (10digits max)</label>
+            <label className="block text-sm font-medium text-gray-700 khmer-text">លេខកូតសាលារៀន (10ខ្ទង់)</label>
             <input type="number" name="school_code" id="school_code"  required  placeholder="Enter school code"
                 max="9999999999"
                 className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm" 
                 onChange={handleChange} value={schoolData.school_code}/>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">School name</label>
+            <label className="block text-sm font-medium text-gray-700 khmer-text">ឈ្មោះសាលារៀន</label>
             <input type="text" name="schoolname" id="schoolname" placeholder="Enter school name"
                 className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm"
                 required onChange={handleChange} value={schoolData.schoolname}/>
@@ -56,8 +56,8 @@ const handleSubmit = async (e) => {
           </div>
           <div className="flex justify-end mt-5 mr-3 ">
           <button type="submit"
-            className="w-[180px] h-[50px] bg-blue-700 rounded-xl hover:bg-blue-400 transition-all duration-300 shadow-lg text-white font-bold">
-            Save
+            className="w-[180px] h-[50px] bg-blue-700 rounded-xl hover:bg-blue-400 transition-all duration-300 shadow-lg text-white font-bold khmer-text">
+            បញ្ចូល
           </button>
         </div>
     </form>

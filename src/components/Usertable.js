@@ -4,6 +4,7 @@ import { showUserData } from "../Services/Showuser";
 import UserEditComponent from "./UserEditComponenet";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
+import "../index.css"
 
 const Usertable = () => {
   const [users, setUsers] = useState([]);
@@ -26,7 +27,7 @@ const Usertable = () => {
       }
     };
     showData();
-    
+
     //refresh every 30s automatically
     const setRefresh = setInterval(()=>{
       showData();
@@ -78,6 +79,7 @@ const Usertable = () => {
   // Export PDF
   const exportPDF = () => {
     const doc = new jsPDF();
+    doc.setFont("KhmerOSbattambang-normal");
     doc.text("User Data", 14, 10); // Title
     const tableColumn = ["No", "Username", "Role", "School Name"];
     const tableRows = users.map((user, index) => [
@@ -96,7 +98,7 @@ const Usertable = () => {
 
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg p-5">
-      <h1 className="text-xl text-center font-bold text-blue-500 p-5">User Data</h1>
+      <h1 className="text-xl text-center font-bold text-blue-500 p-5 khmer-text">ទិន្នន័យអ្នកប្រើប្រាស់</h1>
       {err && <p className="text-red-500 text-center">{err}</p>}
       {/* Search and Export */}
       <div className="gap-5 md:block lg:flex justify-between">
@@ -115,13 +117,13 @@ const Usertable = () => {
       </div>
       <div className="overflow-x-auto">
         <table className="min-w-full text-sm text-left rtl:text-right text-black-500">
-          <thead className="text-xs text-blue-500 uppercase bg-gray-200">
+          <thead className=" text-blue-500 uppercase bg-gray-200 text-[16px]">
             <tr>
-              <th scope="col" className="px-6 py-3">No</th>
-              <th scope="col" className="px-6 py-3">Username</th>
-              <th scope="col" className="px-6 py-3">School code</th>
-              <th scope="col" className="px-6 py-3">Role</th>
-              <th scope="col" className="px-6 py-3">School Name</th>
+              <th scope="col" className="px-6 py-3 khmer-text ">ល.រ</th>
+              <th scope="col" className="px-6 py-3 khmer-text">ឈ្មោះអ្នកប្រើប្រាស់</th>
+              <th scope="col" className="px-6 py-3 khmer-text">លេខកូតសាលារៀន</th>
+              <th scope="col" className="px-6 py-3 khmer-text">ប្រភេទ</th>
+              <th scope="col" className="px-6 py-3 khmer-text">ឈ្មោះសាលារៀន</th>
               <th scope="col" className="px-6 py-3 text-right">Actions</th>
             </tr>
           </thead>
@@ -133,7 +135,7 @@ const Usertable = () => {
                   <td className="px-6 py-4">{user.username}</td>
                   <td className="px-6 py-4 text-green-500">{user.school_code}</td>
                   <td className="px-6 py-4">{user.role}</td>
-                  <td className="px-6 py-4">{user.schoolname}</td>
+                  <td className="px-6 py-4 khmer-text">{user.schoolname}</td>
                   <td className="px-6 py-4 text-right">
                     <button onClick={handlEdit} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                       Edit
