@@ -5,6 +5,7 @@ import { showSchoolData } from "../Services/Showschool";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import "../index.css"
+import { exportToCSV } from "./ExportCSV";
 
 
 const Schooltable = () => {
@@ -28,7 +29,6 @@ const Schooltable = () => {
       }
     };
     displaySchoolData();
-
     const setRefresh = setInterval(()=>{
       displaySchoolData();
     },30000)
@@ -98,25 +98,44 @@ const Schooltable = () => {
       body: tableRows,
       startY: 20,
     });
-    
     doc.save("SchoolData.pdf"); 
   };
-
+//export as csv
+  
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg p-5">
       <h1 className="text-xl text-center font-bold text-blue-500 p-5 khmer-text">ទិន្នន័យសាលារៀន</h1>
       {err && <p className="text-red-500 text-center">{err}</p>}
       {/* Search Input */}
-      <div className=" gap-5 md:block lg:flex justify-between">
-      <div className="mb-4 flex ">
-        <input type="text" placeholder="Search school..." value={search}
-          onChange={(e) => setSearch(e.target.value)} 
-          className="px-4 py-2 w-full max-w-sm border rounded"/>
-      </div>
-      {/* Export button */}
-      <button onClick={exportPDF} className="mb-4 px-4 py-2 bg-green-500 text-white rounded">
-        Export as PDF
-      </button>
+      <div className="gap-5 md:block lg:flex justify-between">
+        <div className="mb-4 flex">
+          <input
+            type="text"
+            placeholder="Search school..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="px-4 py-2 w-full max-w-sm border rounded"/>
+        </div>
+        {/* Buttons container */}
+        <div className="flex gap-1 m-2"> 
+          <button
+            onClick={exportPDF}
+            className="px-3 py-1 bg-green-500 text-white rounded">
+            Export as PDF
+          </button>
+          <button
+            onClick={() => {
+              if (schoolData.length > 0) {
+                exportToCSV(schoolData);
+              } else {
+                console.error("No data available for export");
+                alert("No data available for export.");
+              }
+            }}
+            className="px-3 py-1 bg-green-500 text-white rounded">
+            Export as CSV
+          </button>
+        </div>
       </div>
       <div className="overflow-x-auto">
         <table className="min-w-full text-sm text-left rtl:text-right text-black-500">

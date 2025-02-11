@@ -11,7 +11,7 @@ const DropdownManage = ({ title, items }) => {
     <div className="dropdown">
       <button
         onClick={toggleDropdown} 
-        className="dropdown-button flex items-center justify-between w-full px-4 py-3 rounded-lg transition-colors hover:bg-gray-700">
+        className="dropdown-button flex items-center justify-between w-full px-4 py-3 rounded-lg transition-colors hover:bg-gray-700 khmer-text">
         {title}
         <span className=''>{open ? "▲" : "▼"}</span>
       </button>

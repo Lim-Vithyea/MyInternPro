@@ -5,6 +5,7 @@ import UserEditComponent from "./UserEditComponenet";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import "../index.css"
+import { exportToCSV } from "./ExportCSV";
 
 const Usertable = () => {
   const [users, setUsers] = useState([]);
@@ -79,7 +80,6 @@ const Usertable = () => {
   // Export PDF
   const exportPDF = () => {
     const doc = new jsPDF();
-    doc.setFont("KhmerOSbattambang-normal");
     doc.text("User Data", 14, 10); // Title
     const tableColumn = ["No", "Username", "Role", "School Name"];
     const tableRows = users.map((user, index) => [
@@ -102,19 +102,35 @@ const Usertable = () => {
       {err && <p className="text-red-500 text-center">{err}</p>}
       {/* Search and Export */}
       <div className="gap-5 md:block lg:flex justify-between">
-        <div className="mb-4 flex">
-          <input
-            type="text"
-            placeholder="Search users..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="px-4 py-2 w-full max-w-sm border rounded"
-          />
-        </div>
-        <button onClick={exportPDF} className="mb-4 px-4 py-2 bg-green-500 text-white rounded">
-          Export as PDF
-        </button>
-      </div>
+              <div className="mb-4 flex">
+                <input
+                  type="text"
+                  placeholder="Search school..."
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  className="px-4 py-2 w-full max-w-sm border rounded"/>
+              </div>
+              {/* Buttons container */}
+              <div className="flex gap-1 m-2"> 
+                <button
+                  onClick={exportPDF}
+                  className="px-3 py-1 bg-green-500 text-white rounded">
+                  Export as PDF
+                </button>
+                <button
+                  onClick={() => {
+                    if (users.length > 0) {
+                      exportToCSV(users);
+                    } else {
+                      console.error("No data available for export");
+                      alert("No data available for export.");
+                    }
+                  }}
+                  className="px-3 py-1 bg-green-500 text-white rounded">
+                  Export as CSV
+                </button>
+              </div>
+            </div>
       <div className="overflow-x-auto">
         <table className="min-w-full text-sm text-left rtl:text-right text-black-500">
           <thead className=" text-blue-500 uppercase bg-gray-200 text-[16px]">
