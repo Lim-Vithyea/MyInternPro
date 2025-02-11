@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { fetchUserData } from './Serviceuser';
+import "../../index.css"
 
 const Profile = () => {
 
@@ -34,7 +35,7 @@ const Profile = () => {
         <div className='text-center'>
         <h1 className='font-bold text-2xl items-center text-blue-600'>Username: {user.username}</h1>
         <h1 className='text-red-600 font-bold text-sl'>Role: {user.role}</h1>
-        <h1 className='text-green-500 font-bold text-sl'>School: {user.schoolname}</h1>
+        <h1 className='text-green-500 font-bold text-xl'>School:<span className='khmer-text ml-2'>{user.schoolname}</span> </h1>
         </div>
         </>
       )}

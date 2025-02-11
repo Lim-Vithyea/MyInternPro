@@ -111,9 +111,9 @@ const Managedata = () => {
             <div>
               <label htmlFor="schoolid" className="block text-sm font-medium text-gray-700 khmer-text">សាលារៀន</label>
               <select name="schoolid" id="schoolid" onChange={handleChange} value={formData.schoolid} required
-              className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 ">
                 <option value="">Select School</option>
-                {schools.map((school) => (<option key={school.id} value={school.sid}>{school.schoolname}</option>))}
+                {schools.map((school) => (<option className="khmer-text" key={school.id} value={school.sid}>{school.schoolname}</option>))}
               </select>
             </div>
           </div>

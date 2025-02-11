@@ -59,7 +59,7 @@ const Sidebar = () => {
             <img src="/images/P10.png" alt="Logo"
               className="w-16 h-16 md:w-20 md:h-20"/>
           </div>
-          <p className="text-lg md:text-xl font-bold text-center text-white pb-4">
+          <p className="text-lg md:text-xl font-bold text-center text-white pb-4 khmer-text">
             នាយកដ្ឋានបឋមសិក្សា
           </p>
 
@@ -85,7 +85,7 @@ const Sidebar = () => {
                       : "hover:bg-gray-700"
                   }`
                 }>
-                📊 <span className="ml-3 text-sm md:text-base">Dashboard</span>
+                📊 <span className="ml-3 text-sm md:text-base khmer-text">តារាងទិន្នន័យ</span>
               </NavLink>
             </li>
             {
@@ -107,7 +107,7 @@ const Sidebar = () => {
 
             {/* Dropdown */}
             <div className="khmer-text">
-            <DropdownManage title="📁 Manage Data" items={userPageItems1} />
+            <DropdownManage title="📁 គ្រប់គ្រងទិន្នន័យ" items={userPageItems1} />
             </div>
             <li>
               <NavLink

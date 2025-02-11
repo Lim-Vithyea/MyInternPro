@@ -3,6 +3,7 @@ import DetailCard from '../../components/Detailcard';
 import GenderPieChart from '../../components/Piechart';
 import { countUser } from '../../Services/Countuser';
 import { countSchool } from '../../Services/Countschool';
+import "../../index.css"
 
 const Dashboard = () => {
   const [totalUser, setTotalUsers] = useState(0); 
@@ -38,7 +39,7 @@ const Dashboard = () => {
         <h1 className="text-start pt-3 pb-3 font-bold text-xs">Dashboard</h1>
       </div>
       <div className='w-[95%] md:w-[98%] min-h-[300px] mx-auto my-4 rounded-xl shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] transition-all duration-300'>
-        <h1 className='p-4 md:p-5 font-bold text-lg sm:text-xl md:text-xs lg:text-xl'>Overall Data</h1>
+        <h1 className='p-4 md:p-5 font-bold text-lg sm:text-xl md:text-xs lg:text-xl khmer-text'>ទិន្នន័យសរុប</h1>
         <div className='flex justify-center items-center p-2 sm:p-4'>
           <div className='w-full flex max-w-[300px] h-auto aspect-square sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%]'>
             <GenderPieChart />
@@ -48,19 +49,19 @@ const Dashboard = () => {
       <div className='mx-3 my-4'>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
           <DetailCard 
-            title={"Total User"}  
+            title={"អ្នកប្រើប្រាស់សរុប"}  
             value={totalUser} 
             text_color={"text-blue-500"}/>
           <DetailCard 
-            title={"Total staff"} 
+            title={"គ្មាន"} 
             value={"N/A"} 
             text_color={"text-red-500"}/>
           <DetailCard 
-            title={"Total School"} 
+            title={"សាលារៀនសរុប"} 
             value={totalSchool} 
             text_color={"text-yellow-500"}/>
           <DetailCard 
-            title={"No title"} 
+            title={"គ្មាន"} 
             value={"N/A"} 
             text_color={"text-green-500"}/>
         </div>
