@@ -26,6 +26,11 @@ const Schooltable = () => {
       }
     };
     displaySchoolData();
+
+    const setRefresh = setInterval(()=>{
+      displaySchoolData();
+    },30000)
+    return () => clearInterval(setRefresh);
   }, []);
 
   useEffect(() => {

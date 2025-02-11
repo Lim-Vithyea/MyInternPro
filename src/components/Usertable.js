@@ -26,6 +26,13 @@ const Usertable = () => {
       }
     };
     showData();
+    
+    //refresh every 30s automatically
+    const setRefresh = setInterval(()=>{
+      showData();
+    },30000)
+    return () => clearInterval(setRefresh);
+
   }, []);
 
   useEffect(() => {
