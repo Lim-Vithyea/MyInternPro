@@ -4,6 +4,8 @@ import UserEditComponent from "./UserEditComponenet";
 import { showSchoolData } from "../Services/Showschool";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
+import "../index.css"
+
 
 const Schooltable = () => {
   const [schoolData, setSchoolData] = useState([]);
@@ -79,24 +81,30 @@ const Schooltable = () => {
   //export PDF
   const exportPDF = () => {
     const doc = new jsPDF();
+ 
     doc.text("School Data", 14, 10); // Title
     const tableColumn = ["No", "School Code", "School name"]; // Headers
+    if (!schoolData || !Array.isArray(schoolData)) {
+      console.error("schoolData is not defined or not an array");
+      return;
+    }
     const tableRows = schoolData.map((schools, index) => [
       index + 1,
       schools.school_code,
       schools.schoolname,
     ]);
     doc.autoTable({
-      head: [tableColumn], // Column headers
-      body: tableRows, // Data rows
-      startY: 20, // Start below the title
+      head: [tableColumn],
+      body: tableRows,
+      startY: 20,
     });
+    
     doc.save("SchoolData.pdf"); 
   };
 
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg p-5">
-      <h1 className="text-xl text-center font-bold text-blue-500 p-5">School Data</h1>
+      <h1 className="text-xl text-center font-bold text-blue-500 p-5 khmer-text">ទិន្នន័យសាលារៀន</h1>
       {err && <p className="text-red-500 text-center">{err}</p>}
       {/* Search Input */}
       <div className=" gap-5 md:block lg:flex justify-between">
@@ -112,11 +120,11 @@ const Schooltable = () => {
       </div>
       <div className="overflow-x-auto">
         <table className="min-w-full text-sm text-left rtl:text-right text-black-500">
-          <thead className="text-xs text-blue-500 uppercase bg-gray-200">
+          <thead className="text-[16px] text-blue-500 font-bold bg-gray-200 ">
             <tr>
-              <th scope="col" className="px-6 py-3">No</th>
-              <th scope="col" className="px-6 py-3">School code</th>
-              <th scope="col" className="px-6 py-3">School Name</th>
+              <th scope="col" className="px-6 py-3 khmer-text">ល.រ</th>
+              <th scope="col" className="px-6 py-3 khmer-text">លេខកូតសាលា</th>
+              <th scope="col" className="px-6 py-3 khmer-text">ឈ្មោះសាលារៀន</th>
               <th scope="col" className="px-6 py-3 text-right">Actions</th>
             </tr>
           </thead>
@@ -126,7 +134,7 @@ const Schooltable = () => {
                 <tr key={schools.id} className="bg-white border-b border-gray-200 hover:bg-gray-50">
                   <td className="px-6 py-4">{indexOfFirstRow + index + 1}</td>
                   <td className="px-6 py-4 text-green-500">{schools.school_code}</td>
-                  <td className="px-6 py-4">{schools.schoolname}</td>
+                  <td className="px-6 py-4 khmer-text text-[15px] text-gray-700">{schools.schoolname}</td>
                   <td className="px-6 py-4 text-right">
                     <button onClick={handlEdit} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>
                   </td>

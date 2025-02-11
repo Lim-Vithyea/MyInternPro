@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-
+import "../index.css"
 const DropdownManage = ({ title, items }) => {
   const [open, setOpen] = useState(false);
 
@@ -16,11 +16,11 @@ const DropdownManage = ({ title, items }) => {
         <span className=''>{open ? "▲" : "▼"}</span>
       </button>
       {open && (
-        <div className="dropdown-content text-xs rounded-lg ">
+        <div className="dropdown-content text-[15px] rounded-lg ">
           {items.map((item, index) => (
             <NavLink key={index}
               to={item.to}
-              className="dropdown-item block px-4 py-2 hover:bg-gray-600 rounded-lg">
+              className="dropdown-item block px-4 py-2 hover:bg-gray-600 rounded-lg khmer-text">
               {item.label}
             </NavLink>
           ))}

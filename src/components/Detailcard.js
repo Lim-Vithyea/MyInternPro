@@ -1,7 +1,7 @@
 import { useState } from "react";
 import UserEditComponent from "./UserEditComponenet";
 
-function DetailCard({ title, value, link, text_color}) {
+function DetailCard({ title, value, text_color}) {
 const [isClick,setClick] = useState(false);
 
 const handleonClick = () => {

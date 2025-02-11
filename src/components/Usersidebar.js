@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import LogoutAlert from "./Alert";
-
+import '../index.css'
 const Usersidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
@@ -31,7 +31,7 @@ const Usersidebar = () => {
           <div className="flex justify-center">
             <img src="/images/P10.png" alt="Emblem" className="w-[100px] h-[100px]" />
           </div>
-          <p className="text-lg font-bold text-center pb-6">នាយកដ្ឋានបឋមសិក្សា</p>
+          <p className="text-lg font-bold text-center khmer-text pt-5 pb-6">នាយកដ្ឋានបឋមសិក្សា</p>
           <ul className="space-y-4 font-medium">
             <li>
               <NavLink
