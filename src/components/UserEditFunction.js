@@ -1,0 +1,88 @@
+import React, { useState,useEffect } from 'react';
+import axios from 'axios';
+
+const UserEditFunction = ({ user, onClose, refreshData }) => {
+  const [formData, setFormData] = useState({
+    username: user.username,
+    role: user.role
+  });
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+      setFormData({
+        username: user.username,
+        role: user.role,
+      });
+    }, [user]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,[name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true); 
+    try {
+      const token = localStorage.getItem("token");
+      const res = await axios.patch(
+        `http://localhost:3002/api/edituser/${user.id}`, // Ensure the correct API route
+        formData,
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      console.log(res);
+      alert("User updated successfully");
+      refreshData(); 
+      onClose(); 
+    } catch (error) {
+      console.error("Update failed:", error);
+      alert(error.response?.data?.error || "Update failed. Please try again.");
+    } finally {
+      setLoading(false); // End loading indicator
+    }
+  };
+  
+
+  return (
+    <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
+      <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+        <h2 className="text-xl font-bold mb-4 text-center text-blue-600">Edit User Details</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700" htmlFor="username">
+              Username
+            </label>
+            <input type="text" id="username" name="username" value={formData.username}
+              onChange={handleChange}
+              className="mt-1 block w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600"
+              required/>
+          </div>
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700" htmlFor="role">
+              Role
+            </label>
+            <select id="role" name="role" value={formData.role}
+              onChange={handleChange}
+              className="mt-1 block w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600"
+              required>
+              <option value="admin">Admin</option>
+              <option value="user">User</option>
+            </select>
+          </div>
+          <div className="flex justify-between mt-4">
+            <button type="button" onClick={onClose} className="px-4 py-2 bg-gray-300 text-black rounded-md">
+              Cancel
+            </button>
+            <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded-md"disabled={loading}>
+              {loading ? "Saving..." : "Save Changes"}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default UserEditFunction;

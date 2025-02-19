@@ -88,23 +88,7 @@ const Sidebar = () => {
                 📊 <span className="ml-3 text-sm md:text-base khmer-text">តារាងទិន្នន័យ</span>
               </NavLink>
             </li>
-            {
-            /* <li>
-              <NavLink
-                to="/landing/managedata"
-                className={({ isActive }) =>
-                  `flex items-center px-4 py-3 rounded-lg transition-colors
-                  ${
-                    isActive
-                      ? "bg-gray-700 border-2 border-green-500"
-                      : "hover:bg-gray-700"
-                  }`
-                }>
-                📁{" "}
-                <span className="ml-3 text-sm md:text-base">Manage Data</span>
-              </NavLink>
-            </li> */}
-
+            
             {/* Dropdown */}
             <div className="khmer-text">
             <DropdownManage title="📁 គ្រប់គ្រងទិន្នន័យ" items={userPageItems1} />
@@ -120,7 +104,7 @@ const Sidebar = () => {
                       : "hover:bg-gray-700"
                   }`
                 }>
-                ⚙️ <span className="ml-3 text-sm md:text-base">Profile</span>
+                ⚙️ <span className="ml-3 text-sm md:text-base khmer-text">គណនី</span>
               </NavLink>
             </li>
           </ul>

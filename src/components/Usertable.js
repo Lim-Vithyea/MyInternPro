@@ -1,11 +1,12 @@
-//// filepath: /d:/InternWork/MyInternPro/fronend/src/components/Usertable.js
+
+
 import React, { useEffect, useState } from "react";
 import { showUserData } from "../Services/Showuser";
-import UserEditComponent from "./UserEditComponenet";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
-import "../index.css"
+import "../index.css";
 import { exportToCSV } from "./ExportCSV";
+import UserEditFunction from "./UserEditFunction";
 
 const Usertable = () => {
   const [users, setUsers] = useState([]);
@@ -14,8 +15,9 @@ const Usertable = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState("");
   const [isEdit, setEdit] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null); // Store selected user for editing
   const rowsPerPage = 10;
-  
+
   useEffect(() => {
     const showData = async () => {
       try {
@@ -28,13 +30,11 @@ const Usertable = () => {
       }
     };
     showData();
-
-    //refresh every 30s automatically
-    const setRefresh = setInterval(()=>{
+    // Refresh every 30s automatically
+    const setRefresh = setInterval(() => {
       showData();
-    },30000)
+    }, 30000);
     return () => clearInterval(setRefresh);
-
   }, []);
 
   useEffect(() => {
@@ -47,36 +47,25 @@ const Usertable = () => {
           user.username.toLowerCase().includes(lowercasedSearch) ||
           user.schoolname.toLowerCase().includes(lowercasedSearch)
       );
-      setFilteredUsers(filtered); 
+      setFilteredUsers(filtered);
     }
   }, [search, users]); // Re-run filtering when search or users data changes
 
-  // Calculate indexes for pagination
+  // Pagination
   const indexOfLastRow = currentPage * rowsPerPage;
   const indexOfFirstRow = indexOfLastRow - rowsPerPage;
   const currentRows = filteredUsers.slice(indexOfFirstRow, indexOfLastRow);
-
-  // Change page
+  // Page change functions
   const nextPage = () => {
     if (currentPage < Math.ceil(filteredUsers.length / rowsPerPage)) {
       setCurrentPage(currentPage + 1);
     }
   };
-
   const prevPage = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
     }
   };
-
-  // Edit function
-  const handlEdit = () => {
-    setEdit(true);
-    setTimeout(() => {
-      setEdit(false);
-    }, 2000);
-  };
-
   // Export PDF
   const exportPDF = () => {
     const doc = new jsPDF();
@@ -93,54 +82,68 @@ const Usertable = () => {
       body: tableRows,
       startY: 20,
     });
-    doc.save("UserData.pdf"); 
+    doc.save("UserData.pdf");
   };
 
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg p-5">
-      <h1 className="text-xl text-center font-bold text-blue-500 p-5 khmer-text">ទិន្នន័យអ្នកប្រើប្រាស់</h1>
+      <h1 className="text-xl text-center font-bold text-blue-500 p-5 khmer-text">
+        ទិន្នន័យអ្នកប្រើប្រាស់
+      </h1>
       {err && <p className="text-red-500 text-center">{err}</p>}
       {/* Search and Export */}
       <div className="gap-5 md:block lg:flex justify-between">
-              <div className="mb-4 flex">
-                <input
-                  type="text"
-                  placeholder="Search school..."
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  className="px-4 py-2 w-full max-w-sm border rounded"/>
-              </div>
-              {/* Buttons container */}
-              <div className="flex gap-1 m-2"> 
-                <button
-                  onClick={exportPDF}
-                  className="px-3 py-1 bg-green-500 text-white rounded">
-                  Export as PDF
-                </button>
-                <button
-                  onClick={() => {
-                    if (users.length > 0) {
-                      exportToCSV(users);
-                    } else {
-                      console.error("No data available for export");
-                      alert("No data available for export.");
-                    }
-                  }}
-                  className="px-3 py-1 bg-green-500 text-white rounded">
-                  Export as CSV
-                </button>
-              </div>
-            </div>
+        <div className="mb-4 flex">
+          <input
+            type="text"
+            placeholder="Search user..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="px-4 py-2 w-full max-w-sm border rounded"
+          />
+        </div>
+        {/* Buttons container */}
+        <div className="flex gap-1 m-2">
+          <button onClick={exportPDF} className="px-3 py-1 bg-green-500 text-white rounded">
+            Export as PDF
+          </button>
+          <button
+            onClick={() => {
+              if (users.length > 0) {
+                exportToCSV(users);
+              } else {
+                console.error("No data available for export");
+                alert("No data available for export.");
+              }
+            }}
+            className="px-3 py-1 bg-green-500 text-white rounded"
+          >
+            Export as CSV
+          </button>
+        </div>
+      </div>
+      {/* User Table */}
       <div className="overflow-x-auto">
         <table className="min-w-full text-sm text-left rtl:text-right text-black-500">
           <thead className=" text-blue-500 uppercase bg-gray-200 text-[16px]">
             <tr>
-              <th scope="col" className="px-6 py-3 khmer-text ">ល.រ</th>
-              <th scope="col" className="px-6 py-3 khmer-text">ឈ្មោះអ្នកប្រើប្រាស់</th>
-              <th scope="col" className="px-6 py-3 khmer-text">លេខកូតសាលារៀន</th>
-              <th scope="col" className="px-6 py-3 khmer-text">ប្រភេទ</th>
-              <th scope="col" className="px-6 py-3 khmer-text">ឈ្មោះសាលារៀន</th>
-              <th scope="col" className="px-6 py-3 text-right">Actions</th>
+              <th scope="col" className="px-6 py-3 khmer-text">
+                ល.រ
+              </th>
+              <th scope="col" className="px-6 py-3 khmer-text">
+                ឈ្មោះអ្នកប្រើប្រាស់
+              </th>
+              <th scope="col" className="px-6 py-3 khmer-text">
+                លេខកូតសាលារៀន
+              </th>
+              <th scope="col" className="px-6 py-3 khmer-text">ប្រភេទ
+              </th>
+              <th scope="col" className="px-6 py-3 khmer-text">
+                ឈ្មោះសាលារៀន
+              </th>
+              <th scope="col" className="px-6 py-3 text-right">
+                Actions
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -153,7 +156,12 @@ const Usertable = () => {
                   <td className="px-6 py-4">{user.role}</td>
                   <td className="px-6 py-4 khmer-text">{user.schoolname}</td>
                   <td className="px-6 py-4 text-right">
-                    <button onClick={handlEdit} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                    <button
+                      onClick={() => {
+                        setSelectedUser(user); 
+                        setEdit(true);
+                      }}
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                       Edit
                     </button>
                   </td>
@@ -161,39 +169,40 @@ const Usertable = () => {
               ))
             ) : (
               <tr>
-                <td colSpan="5" className="text-center py-4">No users found</td>
+                <td colSpan="5" className="text-center py-4">
+                  No users found
+                </td>
               </tr>
             )}
           </tbody>
         </table>
       </div>
-      {isEdit && <UserEditComponent />}
-      {/* Pagination Buttons */}
+      {/* Edit Modal */}
+      {isEdit && selectedUser && (
+        <UserEditFunction
+          user={selectedUser}
+          onClose={() => setEdit(false)}
+          refreshData={() => setUsers([...users])}/>
+      )}
+      {/* Pagination */}
       <div className="flex justify-between mt-4">
         <button
           onClick={prevPage}
           disabled={currentPage === 1}
-          className={`px-4 py-2 bg-gray-300 rounded ${
-            currentPage === 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-400"
-          }`}
-        >
+          className={`px-4 py-2 bg-gray-300 rounded ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-400"}`}>
           Previous
         </button>
         <span className="px-4 py-2">Page {currentPage}</span>
         <button
           onClick={nextPage}
           disabled={currentPage >= Math.ceil(filteredUsers.length / rowsPerPage)}
-          className={`px-4 py-2 bg-gray-300 rounded ${
-            currentPage >= Math.ceil(filteredUsers.length / rowsPerPage)
-              ? "opacity-50 cursor-not-allowed"
-              : "hover:bg-gray-400"
-          }`}
-        >
+          className={`px-4 py-2 bg-gray-300 rounded ${currentPage >= Math.ceil(filteredUsers.length / rowsPerPage) ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-400"}`}>
           Next
         </button>
       </div>
     </div>
   );
 };
-
 export default Usertable;
+
+

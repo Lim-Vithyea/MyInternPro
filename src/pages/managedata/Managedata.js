@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import Usertable from "../../components/Usertable";
 import { getSchool } from "../../Services/Getschool";
-import UserEditComponent from "../../components/UserEditComponenet";
+import AlertError from "../../components/AlertError";
 
 
 const Managedata = () => {
@@ -56,11 +56,15 @@ const Managedata = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      const token = localStorage.getItem('token');
       const response = await axios.post("http://localhost:3002/api/insert", formData, {
-        headers: { "Content-Type": "application/json" },
+        headers: { Authorization: `Bearer ${token}` }
+        ,
       });
+      
       setMessage(response.data.message);
       setFormData({ username: "", password: "", role: "", schoolid: "" });
+      console.log("user data",setFormData);
     } catch (error) {
       console.error("Error submitting data:", error);
       const errorMsg = error.response?.data?.error || error.response?.data?.details || "Unknown error";
@@ -134,7 +138,7 @@ const Managedata = () => {
       </form>   
     </div>
     <Usertable/>
-    {isClick && <UserEditComponent/>}
+    {isClick && <AlertError/>}
     </div>
     
   );

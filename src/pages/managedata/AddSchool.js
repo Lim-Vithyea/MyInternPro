@@ -18,15 +18,16 @@ const handleChange = (e) =>{
 const handleSubmit = async (e) => {
   e.preventDefault();
   try {
+    const token = localStorage.getItem('token');
     const response = await axios.post("http://localhost:3002/api/add_school", schoolData, {
-      headers: { "Content-Type": "application/json" },
+      headers: { Authorization:  `Bearer ${token}` },
     });
     setMessage(response.data.message);
     setSchoolData({ school_code: "", schoolname: ""});
   } catch (error) {
     console.error("Error submitting data:", error);
     const errorMsg = error.response?.data?.error || error.response?.data?.details || "Unknown error";
-    setMessage(`Failed to add school. School code already exist: ${errorMsg}`);
+    setMessage(`Failed to add school or School code already exist: ${errorMsg}`);
   }
 };
   return (
