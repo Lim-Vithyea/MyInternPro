@@ -60,4 +60,17 @@ const editUser = async (username,role,id) => {
   return result;
 }
 
-module.exports = { insertUser, findUserByUsername, getUserById,getAllUsers,countUser,editUser};
+const deleteUser = async (id) => {
+  const query = `DELETE FROM users WHERE id = ?`;
+  const [result] = await db.promise().query(query,[id]);
+  return result;
+}
+module.exports = { 
+  insertUser, 
+  findUserByUsername, 
+  getUserById,
+  getAllUsers,
+  countUser,
+  editUser,
+  deleteUser
+};

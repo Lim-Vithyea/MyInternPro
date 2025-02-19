@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const { insertUser, getUserById,getAllUsers,countUser,editUser} = require('../models/userModel');
+const { insertUser, getUserById,getAllUsers,countUser,editUser,deleteUser} = require('../models/userModel');
 
 
 
@@ -68,5 +68,26 @@ const editUserbyID = async (req,res) => {
     res.status(500).json({ error: 'Database update failed', message: err.message });
   }
 }
-  
-module.exports = { createUser, getUserData ,showAllUsers,showCountUser,editUserbyID};
+
+const deleteUserbyId = async (req,res) => {
+  const {id} = req.params;
+  try {
+    const result = await deleteUser(id);
+    if (result.affectedRows === 0){
+      return res.status(404).json ({err: "No user found"});
+    }
+    res.json({message: "User delete successfully"})
+  } catch (err){
+    console.error('Database update error:', err);
+    res.status(500).json({ error: 'Database update failed', message: err.message });
+  }
+}
+
+module.exports = { 
+  createUser, 
+  getUserData ,
+  showAllUsers,
+  showCountUser,
+  editUserbyID,
+  deleteUserbyId
+};
