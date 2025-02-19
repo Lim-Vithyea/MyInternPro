@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import LogoutAlert from "./Alert";
-import '../index.css'
+import "../index.css";
+// import Usermangedata from "../pages/userdashboard/Usermangedata";
+import UserDropdown from "./UserDropdown";
+
 const Usersidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
@@ -16,34 +19,54 @@ const Usersidebar = () => {
     localStorage.removeItem("token");
     setShowAlert(true);
     setTimeout(() => {
-      navigate('/');
+      navigate("/");
     }, 2000);
   };
+
+  const userPageItems2 = [
+    { to: "/user/add-student-class", label: "បញ្ជូលទិន្នន័យសិស្ស " },
+    { to: "/user/data-display", label: "មើលទិន្នន័យ" },
+  ];
 
   return (
     <>
       <button
         onClick={toggleSidebar}
-        className="fixed top-2 left-2 z-0 md:hidden p-2 text-white rounded-md font-bold bg-blue-500 text-xl">☰</button>
-      <aside className={`fixed top-0 left-0 z-40 w-64 h-screen bg-[#1B1B69] text-white transition-transform duration-500 ${
-          isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:w-[15%]`}>
+        className="fixed top-2 left-2 z-0 md:hidden p-2 text-white rounded-md font-bold bg-blue-500 text-xl">
+        ☰
+      </button>
+      <aside
+        className={`fixed top-0 left-0 z-40 w-64 h-screen bg-[#1B1B69] text-white transition-transform duration-500 ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } md:translate-x-0 md:w-[15%]`}>
         <div className="h-full px-4 py-6 overflow-y-auto">
           <div className="flex justify-center">
-            <img src="/images/P10.png" alt="Emblem" className="w-[100px] h-[100px]" />
+            <img
+              src="/images/P10.png"
+              alt="Emblem"
+              className="w-[100px] h-[100px]"
+            />
           </div>
-          <p className="text-lg font-bold text-center khmer-text pt-5 pb-6">នាយកដ្ឋានបឋមសិក្សា</p>
+          <p className="text-lg font-bold text-center khmer-text pt-5 pb-6">
+            នាយកដ្ឋានបឋមសិក្សា
+          </p>
           <ul className="space-y-4 font-medium">
             <li>
               <NavLink
                 to="/user/userdashboard"
-                className={({ isActive }) => 
+                className={({ isActive }) =>
                   `flex items-center px-4 py-3 rounded-lg transition-colors
-                  ${isActive ? 'bg-gray-700 border-2 border-green-500' : 'hover:bg-gray-700'}`
+                  ${
+                    isActive
+                      ? "bg-gray-700 border-2 border-green-500"
+                      : "hover:bg-gray-700"
+                  }`
                 }>
                 <span className="ms-3">📊 Dashboard</span>
               </NavLink>
             </li>
-            <li>
+            <UserDropdown title="📁 ទិន្នន័យ" items={userPageItems2} />
+            {/* <li>
               <NavLink
                 to="/user/usermanagedata"
                 className={({ isActive }) => 
@@ -52,17 +75,20 @@ const Usersidebar = () => {
                 }>
                 <span className="ms-3">📁 Manage</span>
               </NavLink>
-            </li>
+            </li> */}
           </ul>
-          <div className="flex justify-center ">
-          <div className="absolute bottom-6 text-center">
-            <p className="text-xs text-gray-300 font-semibold">Created by Chea</p>
-            <button
-              onClick={handleLogout}
-              className=" text-red-500 font-normal hover:underline">Log out
-            </button>
-            {showAlert && <LogoutAlert/>}
-          </div>
+          <div className="flex justify-center">
+            <div className="absolute bottom-6 text-center">
+              <p className="text-xs text-gray-300 font-semibold">
+                Created by Chea
+              </p>
+              <button
+                onClick={handleLogout}
+                className="text-red-500 font-normal hover:underline">
+                Log out
+              </button>
+              {showAlert && <LogoutAlert />}
+            </div>
           </div>
         </div>
       </aside>

@@ -42,6 +42,7 @@ const Userdashboard = () => {
         <main className="flex-1 pl-4 pr-4 pt-1">
           <div className="grid  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <StatsCard title="ចំនួនសិស្សសរុប" value={"532"}/>
+            <StatsCard title="ចំនួនសិស្សសរុប" value={"532"}/>  
             <StatsCard title="ចំនួនសិស្សប្រុស" value={"300"} />
             <StatsCard title="ចំនួនសិស្សស្រី" value={"232"} />
           </div>

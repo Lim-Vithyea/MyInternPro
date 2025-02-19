@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import Usersidebar from "../../components/Usersidebar";
+import Usersidebar from "../components/Usersidebar";
 import Userdashboard from "./Userdashboard";
-import Header from "../../components/Header";
+import Header from "../components/Header";
 import { fetchUserData } from "../setting/Serviceuser";
 import { PrivateRoute } from "../dashboard/Landing";
 import AddStudentClass from "./AddStudentClass";

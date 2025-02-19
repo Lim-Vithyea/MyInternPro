@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import axios from "axios";
 import "../../index.css";
@@ -161,17 +162,18 @@ const Usermangedata = () => {
       <div className="mt-6">
         <form className="khmer-text" onSubmit={handleSubmit}>
           {/* Form Grid - Responsive */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className=" grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className=" border-2 p-4 rounded-md">
             {/* Kindergarten */}
-            <p className="block khmer-text font-bold text-sm text-gray-700">
+            <p className=" block py-4  khmer-text font-bold text-xl text-blue-600">
               បញ្ជូលចំនួនសិស្សថ្នាក់មត្តេយ្យ
             </p>
 
             <div>
               <label
                 htmlFor="kindergarten"
-                className="block khmer-text font-bold text-sm text-gray-700">
-                ថ្នាក់មត្តេយ្យ
+                className=" block py-4 khmer-text font-bold text-ms text-gray-700">
+                ថ្នាក់មត្តេយ្យ 
               </label>
               <input
                 type="number"
@@ -194,7 +196,7 @@ const Usermangedata = () => {
             <div>
               <label
                 htmlFor="totalKindergarten"
-                className="block khmer-text font-bold text-sm text-gray-700">
+                className=" block py-4 khmer-text font-bold text-sm text-gray-700">
                 ចំនួនសិស្សសរុប
               </label>
               <input
@@ -213,7 +215,7 @@ const Usermangedata = () => {
             <div>
               <label
                 htmlFor="girlsKindergarten"
-                className="block khmer-text font-bold text-sm text-gray-700">
+                className=" block py-4 khmer-text font-bold text-sm text-gray-700">
                 ចំនួនសិស្សស្រី
               </label>
               <input
@@ -228,9 +230,11 @@ const Usermangedata = () => {
                 onChange={handleChange}
               />
             </div>
+</div>
 
-            <p className="block khmer-text font-bold text-sm text-gray-700">
-              បញ្ជូលចំនួនសិស្សថ្នាក់មត្តេយ្យ
+<div className=" border-2 my-2 p-4 rounded-md">
+            <p className=" block py-4 khmer-text font-bold text-xl text-blue-600">
+              បញ្ជូលចំនួនសិស្សថ្នាក់ទី ១ ដល់ទី ៦
             </p>
 
             {/* Grade 1 */}
@@ -238,7 +242,7 @@ const Usermangedata = () => {
             <div>
               <label
                 htmlFor="grade1"
-                className="block khmer-text font-bold text-sm text-gray-700">
+                className=" block py-4 khmer-text font-bold text-sm text-gray-700">
                 ថ្នាក់ទី១
               </label>
               <input
@@ -260,7 +264,7 @@ const Usermangedata = () => {
             <div>
               <label
                 htmlFor="totalGrade1"
-                className="block khmer-text font-bold text-sm text-gray-700">
+                className=" block py-4 khmer-text font-bold text-sm text-gray-700">
                 ចំនួនសិស្សសរុប
               </label>
               <input
@@ -277,7 +281,7 @@ const Usermangedata = () => {
             <div>
               <label
                 htmlFor="girlsGrade1"
-                className="block khmer-text font-bold text-sm text-gray-700">
+                className=" block py-4 khmer-text font-bold text-sm text-gray-700">
                 ចំនួនសិស្សស្រី
               </label>
               <input
@@ -295,7 +299,7 @@ const Usermangedata = () => {
             <div>
               <label
                 htmlFor="grade2"
-                className="block khmer-text font-bold text-sm text-gray-700">
+                className=" block py-4 khmer-text font-bold text-sm text-gray-700">
                 ថ្នាក់ទី២
               </label>
               <input
@@ -317,7 +321,7 @@ const Usermangedata = () => {
             <div>
               <label
                 htmlFor="totalGrade2"
-                className="block khmer-text font-bold text-sm text-gray-700">
+                className=" block py-4 khmer-text font-bold text-sm text-gray-700">
                 ចំនួនសិស្សសរុប
               </label>
               <input
@@ -334,7 +338,7 @@ const Usermangedata = () => {
             <div>
               <label
                 htmlFor="girlsGrade2"
-                className="block khmer-text font-bold text-sm text-gray-700">
+                className=" block py-4 khmer-text font-bold text-sm text-gray-700">
                 ចំនួនសិស្សស្រី
               </label>
               <input
@@ -352,7 +356,7 @@ const Usermangedata = () => {
             <div>
               <label
                 htmlFor="grade3"
-                className="block khmer-text font-bold text-sm text-gray-700">
+                className=" block py-4 khmer-text font-bold text-sm text-gray-700">
                 ថ្នាក់ទី៣
               </label>
               <input
@@ -374,7 +378,7 @@ const Usermangedata = () => {
             <div>
               <label
                 htmlFor="totalGrade3"
-                className="block khmer-text font-bold text-sm text-gray-700">
+                className=" block py-4 khmer-text font-bold text-sm text-gray-700">
                 ចំនួនសិស្សសរុប
               </label>
               <input
@@ -391,7 +395,7 @@ const Usermangedata = () => {
             <div>
               <label
                 htmlFor="girlsGrade3"
-                className="block khmer-text font-bold text-sm text-gray-700">
+                className=" block py-4 khmer-text font-bold text-sm text-gray-700">
                 ចំនួនសិស្សស្រី
               </label>
               <input
@@ -411,7 +415,7 @@ const Usermangedata = () => {
             <div>
               <label
                 htmlFor="grade4"
-                className="block khmer-text font-bold text-sm text-gray-700">
+                className=" block py-4 khmer-text font-bold text-sm text-gray-700">
                 ថ្នាក់ទី៤
               </label>
               <input
@@ -433,7 +437,7 @@ const Usermangedata = () => {
             <div>
               <label
                 htmlFor="totalGrade4"
-                className="block khmer-text font-bold text-sm text-gray-700">
+                className=" block py-4 khmer-text font-bold text-sm text-gray-700">
                 ចំនួនសិស្សសរុប
               </label>
               <input
@@ -450,7 +454,7 @@ const Usermangedata = () => {
             <div>
               <label
                 htmlFor="girlsGrade4"
-                className="block khmer-text font-bold text-sm text-gray-700">
+                className=" block py-4 khmer-text font-bold text-sm text-gray-700">
                 ចំនួនសិស្សស្រី
               </label>
               <input
@@ -468,7 +472,7 @@ const Usermangedata = () => {
             <div>
               <label
                 htmlFor="grade5"
-                className="block khmer-text font-bold text-sm text-gray-700">
+                className=" block py-4 khmer-text font-bold text-sm text-gray-700">
                 ថ្នាក់ទី៥
               </label>
               <input
@@ -490,7 +494,7 @@ const Usermangedata = () => {
             <div>
               <label
                 htmlFor="totalGrade5"
-                className="block khmer-text font-bold text-sm text-gray-700">
+                className=" block py-4 khmer-text font-bold text-sm text-gray-700">
                 ចំនួនសិស្សសរុប
               </label>
               <input
@@ -507,7 +511,7 @@ const Usermangedata = () => {
             <div>
               <label
                 htmlFor="girlsGrade5"
-                className="block khmer-text font-bold text-sm text-gray-700">
+                className=" block py-4 khmer-text font-bold text-sm text-gray-700">
                 ចំនួនសិស្សស្រី
               </label>
               <input
@@ -526,7 +530,7 @@ const Usermangedata = () => {
             <div>
               <label
                 htmlFor="grade6"
-                className="block khmer-text font-bold text-sm text-gray-700">
+                className=" block py-4 khmer-text font-bold text-sm text-gray-700">
                 ថ្នាក់ទី៦
               </label>
               <input
@@ -548,7 +552,7 @@ const Usermangedata = () => {
             <div>
               <label
                 htmlFor="totalGrade6"
-                className="block khmer-text font-bold text-sm text-gray-700">
+                className=" block py-4 khmer-text font-bold text-sm text-gray-700">
                 ចំនួនសិស្សសរុប
               </label>
               <input
@@ -565,7 +569,7 @@ const Usermangedata = () => {
             <div>
               <label
                 htmlFor="girlsGrade6"
-                className="block khmer-text font-bold text-sm text-gray-700">
+                className=" block py-4 khmer-text font-bold text-sm text-gray-700">
                 ចំនួនសិស្សស្រី
               </label>
               <input
@@ -580,7 +584,7 @@ const Usermangedata = () => {
               <br />
             </div>
           </div>
-
+</div>
           <div className="flex justify-end mt-8">
             <button
               type="submit"
