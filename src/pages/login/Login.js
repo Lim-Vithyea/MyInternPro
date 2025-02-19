@@ -51,7 +51,7 @@ const Login = ({ onLogin }) => {
       <div className="hidden md:flex flex-col items-center justify-center w-1/2 bg-blue-900 text-white p-6 md:p-12">
         <img src="/images/P10.png" alt="Emblem"
           className="w-40 h-40 md:w-52 md:h-52"/>
-        <p className="text-lg md:text-2xl font-bold text-center khmer-text">
+        <p className="text-lg md:text-2xl font-bold text-center   khmer-text">
           នាយកដ្ឋានបឋមសិក្សា
         </p>
         <p className="text-lg md:text-2xl font-bold text-center khmer-text">

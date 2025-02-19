@@ -3,7 +3,7 @@ import { fetchUserData } from "../setting/Serviceuser";
 import { StatsCard } from "../../components/StatsCard";
 import { useState, useEffect } from "react";
 import GenderPieChart from "../../components/Piechart";
-
+import "../../index.css"
 const Userdashboard = () => {
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
@@ -40,12 +40,9 @@ const Userdashboard = () => {
           </div>
         </div>
         <main className="flex-1 pl-4 pr-4 pt-1">
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <StatsCard
-              title="ចំនួនសិស្សសរុប" value={"532"}
-            />
-            <StatsCard title="ចំនួនសិស្សប្រុស
-" value={"300"} />
+          <div className="grid  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <StatsCard title="ចំនួនសិស្សសរុប" value={"532"}/>
+            <StatsCard title="ចំនួនសិស្សប្រុស" value={"300"} />
             <StatsCard title="ចំនួនសិស្សស្រី" value={"232"} />
           </div>
         </main>
