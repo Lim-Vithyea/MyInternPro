@@ -28,7 +28,7 @@ const UserEditFunction = ({ user, onClose, refreshData }) => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.patch(
-        `http://localhost:3002/api/edituser/${user.id}`, // Ensure the correct API route
+        `http://localhost:3002/api/edituser/${user.id}`, 
         formData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -40,7 +40,7 @@ const UserEditFunction = ({ user, onClose, refreshData }) => {
       console.error("Update failed:", error);
       alert(error.response?.data?.error || "Update failed. Please try again.");
     } finally {
-      setLoading(false); // End loading indicator
+      setLoading(false); 
     }
   };
   

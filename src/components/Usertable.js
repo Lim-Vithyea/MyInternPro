@@ -7,6 +7,7 @@ import "jspdf-autotable";
 import "../index.css";
 import { exportToCSV } from "./ExportCSV";
 import UserEditFunction from "./UserEditFunction";
+import { handleDelete } from "../Services/DeleteUser";
 
 const Usertable = () => {
   const [users, setUsers] = useState([]);
@@ -163,6 +164,11 @@ const Usertable = () => {
                       }}
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                       Edit
+                    </button>
+                    <button
+                      onClick={ () => handleDelete(user.id)}
+                      className="font-medium text-blue-600 dark:text-red-500 hover:underline ml-3">
+                      delete
                     </button>
                   </td>
                 </tr>
