@@ -63,7 +63,7 @@ const Usersidebar = () => {
                       : "hover:bg-gray-700"
                   }`
                 }>
-                <span className="ms-3">📊 Dashboard</span>
+                <span className="ms-3 khmer-text">📊 តារាង</span>
               </NavLink>
             </li>
             <UserDropdown title="📁 ទិន្នន័យ" items={userPageItems2} />

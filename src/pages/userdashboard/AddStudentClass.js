@@ -6,8 +6,8 @@ import "../../index.css";
 
 const initialFormData = {
   kindergarten: "",
-  total_kidergarten_students: "",
-  female_kidergarten_students: "",
+  total_kindergarten_students: "",
+  female_kindergarten_students: "",
   grade1: "",
   total_grade1: "",
   female_grade1: "",
@@ -59,8 +59,8 @@ const Usermangedata = () => {
     const grades = [
       {
         grade: "Kindergarten",
-        total: formData.total_kidergarten_students,
-        girls: formData.female_kidergarten_students,
+        total: formData.total_kindergarten_students,
+        girls: formData.female_kindergarten_students,
       },
       {
         grade: "Grade1",
@@ -186,29 +186,29 @@ const Usermangedata = () => {
                 </label>
                 <input
                   type="number"
-                  id="total_kidergarten_students"
+                  id="total_kindergarten_students"
                   className={errorMessages.Kindergarten ? errorInputStyle : inputStyle}
                   required
                   placeholder="ចំនួនសិស្សសរុប"
-                  value={formData.total_kidergarten_students}
+                  value={formData.total_kindergarten_students}
                   onChange={handleChange}
                 />
                 <br />
               </div>
               <div>
                 <label
-                  htmlFor="female_kidergarten_students"
+                  htmlFor="female_kindergarten_students"
                   className="block py-4 khmer-text font-bold text-sm text-gray-700"
                 >
                   ចំនួនសិស្សស្រី
                 </label>
                 <input
                   type="number"
-                  id="female_kidergarten_students"
+                  id="female_kindergarten_students"
                   className={errorMessages.Kindergarten ? errorInputStyle : inputStyle}
                   required
                   placeholder="ចំនួនសិស្សស្រី"
-                  value={formData.female_kidergarten_students}
+                  value={formData.female_kindergarten_students}
                   onChange={handleChange}
                 />
               </div>
