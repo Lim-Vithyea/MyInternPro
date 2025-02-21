@@ -5,7 +5,8 @@ require('dotenv').config();
 
 const userRoutes = require('./routes/userRoutes');
 const schoolRoutes = require('./routes/schoolRoutes');
-const loginRoute = require ('./routes/authRoutes')
+const loginRoute = require ('./routes/authRoutes');
+const studentRoute = require('./routes/studentRoutes');
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(bodyParser.json());
 app.use('/api',  loginRoute)
 app.use('/api', userRoutes);
 app.use('/api', schoolRoutes);
+app.use('/api',studentRoute);
 
 // Server
 const PORT = process.env.PORT || 3002;
