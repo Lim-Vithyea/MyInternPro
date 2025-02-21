@@ -54,7 +54,7 @@ const Login = ({ onLogin }) => {
         <p className="text-lg md:text-2xl font-bold text-center   khmer-text">
           នាយកដ្ឋានបឋមសិក្សា
         </p>
-        <p className="text-lg md:text-2xl font-bold text-center khmer-text">
+        <p className="text-lg md:text-2xl font-bold text-center khmer-text pt-2">
           ក្រសួងអប់រំ យុវជន​ និង កីឡា
         </p>
         <p className="text-xs md:text-sm pt-8 text-center">

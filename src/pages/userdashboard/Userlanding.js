@@ -7,6 +7,7 @@ import { fetchUserData } from "../setting/Serviceuser";
 import { PrivateRoute } from "../dashboard/Landing";
 import AddStudentClass from "./AddStudentClass";
 import DisplayData from "./DisplayData";
+import InfrastructureForm from "./InfrastructureForm";
 
 const Userlanding = () => {
   const [user, setUser] = useState({});
@@ -55,6 +56,10 @@ const Userlanding = () => {
             <Route
               path="/add-student-class"
               element={<PrivateRoute element={<AddStudentClass />} />}
+            />
+            <Route
+              path="/infrastructure"
+              element={<PrivateRoute element={<InfrastructureForm/>} />}
             />
             <Route
               path="/data-display"

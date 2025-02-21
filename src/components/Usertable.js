@@ -8,6 +8,7 @@ import "../index.css";
 import { exportToCSV } from "./ExportCSV";
 import UserEditFunction from "./UserEditFunction";
 import { handleDelete } from "../Services/DeleteUser";
+import DeleteAlert from "./DeleteAlert";
 
 const Usertable = () => {
   const [users, setUsers] = useState([]);
@@ -16,6 +17,7 @@ const Usertable = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState("");
   const [isEdit, setEdit] = useState(false);
+  // const [isDelete, setDelete] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null); // Store selected user for editing
   const rowsPerPage = 10;
 
@@ -142,7 +144,7 @@ const Usertable = () => {
               <th scope="col" className="px-6 py-3 khmer-text">
                 ឈ្មោះសាលារៀន
               </th>
-              <th scope="col" className="px-6 py-3 text-right">
+              <th scope="col" className="px-6 py-3 text-center">
                 Actions
               </th>
             </tr>
@@ -157,6 +159,7 @@ const Usertable = () => {
                   <td className="px-6 py-4">{user.role}</td>
                   <td className="px-6 py-4 khmer-text">{user.schoolname}</td>
                   <td className="px-6 py-4 text-right">
+                    <div className="text-center">
                     <button
                       onClick={() => {
                         setSelectedUser(user); 
@@ -165,11 +168,13 @@ const Usertable = () => {
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                       Edit
                     </button>
+                    <span className="p-2 text-gray-300">|</span>
                     <button
                       onClick={ () => handleDelete(user.id)}
-                      className="font-medium text-blue-600 dark:text-red-500 hover:underline ml-3">
-                      delete
+                      className="font-medium text-blue-600 dark:text-red-500 hover:underline">
+                      Delete
                     </button>
+                    </div>
                   </td>
                 </tr>
               ))

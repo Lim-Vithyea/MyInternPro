@@ -41,7 +41,7 @@ const Sidebar = () => {
     <div>
       <button
         onClick={toggleSidebar}
-        className="fixed top-1 left-2 z-0 p-2 bg-blue-500 rounded-md md:hidden hover:bg-gray-300 font-bold text-white">
+        className="fixed top-1 left-2 z-10 p-2 bg-blue-500 rounded-md md:hidden hover:bg-gray-300 font-bold text-white">
         ☰
       </button>
 
