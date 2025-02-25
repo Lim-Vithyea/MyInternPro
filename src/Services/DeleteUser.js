@@ -4,7 +4,8 @@ export const handleDelete = async (userId) => {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.delete(`http://localhost:3002/api/deleteuser/${userId}`, {
+      const API = process.env.REACT_APP_API_URL;
+      const response = await axios.delete(`${API}deleteuser/${userId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       alert("User deleted successfully");

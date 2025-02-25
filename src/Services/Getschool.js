@@ -3,8 +3,9 @@ import axios from 'axios';
 export const getSchool = async () => {
   try {
     const token = localStorage.getItem('token');
+    const API = process.env.REACT_APP_API_URL;
     if (!token) throw new Error('No token found');
-    const res = await axios.get('http://localhost:3002/api/school', {
+    const res = await axios.get(`${API}school`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return res.data;

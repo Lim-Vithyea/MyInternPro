@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3002/api";
 // Update user
 export const updateUser = async (userId, updatedUserData) => {
   try {
     const token = localStorage.getItem("token");
-    const res = await axios.put(`${API_URL}/updateUser/${userId}`, updatedUserData, {
+    const API = process.env.REACT_APP_API_URL;
+    const res = await axios.put(`${API}/updateUser/${userId}`, updatedUserData, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,

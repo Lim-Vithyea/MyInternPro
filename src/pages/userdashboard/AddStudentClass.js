@@ -112,8 +112,9 @@ const Usermangedata = () => {
     // If validation passes, submit the form data
     try {
       const token = localStorage.getItem("token");
+      const API = process.env.REACT_APP_API_URL;
       const response = await axios.post(
-        "http://localhost:3002/api/addstudent",
+        `${API}addstudent`,
         formData,
         { headers: { Authorization: `Bearer ${token}` } }
       );

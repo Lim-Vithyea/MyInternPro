@@ -13,7 +13,8 @@ const Login = ({ onLogin }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3002/api/login", {
+      const API = process.env.REACT_APP_API_URL;
+      const res = await axios.post(`${API}login`, {
         username,
         password,
       });

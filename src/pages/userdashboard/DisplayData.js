@@ -10,8 +10,9 @@ function DisplayData() {
     const fetchStudentData = async () => {
       try {
         const token = localStorage.getItem("token");
+        const API = process.env.REACT_APP_API_URL;
         const response = await axios.get(
-          "http://localhost:3002/api/showstudentdata",
+          `${API}showstudentdata`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setStudentData(response.data);
@@ -40,7 +41,7 @@ function DisplayData() {
   </h2>
   {/* Responsive Wrapper */}
   <div className="overflow-x-auto sm:text-xs md:text-xs lg:text-lg">
-    <table className="min-w-max w-full bg-white">
+    <table className="min-w-max w-full bg-white ">
       <thead className="bg-gray-100">
         <tr className="khmer-text text-gray-700 ">
           <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">កម្រិត</th>
@@ -77,8 +78,7 @@ function DisplayData() {
                    }
                   <span className="khmer-text text-blue-500 khmer-text"> នាក់</span>
                 </td>
-              </tr>
-             
+              </tr>        
               {/* Grades Rows */}
               {[1, 2, 3, 4, 5, 6].map((grade) => (
                 <tr key={grade} className="hover:bg-gray-50 text-center khmer-text">

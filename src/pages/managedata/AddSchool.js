@@ -19,7 +19,8 @@ const handleSubmit = async (e) => {
   e.preventDefault();
   try {
     const token = localStorage.getItem('token');
-    const response = await axios.post("http://localhost:3002/api/add_school", schoolData, {
+    const API = process.env.REACT_APP_API_URL;
+    const response = await axios.post(`${API}add_school`, schoolData, {
       headers: { Authorization:  `Bearer ${token}` },
     });
     setMessage(response.data.message);
