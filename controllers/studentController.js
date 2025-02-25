@@ -20,7 +20,7 @@ const addStudent = async (req, res) => {
             total_kindergarten_students, total_grade1, total_grade2,
             total_grade3, total_grade4, total_grade5, total_grade6
         ];
-        if (totalStudents.some(count => count > 100)) {
+        if (totalStudents.some(count => count > 1000)) {
             return res.status(400).json({ message: "Each grade cannot exceed 100 students." });
         }
         const result = await studentModel.insertStudent(
