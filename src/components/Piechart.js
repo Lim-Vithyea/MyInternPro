@@ -1,17 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { countStudent } from "../Services/CountStudent";
 
 // Register required chart components
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const GenderPieChart = () => {
-  const totalStudents = 532; // Total number of students
-  const femaleStudents = 232; // Number of female students
-  const maleStudents = totalStudents - femaleStudents; // Male students count
+  const [totalStudent,setTotalStudent]  = useState(0);
+  const [female,setFemale] = useState(0);
 
+useEffect(()=>{
+  const getData = async () => {
+    try {
+      const getDataFromStudent = await countStudent();
+      setTotalStudent(getDataFromStudent.total_students);
+      setFemale(getDataFromStudent.total_female_students);
+    } catch (err) {
+      throw err;
+    }
+  }
+  getData();
+})
+
+  const totalStudents = totalStudent; // Total number of students
+  const femaleStudents = female; // Number of female students
+  const maleStudents = totalStudents - femaleStudents; // Male students count
   const data = {
-    labels: ["Female Students", "Male Students"],
+    labels: ["សិស្សស្រី", "សិស្សប្រុស"],
     datasets: [
       {
         data: [femaleStudents, maleStudents], // Gender distribution
