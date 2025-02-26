@@ -1,5 +1,5 @@
 const studentModel = require("../models/studentModel");
-const {getStudentData} = require('../models/studentModel')
+const {getStudentData,getTotalStudent} = require('../models/studentModel')
 
 // Controller function to handle student insertion
 const addStudent = async (req, res) => {
@@ -50,4 +50,32 @@ const showStudent = async (req,res) => {
     }
 }
 
-module.exports = {addStudent,showStudent}
+// const showCountedStudent = async (req,res) => {
+//     try {
+//         const {schoolid} = req.user;
+//         const [countedData] = await getTotalStudent(schoolid);
+//         res.status(200).json({total_students: countedData.total_students})
+//     } catch {
+//         res.status(500).json({ error: "Error fetching total students" });
+//     }
+// }
+
+const showCountedStudent = async (req, res) => {
+    try {
+        const { schoolid } = req.user;
+        const [countedData] = await getTotalStudent(schoolid);
+        if (!countedData) {
+            return res.status(404).json({ error: "No data found for this school" });
+        }
+        res.status(200).json({ 
+            total_students: countedData.total_students,
+            total_female_students: countedData.total_female_students 
+         });
+    } catch (error) {
+        console.error("Error fetching total students:", error);
+        res.status(500).json({ error: "Error fetching total students" });
+    }
+};
+
+
+module.exports = {addStudent,showStudent,showCountedStudent}

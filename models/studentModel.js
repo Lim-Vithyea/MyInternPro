@@ -65,4 +65,16 @@ const getStudentData = async (sid) => {
     return result;
 }
 
-module.exports = {insertStudent,getStudentData}
+const getTotalStudent = async (sid) =>{
+    const query = `SELECT 
+    SUM(total_kindergarten_students) + SUM(total_grade1) + SUM(total_grade2) + 
+    SUM(total_grade3) + SUM(total_grade4) + SUM(total_grade5) + SUM(total_grade6) 
+    AS total_students, SUM(female_kindergarten_students) + SUM(female_grade1) 
+    + SUM(female_grade2) + SUM(female_grade3) + SUM(female_grade4) + 
+    SUM(female_grade5) + SUM(female_grade6) AS total_female_students 
+    FROM tblstudent WHERE sid = ?`;
+    const [result] = await db.promise().query(query,[sid]);
+    return result;
+}
+
+module.exports = {insertStudent,getStudentData,getTotalStudent}
