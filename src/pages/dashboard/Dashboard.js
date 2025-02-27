@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import DetailCard from '../../components/Detailcard';
-import GenderPieChart from '../../components/Piechart';
 import { countUser } from '../../Services/Countuser';
 import { countSchool } from '../../Services/Countschool';
+import { CountStudentforAdmin } from '../../Services/CountStudentforAdmin';
 import "../../index.css"
 import GenderAdminPieChart from '../../components/PiechartAdmin';
 
 const Dashboard = () => {
   const [totalUser, setTotalUsers] = useState(0); 
   const [totalSchool, setTotalSchool] = useState(0); 
+  const [student,setTotalStudent] = useState('');
+  const [female,setFemale] = useState('');
 
   useEffect(() => {
     //count user in database
@@ -29,6 +31,18 @@ const Dashboard = () => {
         console.error('Error fetching user data:', err); 
       }
     };
+    //count studdent
+    const getData = async () => {
+        try {
+          const getDataFromStudent = await CountStudentforAdmin();
+          setTotalStudent(getDataFromStudent.total_students);
+          setFemale(getDataFromStudent.total_female_students);
+        } catch (err) {
+          throw err;
+        }
+      }
+
+    getData();
     showCountedData();
     showCountedSchool();
   }, [totalSchool]);
@@ -54,16 +68,16 @@ const Dashboard = () => {
             value={totalUser} 
             text_color={"text-blue-500"}/>
           <DetailCard 
-            title={"គ្មាន"} 
-            value={"N/A"} 
+            title={"សិស្សសរុប"} 
+            value={student} 
             text_color={"text-red-500"}/>
           <DetailCard 
             title={"សាលារៀនសរុប"} 
             value={totalSchool} 
             text_color={"text-yellow-500"}/>
           <DetailCard 
-            title={"គ្មាន"} 
-            value={"N/A"} 
+            title={"សិស្សស្រី"} 
+            value={female} 
             text_color={"text-green-500"}/>
         </div>
       </div>

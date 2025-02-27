@@ -24,6 +24,7 @@ const ViewData = () => {
           }
         );
         setStudent(response.data);
+        console.log(response.data)
       } catch (err) {
         console.log("Error fetching data: " + err.message);
       } finally {
@@ -95,7 +96,7 @@ const ViewData = () => {
                             <strong className="khmer-text text-blue-500">{data.school_name}</strong>
                         </td>
                       {/* Kindergarten Row */}
-                      <tr className="khmer-text text-gray-700">
+                      <tr className="khmer-text text-gray-700 bg-gray-200">
                         <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">កម្រិត</th>
                         <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">ចំនួនថ្នាក់</th>
                         <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">ចំនួនសិស្សសរុប</th>
