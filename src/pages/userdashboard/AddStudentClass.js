@@ -168,7 +168,6 @@ const Usermangedata = () => {
                   type="number"
                   id="kindergarten"
                   className={errorMessages.Kindergarten ? errorInputStyle : inputStyle}
-                  required
                   placeholder="ចំនួនថ្នាក់"
                   value={formData.kindergarten}
                   onChange={handleChange}
@@ -189,7 +188,6 @@ const Usermangedata = () => {
                   type="number"
                   id="total_kindergarten_students"
                   className={errorMessages.Kindergarten ? errorInputStyle : inputStyle}
-                  required
                   placeholder="ចំនួនសិស្សសរុប"
                   value={formData.total_kindergarten_students}
                   onChange={handleChange}
@@ -207,7 +205,6 @@ const Usermangedata = () => {
                   type="number"
                   id="female_kindergarten_students"
                   className={errorMessages.Kindergarten ? errorInputStyle : inputStyle}
-                  required
                   placeholder="ចំនួនសិស្សស្រី"
                   value={formData.female_kindergarten_students}
                   onChange={handleChange}

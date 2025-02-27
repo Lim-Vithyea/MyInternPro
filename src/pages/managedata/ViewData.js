@@ -1,62 +1,145 @@
-import React from "react";
+
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { getSchool } from "../../Services/Getschool";
+import "../../index.css"
 
 const ViewData = () => {
+  const [studentData, setStudent] = useState([]);
+  const [sid, setSid] = useState('');
+  const [schools, setSchools] = useState([]);
+  const [loading, setLoading] = useState(false); 
+
+  useEffect(() => {
+    const fetchStudentData = async () => {
+      setLoading(true);  
+      try {
+        const token = localStorage.getItem("token");
+        const API = process.env.REACT_APP_API_URL;
+        const response = await axios.get(
+          `${API}showstudentdataforadmin`,
+          {
+            params: { sid },  
+            headers: { Authorization: `Bearer ${token}` }
+          }
+        );
+        setStudent(response.data);
+      } catch (err) {
+        console.log("Error fetching data: " + err.message);
+      } finally {
+        setLoading(false);  
+      }
+    };
+  
+    const getSchoolData = async () => {
+      try {
+        const data = await getSchool();
+        setSchools(data);
+      } catch {
+        console.log("Can't fetch school data");
+      }
+    };
+    fetchStudentData(); 
+    getSchoolData();  
+  }, [sid]);  
+
+  const handleSearchChange = (e) => {
+    setSid(e.target.value);
+  };
+
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Header */}
       <div className="w-full bg-white flex items-center justify-center border-b-2">
-        <img src="/images/P10.png" alt="Emblem" className="w-10 h-10" />
-        <h1 className="text-start pt-3 pb-3 font-bold">Manage Data</h1>
+        <img src="/images/P10.png" alt="Emblem" className="w-6 h-6" />
+        <h1 className="text-start pt-3 pb-3 font-bold text-xs">Manage Data</h1>
       </div>
-      {/* Form */}
-      {/* <div className="w-[95%] mx-auto my-6 bg-white p-6 rounded-xl shadow-lg">
-        <h1 className="font-bold text-2xl text-blue-700">Add Staff</h1>
-        <form className="mt-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { label: "Family Name", type: "text" },
-              { label: "Given Name", type: "text" },
-              { label: "Name in Latin", type: "text" },
-              { label: "Grade", type: "text" },
-              { label: "Date of Birth", type: "date" },
-              { label: "Place of Birth", type: "text" },
-              { label: "Phone Number", type: "tel" },
-            ].map(({ label, type }, index) => (
-              <div key={index}>
-                <label className="block text-sm font-medium text-gray-700">{label}</label>
-                <input
-                  type={type}
-                  className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500"
-                  required
-                />
-              </div>
-            ))}
-            <div>
-              <label className="block text-sm font-medium text-gray-700">Gender</label>
-              <select className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500">
-                <option value="">Select Gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-              </select>
-            </div>
+      <div className="w-[98%] mx-auto my-6 bg-white p-6 rounded-xl shadow-lg">
+        <h1 className="font-bold text-2xl text-blue-700 khmer-text">មើលទិន្នន័យ</h1>
+        <div className="w-[30%] py-5 ">
+          <div>
+            <label htmlFor="schoolid" className="block text-sm font-medium text-gray-700 khmer-text">សាលារៀន</label>
+            <select name="schoolid" id="schoolid" onChange={handleSearchChange} value={sid}
+              className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              <option value="" ><span className="khmer-text">ជ្រើសរើសសាសារៀន</span></option>
+              {schools.map((school) => (<option className="khmer-text" key={school.id} value={school.sid}>{school.schoolname}</option>))}
+            </select>
           </div>
-          <div className="flex justify-end mt-8">
-            <button
-              type="submit"
-              className="w-[180px] h-[50px] bg-blue-700 rounded-xl hover:bg-blue-500 text-white font-bold shadow-md transition-all"
-            >
-              Save
-            </button>
-          </div>
-        </form>
-      </div> */}
+        </div>
+        <div className="w-full  rounded-lg overflow-hidden">
+          <h2 className="p-2 font-bold text-blue-600 khmer-text text-center sm:text-xs md:text-xl lg:text-xl">
+            ទិន្នន័យសិស្សសាលា
+          </h2>
+          {/* Loading Indicator */}
+          {loading && <p className="text-center text-gray-500">Loading...</p>}
+          <div className="overflow-x-auto sm:text-xs md:text-xs lg:text-lg">
+            <table className="min-w-max w-full bg-white">
+              <thead className="bg-gray-100">
+                {/* <tr className="khmer-text text-gray-700">
+                  <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">កម្រិត</th>
+                  <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">ចំនួនថ្នាក់</th>
+                  <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">ចំនួនសិស្សសរុប</th>
+                  <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">ចំនួនសិស្សស្រី</th>
+                  <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">សរុប</th>
+                </tr> */}
+              </thead>
+              <tbody>
+                {studentData.length === 0 ? (
+                  <tr>
+                    <td colSpan="5" className="px-3 py-2 text-center text-gray-500 khmer-text">No data available</td>
+                  </tr>
+                ) : (
+                  studentData.map((data) => (
+                    <React.Fragment key={data.id}>
+                        <td className="px-2  border-blue-300 khmer-text text-center pt-4" colSpan="5">
+                            <strong className="khmer-text text-blue-500">{data.school_name}</strong>
+                        </td>
+                      {/* Kindergarten Row */}
+                      <tr className="khmer-text text-gray-700">
+                        <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">កម្រិត</th>
+                        <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">ចំនួនថ្នាក់</th>
+                        <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">ចំនួនសិស្សសរុប</th>
+                        <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">ចំនួនសិស្សស្រី</th>
+                        <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">សរុប</th>
+                        </tr>
+                      <tr className="hover:bg-gray-50 text-center sm:text-xs md:text-xs lg:text-lg">
+                        <td className="px-2 py-3 border-2 border-blue-300 khmer-text">ថ្នាក់មត្តេយ្យ</td>
+                        <td className="px-2 py-3 border-2 border-blue-300 khmer-text">{data.kindergarten} បន្ទប់</td>
+                        <td className="px-2 py-3 border-2 border-blue-300 text-blue-500 khmer-text">{data.total_kindergarten_students} នាក់</td>
+                        <td className="px-2 py-3 border-2 border-blue-300 text-pink-500 khmer-text">{data.female_kindergarten_students} នាក់</td>
+                        <td className="px-2 py-3 border-2 border-blue-300 text-blue-500 khmer-text" rowSpan="7">
+                          {data.total_kindergarten_students + 
+                           data.total_grade1 + 
+                           data.total_grade2 + 
+                           data.total_grade3 + 
+                           data.total_grade4 + 
+                           data.total_grade5 + 
+                           data.total_grade6
+                          }
+                          <span className="khmer-text text-blue-500"> នាក់</span>
+                        </td>
+                      </tr>
 
-      {/* Student Data Section */}
-      <div className="w-[95%] mx-auto my-6 bg-white p-6 rounded-xl shadow-lg">
-        <h1 className="font-bold text-2xl text-blue-700">View school data</h1>
+                      {/* Grades Rows */}
+                      {[1, 2, 3, 4, 5, 6].map((grade) => (
+                        <tr key={grade} className="hover:bg-gray-50 text-center khmer-text">
+                          <td className="px-2 py-3 border-2 border-blue-300 khmer-text">ថ្នាក់ទី{grade}</td>
+                          <td className="px-2 py-3 border-2 border-blue-300 khmer-text">{data[`grade${grade}`]} បន្ទប់</td>
+                          <td className="px-2 py-3 border-2 border-blue-300 text-blue-500 khmer-text">{data[`total_grade${grade}`]} នាក់</td>
+                          <td className="px-2 py-3 border-2 border-blue-300 text-pink-500 khmer-text">{data[`female_grade${grade}`]} នាក់</td>
+                        </tr>
+                      ))}
+                    </React.Fragment>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
 export default ViewData;
+

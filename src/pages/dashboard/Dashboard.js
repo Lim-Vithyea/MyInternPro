@@ -4,6 +4,7 @@ import GenderPieChart from '../../components/Piechart';
 import { countUser } from '../../Services/Countuser';
 import { countSchool } from '../../Services/Countschool';
 import "../../index.css"
+import GenderAdminPieChart from '../../components/PiechartAdmin';
 
 const Dashboard = () => {
   const [totalUser, setTotalUsers] = useState(0); 
@@ -42,7 +43,7 @@ const Dashboard = () => {
         <h1 className='p-4 md:p-5 font-bold text-lg sm:text-xl md:text-xs lg:text-xl khmer-text'>ទិន្នន័យសរុប</h1>
         <div className='flex justify-center items-center p-2 sm:p-4'>
           <div className='w-full flex max-w-[300px] h-auto aspect-square sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%]'>
-            <GenderPieChart />
+            <GenderAdminPieChart/>
           </div>
         </div>
       </div>
