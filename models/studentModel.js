@@ -77,4 +77,42 @@ const getTotalStudent = async (sid) =>{
     return result;
 }
 
-module.exports = {insertStudent,getStudentData,getTotalStudent}
+const showStudentDataForAdmin = async (sid) => {
+    const query = `
+    SELECT s.schoolname AS school_name, st.*
+    FROM tblstudent st
+    INNER JOIN tblschool s ON st.sid = s.sid
+    WHERE st.sid = ?`;
+    const [result] = await db.promise().query(query,[sid]);
+    return result;
+}
+
+const showAllStudentData = async () => {
+    const query = `
+      SELECT s.schoolname AS school_name, st.*
+      FROM tblstudent st
+      INNER JOIN tblschool s ON st.sid = s.sid
+    `;
+    const [result] = await db.promise().query(query);
+    return result;
+  };
+
+  const getCountedStudent = async () =>{
+    const query = `SELECT 
+    SUM(total_kindergarten_students) + SUM(total_grade1) + SUM(total_grade2) + 
+    SUM(total_grade3) + SUM(total_grade4) + SUM(total_grade5) + SUM(total_grade6) 
+    AS total_students, SUM(female_kindergarten_students) + SUM(female_grade1) 
+    + SUM(female_grade2) + SUM(female_grade3) + SUM(female_grade4) + 
+    SUM(female_grade5) + SUM(female_grade6) AS total_female_students 
+    FROM tblstudent`;
+    const [result] = await db.promise().query(query);
+    return result;
+}
+module.exports = {
+    insertStudent,
+    getStudentData,
+    getTotalStudent,
+    showStudentDataForAdmin,
+    showAllStudentData,
+    getCountedStudent
+}

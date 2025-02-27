@@ -1,5 +1,5 @@
 const studentModel = require("../models/studentModel");
-const {getStudentData,getTotalStudent} = require('../models/studentModel')
+const {getStudentData,getTotalStudent,showStudentDataForAdmin,showAllStudentData,getCountedStudent} = require('../models/studentModel')
 
 // Controller function to handle student insertion
 const addStudent = async (req, res) => {
@@ -50,16 +50,6 @@ const showStudent = async (req,res) => {
     }
 }
 
-// const showCountedStudent = async (req,res) => {
-//     try {
-//         const {schoolid} = req.user;
-//         const [countedData] = await getTotalStudent(schoolid);
-//         res.status(200).json({total_students: countedData.total_students})
-//     } catch {
-//         res.status(500).json({ error: "Error fetching total students" });
-//     }
-// }
-
 const showCountedStudent = async (req, res) => {
     try {
         const { schoolid } = req.user;
@@ -77,5 +67,41 @@ const showCountedStudent = async (req, res) => {
     }
 };
 
+const showStudentData = async (req, res) => {
+    try {
+      const { sid } = req.query; 
+      let studentData;
+      if (sid) {
+        studentData = await showStudentDataForAdmin(sid);
+      } else {
+        studentData = await showAllStudentData(); 
+      }
+      if (studentData.length === 0) {
+        return res.status(404).json({ message: "No student data found." });
+      }
+      res.status(200).json(studentData);
+    } catch (err) {
+      console.error(err); 
+      res.status(500).json({ message: "Can't get student data", error: err.message });
+    }
+  };
+  
+  const countedStudentForAdmin = async (req, res) => {
+    try {
+        const [countedData] = await getCountedStudent();
+        if (!countedData) {
+            return res.status(404).json({ error: "No data found for this school" });
+        }
+        res.status(200).json({ 
+            total_students: countedData.total_students,
+            total_female_students: countedData.total_female_students 
+         });
+    } catch (error) {
+        console.error("Error fetching total students:", error);
+        res.status(500).json({ error: "Error fetching total students" });
+    }
+};
 
-module.exports = {addStudent,showStudent,showCountedStudent}
+  
+
+module.exports = {addStudent,showStudent,showCountedStudent,showStudentData,countedStudentForAdmin}
