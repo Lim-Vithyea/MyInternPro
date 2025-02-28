@@ -43,7 +43,6 @@ const UserEditFunction = ({ user, onClose, refreshData }) => {
       setLoading(false); 
     }
   };
-  
 
   return (
     <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
@@ -51,8 +50,8 @@ const UserEditFunction = ({ user, onClose, refreshData }) => {
         <h2 className="text-xl font-bold mb-4 text-center text-blue-600">Edit User Details</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700" htmlFor="username">
-              Username
+            <label className="block text-sm font-medium text-gray-700 khmer-text" htmlFor="username">
+              ឈ្មោះអ្នកប្រើប្រាស់
             </label>
             <input type="text" id="username" name="username" value={formData.username}
               onChange={handleChange}
@@ -60,8 +59,8 @@ const UserEditFunction = ({ user, onClose, refreshData }) => {
               required/>
           </div>
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700" htmlFor="role">
-              Role
+            <label className="block text-sm font-medium text-gray-700 khmer-text" htmlFor="role">
+              ប្រភេទអ្នកប្រើប្រាស់
             </label>
             <select id="role" name="role" value={formData.role}
               onChange={handleChange}

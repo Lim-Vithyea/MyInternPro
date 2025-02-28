@@ -62,7 +62,7 @@ const Dashboard = () => {
         </div>
       </div>
       <div className='mx-3 my-4'>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <DetailCard 
             title={"អ្នកប្រើប្រាស់សរុប"}  
             value={totalUser} 
@@ -79,6 +79,14 @@ const Dashboard = () => {
             title={"សិស្សស្រី"} 
             value={female} 
             text_color={"text-green-500"}/>
+          <DetailCard 
+            title={"សិស្សប្រុស"} 
+            value={student - female} 
+            text_color={"text-blue-500"}/>
+          <DetailCard 
+            title={"គ្មាន"} 
+            value={"N/A"} 
+            text_color={"text-red-500"}/>
         </div>
       </div>
     </div>
