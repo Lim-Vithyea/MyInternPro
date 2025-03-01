@@ -1,11 +1,13 @@
 import React from "react";
 import { fetchUserData } from "../setting/Serviceuser";
-import { StatsCard } from "../../components/StatsCard";
 import { useState, useEffect } from "react";
 import GenderPieChart from "../../components/Piechart";
 import "../../index.css"
 import { countStudent } from "../../Services/CountStudent";
-
+import DetailCard from "../../components/Detailcard";
+import femaleicon from "../../asset/female.svg"
+import person from "../../asset/person.svg"
+import group from "../../asset/group.svg"
 
 const Userdashboard = () => {
   const [user, setUser] = useState({});
@@ -59,9 +61,21 @@ const Userdashboard = () => {
         </div>
         <main className="flex-1 pl-4 pr-4 pt-1">
           <div className="grid  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <StatsCard title="ចំនួនសិស្សសរុប" value={student} color={"text-blue-500"} />
-            <StatsCard title="ចំនួនសិស្សប្រុស" value={student - femalestudent} color={"text-blue-500"} />
-            <StatsCard title="ចំនួនសិស្សស្រី" value={femalestudent} color={"text-pink-500"} />
+          <DetailCard 
+            title={"សិស្សសរុប"} 
+            icon={group}
+            value={student} 
+            text_color={"text-yellow-500"}/>
+          <DetailCard 
+            title={"សិស្សស្រី"} 
+            icon={femaleicon}
+            value={femalestudent} 
+            text_color={"text-pink-500"}/>
+          <DetailCard 
+            title={"សិស្សប្រុស"} 
+            icon={person}
+            value={student - femalestudent} 
+            text_color={"text-blue-500"}/>
           </div>
         </main>
       </div>

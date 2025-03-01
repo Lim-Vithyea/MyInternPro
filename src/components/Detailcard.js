@@ -42,7 +42,7 @@ function DetailCard({ title, value, text_color, icon }) {
     };
 
     return (
-        <div className="h-[180px] max-w-full rounded-lg shadow-lg p-4">
+        <div className="h-[180px] max-w-full rounded-lg p-4 shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]">
             <div className="flex justify-between items-center">
                 <div className="flex items-center gap-2">
                     {icon && <img src={icon} className="w-6 h-6 fill-blue-500" alt="icon" />}
