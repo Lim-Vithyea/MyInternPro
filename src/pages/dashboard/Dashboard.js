@@ -5,6 +5,10 @@ import { countSchool } from '../../Services/Countschool';
 import { CountStudentforAdmin } from '../../Services/CountStudentforAdmin';
 import "../../index.css"
 import GenderAdminPieChart from '../../components/PiechartAdmin';
+import person from "../../asset/person.svg";
+import school from "../../asset/school.svg";
+import group from"../../asset/group.svg";
+import femaleicon from "../../asset/female.svg";
 
 const Dashboard = () => {
   const [totalUser, setTotalUsers] = useState(0); 
@@ -65,22 +69,27 @@ const Dashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <DetailCard 
             title={"អ្នកប្រើប្រាស់សរុប"}  
+            icon = {person}
             value={totalUser} 
             text_color={"text-blue-500"}/>
           <DetailCard 
             title={"សិស្សសរុប"} 
+            icon={group}
             value={student} 
             text_color={"text-red-500"}/>
           <DetailCard 
             title={"សាលារៀនសរុប"} 
+            icon = {school}
             value={totalSchool} 
             text_color={"text-yellow-500"}/>
           <DetailCard 
             title={"សិស្សស្រី"} 
+            icon={femaleicon}
             value={female} 
-            text_color={"text-green-500"}/>
+            text_color={"text-pink-500"}/>
           <DetailCard 
             title={"សិស្សប្រុស"} 
+            icon={person}
             value={student - female} 
             text_color={"text-blue-500"}/>
           <DetailCard 
