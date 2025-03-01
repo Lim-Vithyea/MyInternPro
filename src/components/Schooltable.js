@@ -8,6 +8,7 @@ import jsPDF from "jspdf";
 import "jspdf-autotable";
 import "../index.css";
 import { exportToCSV } from "./ExportCSV";
+import searchIcon from "../asset/search.svg"
 
 const Schooltable = () => {
   const [schoolData, setSchoolData] = useState([]);
@@ -100,6 +101,7 @@ const Schooltable = () => {
       {err && <p className="text-red-500 text-center">{err}</p>}
       <div className="gap-5 md:block lg:flex justify-between">
         <div className="mb-4 flex">
+          <img src={searchIcon} className="w-6 h-6 m-2"/>
           <input
             type="text"
             placeholder="Search school..."

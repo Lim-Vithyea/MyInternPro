@@ -3,6 +3,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { fetchUserData } from "../pages/setting/Serviceuser";
 import LogoutAlert from "./Alert";
 import DropdownManage from "./DropdownManage";
+import dashboardIcon from "../asset/dashboard.svg"
+
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [username, setUsername] = useState({});
@@ -84,8 +86,8 @@ const Sidebar = () => {
                       ? "bg-gray-700 border-2 border-green-500"
                       : "hover:bg-gray-700"
                   }`
-                }>
-                📊 <span className="ml-3 text-sm md:text-base khmer-text">តារាងទិន្នន័យ</span>
+                }><img src={dashboardIcon} className="w-6 h-6"/>
+                 <span className="ml-3 text-sm md:text-base khmer-text">តារាងទិន្នន័យ</span>
               </NavLink>
             </li>
             

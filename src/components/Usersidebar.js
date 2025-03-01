@@ -4,6 +4,7 @@ import LogoutAlert from "./Alert";
 import "../index.css";
 // import Usermangedata from "../pages/userdashboard/Usermangedata";
 import UserDropdown from "./UserDropdown";
+import dashboardIcon from "../asset/dashboard.svg"
 
 const Usersidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -63,7 +64,9 @@ const Usersidebar = () => {
                       : "hover:bg-gray-700"
                   }`
                 }>
-                <span className="ms-3 khmer-text">📊 តារាង</span>
+                <img src={dashboardIcon} className="w-6 h-6"/>
+                <span className="ms-3 khmer-text">
+                   តារាង</span>
               </NavLink>
             </li>
             <UserDropdown title="📁 ទិន្នន័យ" items={userPageItems2} />

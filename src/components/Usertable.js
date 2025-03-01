@@ -8,7 +8,7 @@ import "../index.css";
 import { exportToCSV } from "./ExportCSV";
 import UserEditFunction from "./UserEditFunction";
 import { handleDelete } from "../Services/DeleteUser";
-import DeleteAlert from "./DeleteAlert";
+import  searchIcon from "../asset/search.svg"
 
 const Usertable = () => {
   const [users, setUsers] = useState([]);
@@ -97,6 +97,7 @@ const Usertable = () => {
       {/* Search and Export */}
       <div className="gap-5 md:block lg:flex justify-between">
         <div className="mb-4 flex">
+        <img src={searchIcon} className="w-6 h-6 m-2"/>
           <input
             type="text"
             placeholder="Search user..."

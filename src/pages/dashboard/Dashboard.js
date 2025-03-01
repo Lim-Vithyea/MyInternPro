@@ -59,7 +59,7 @@ const Dashboard = () => {
       </div>
       <div className='w-[95%] md:w-[98%] min-h-[300px] mx-auto my-4 rounded-xl shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] transition-all duration-300'>
         <h1 className='p-4 md:p-5 font-bold text-lg sm:text-xl md:text-xs lg:text-xl khmer-text'>ទិន្នន័យសរុប</h1>
-        <div className='flex justify-center items-center p-2 sm:p-4'>
+        <div className='flex justify-center items-center sm:p-4'>
           <div className='w-full flex max-w-[300px] h-auto aspect-square sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%]'>
             <GenderAdminPieChart/>
           </div>

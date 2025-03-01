@@ -52,7 +52,7 @@ function DetailCard({ title, value, text_color, icon }) {
                     View more
                 </button>
             </div>
-            <h2 className={`text-center pt-10 text-xl font-bold ${text_color}`}>{value}</h2>
+            <h2 className={`text-center pt-[45px] text-xl font-bold ${text_color}`}>{value}</h2>
             {isClick && <AlertError message="Something went wrong!" />}
         </div>
     );
