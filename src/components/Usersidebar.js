@@ -64,12 +64,12 @@ const Usersidebar = () => {
                       : "hover:bg-gray-700"
                   }`
                 }>
-                <img src={dashboardIcon} className="w-6 h-6"/>
+                <img src={dashboardIcon} alt="Dashboard Icon" className="w-6 h-6"/>
                 <span className="ms-3 khmer-text">
                    តារាង</span>
               </NavLink>
             </li>
-            <UserDropdown title="📁 ទិន្នន័យ" items={userPageItems2} />
+            <UserDropdown className="ms-3 khmer-text" title="📁 ទិន្នន័យ" items={userPageItems2} />
             {/* <li>
               <NavLink
                 to="/user/usermanagedata"

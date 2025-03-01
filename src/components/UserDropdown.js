@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../index.css";
 
-const UserDropdown = ({ title, items = [UserDropdown] }) => {
+const UserDropdown = ({ title, items = [] }) => {
   const [open, setOpen] = useState(false);
 
   const toggleDropdown = () => setOpen(!open);
@@ -10,18 +10,21 @@ const UserDropdown = ({ title, items = [UserDropdown] }) => {
   return (
     <div className="dropdown">
       <button
-        onClick={toggleDropdown} 
-        className="dropdown-button flex items-center justify-between w-full px-4 py-3 rounded-lg transition-colors hover:bg-gray-700 khmer-text">
+        onClick={toggleDropdown}
+        className={`dropdown-button flex items-center justify-between w-full px-4 py-3 rounded-lg transition-colors hover:bg-gray-700 khmer-text ${open ? "bg-gray-700" : ""}`}
+      >
         {title}
-        <span className=''>{open ? "▲" : "▼"}</span>
+        <span className="">{open ? "▲" : "▼"}</span>
       </button>
       {open && (
-        <div className="dropdown-content text-[15px] rounded-lg ">
+        <div className="dropdown-content text-[15px] rounded-lg">
           {items.length > 0 ? (
             items.map((item, index) => (
-              <NavLink key={index}
+              <NavLink
+                key={index}
                 to={item.to}
-                className="dropdown-item block px-4 py-2 hover:bg-gray-600 rounded-lg khmer-text">
+                className="dropdown-item block px-4 py-4 my-1 hover:bg-gray-600 rounded-lg khmer-text"
+              >
                 {item.label}
               </NavLink>
             ))
