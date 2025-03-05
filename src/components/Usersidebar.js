@@ -1,10 +1,15 @@
-import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import React from "react";
+import { NavLink } from "react-router-dom";
+
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import LogoutAlert from "./Alert";
-import "../index.css";
 // import Usermangedata from "../pages/userdashboard/Usermangedata";
 import UserDropdown from "./UserDropdown";
-import dashboardIcon from "../asset/dashboard.svg"
+import dashboardIcon from "../asset/dashboard.svg";
+import BuilderDropdown from "../pages/userdashboard/build/BuilderDropdown";
+
 
 const Usersidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,13 +28,24 @@ const Usersidebar = () => {
       navigate("/");
     }, 2000);
   };
-
+  //  user page items
   const userPageItems2 = [
     { to: "/user/add-student-class", label: "បញ្ជូលទិន្នន័យសិស្ស " },
     { to: "/user/infrastructure", label: "ហេត្ថារចនាសម្ព័ន្ធ" },
     { to: "/user/data-display", label: "មើលទិន្នន័យ" },
   ];
 
+  // builder items
+  const builderItem1 = [
+    {
+      to: "/user/add-building",
+      label: "បញ្ចូលចំនួនអគារ",
+    },
+    {
+      to: "/user/add-classroom",
+      label: "បញ្ចូលចំនួនថ្នាក់",
+    },
+  ];
   return (
     <>
       <button
@@ -64,12 +80,24 @@ const Usersidebar = () => {
                       : "hover:bg-gray-700"
                   }`
                 }>
-                <img src={dashboardIcon} alt="Dashboard Icon" className="w-6 h-6"/>
-                <span className="ms-3 khmer-text">
-                   តារាង</span>
+                <img
+                  src={dashboardIcon}
+                  alt="Dashboard Icon"
+                  className="w-6 h-6"
+                />
+                <span className="ms-3 khmer-text">តារាង</span>
               </NavLink>
             </li>
-            <UserDropdown className="ms-3 khmer-text" title="📁 ទិន្នន័យ" items={userPageItems2} />
+            <UserDropdown
+              className="ms-3 khmer-text"
+              title="📁 ទិន្នន័យ"
+              items={userPageItems2}
+            />
+            <BuilderDropdown
+              className="ms-3 khmer-text"
+              title="បញ្ចូលទិន្នន័យអគារ"
+              items={builderItem1}
+            />
             {/* <li>
               <NavLink
                 to="/user/usermanagedata"

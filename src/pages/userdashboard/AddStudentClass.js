@@ -148,7 +148,7 @@ const Usermangedata = () => {
         <form className="khmer-text" onSubmit={handleSubmit}>
           {/* Grid Layout for Grades */}
           {/* Kindergarten Section */}
-          <div className="border-2 p-4 my -2 rounded-md">
+          <div className="border-2 p-4 my-2 rounded-md">
               <p className="block py-4 khmer-text font-bold text-xl text-blue-600">
                 បញ្ជូលចំនួនសិស្សថ្នាក់មត្តេយ្យ
               </p>

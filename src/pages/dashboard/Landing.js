@@ -36,7 +36,7 @@ const Landing = () => {
           <Route path="/view-data" element={<PrivateRoute element={<ViewData/>} />}/>
           <Route path="/add_school" element={<PrivateRoute element={<AddSchool/>} />}/>
           <Route path="/setting" element={<PrivateRoute element={<Profile />} />}/>
-          <Route path="*" element={<Navigate to="dashboard" />} />
+         <Route path="*" element={<Navigate to="dashboard" />} />
         </Routes>
       </div>
     </div>
