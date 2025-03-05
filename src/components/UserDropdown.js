@@ -23,7 +23,7 @@ const UserDropdown = ({ title, items = [] }) => {
               <NavLink
                 key={index}
                 to={item.to}
-                className="dropdown-item block px-4 py-4 my-1 hover:bg-gray-600 rounded-lg khmer-text"
+                className="dropdown-item block px-4 py-4  hover:bg-gray-600 rounded-lg khmer-text"
               >
                 {item.label}
               </NavLink>

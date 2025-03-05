@@ -147,9 +147,8 @@ const Usermangedata = () => {
       <div className="mt-6">
         <form className="khmer-text" onSubmit={handleSubmit}>
           {/* Grid Layout for Grades */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Kindergarten Section */}
-            <div className="border-2 p-4 rounded-md">
+          {/* Kindergarten Section */}
+          <div className="border-2 p-4 my -2 rounded-md">
               <p className="block py-4 khmer-text font-bold text-xl text-blue-600">
                 បញ្ជូលចំនួនសិស្សថ្នាក់មត្តេយ្យ
               </p>
@@ -214,6 +213,8 @@ const Usermangedata = () => {
               </div>
             </div>
 
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            
             {/* Grade 1 Section */}
             <div className="border-2 p-4 rounded-md">
               <p className="block py-4 khmer-text font-bold text-xl text-blue-600">
