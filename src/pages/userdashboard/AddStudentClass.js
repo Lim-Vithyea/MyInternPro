@@ -37,6 +37,7 @@ const Usermangedata = () => {
   const [errorMessages, setErrorMessages] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [kidclass, setKidclass] = useState(false);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -150,8 +151,12 @@ const Usermangedata = () => {
           {/* Kindergarten Section */}
           <div className="border-2 p-4 my-2 rounded-md">
               <p className="block py-4 khmer-text font-bold text-xl text-blue-600">
-                បញ្ជូលចំនួនសិស្សថ្នាក់មត្តេយ្យ
+                បញ្ជូលចំនួនសិស្សថ្នាក់មត្តេយ្យ<span className="text-red-500 khmer-text">(បើមាន)</span>
               </p>
+              {/* if have kindergarten class allow user input */}
+              {kidclass ? 
+              <>
+              <div className="transition-transform duration-500">
               <div>
                 <label
                   htmlFor="kindergarten"
@@ -161,14 +166,11 @@ const Usermangedata = () => {
                 <input
                   type="number"
                   id="kindergarten"
-                  className={
-                    errorMessages.Kindergarten ? errorInputStyle : inputStyle
-                  }
+                  className={errorMessages.Kindergarten ? errorInputStyle : inputStyle}
                   placeholder="ចំនួនថ្នាក់"
                   value={formData.kindergarten}
                   onChange={handleChange}
-                  min={0}
-                />
+                  min={0} />
                 {errorMessages.Kindergarten && (
                   <span className="text-red-500 text-sm">
                     {errorMessages.Kindergarten}
@@ -176,43 +178,41 @@ const Usermangedata = () => {
                 )}
               </div>
               <div>
-                <label
-                  htmlFor="total_kindergarten_students"
-                  className="block py-4 khmer-text font-bold text-sm text-gray-700">
-                  ចំនួនសិស្សសរុប
-                </label>
-                <input
-                  type="number"
-                  id="total_kindergarten_students"
-                  className={
-                    errorMessages.Kindergarten ? errorInputStyle : inputStyle
-                  }
-                  placeholder="ចំនួនសិស្សសរុប"
-                  value={formData.total_kindergarten_students}
-                  onChange={handleChange}
-                  min={0}
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="female_kindergarten_students"
-                  className="block py-4 khmer-text font-bold text-sm text-gray-700">
-                  ចំនួនសិស្សស្រី
-                </label>
-                <input
-                  type="number"
-                  id="female_kindergarten_students"
-                  className={
-                    errorMessages.Kindergarten ? errorInputStyle : inputStyle
-                  }
-                  placeholder="ចំនួនសិស្សស្រី"
-                  value={formData.female_kindergarten_students}
-                  onChange={handleChange}
-                  min={0}
-                />
-              </div>
+                  <label
+                    htmlFor="total_kindergarten_students"
+                    className="block py-4 khmer-text font-bold text-sm text-gray-700">
+                    ចំនួនសិស្សសរុប
+                  </label>
+                  <input
+                    type="number"
+                    id="total_kindergarten_students"
+                    className={errorMessages.Kindergarten ? errorInputStyle : inputStyle}
+                    placeholder="ចំនួនសិស្សសរុប"
+                    value={formData.total_kindergarten_students}
+                    onChange={handleChange}
+                    min={0} />
+                </div>
+                <div>
+                  <label
+                    htmlFor="female_kindergarten_students"
+                    className="block py-4 khmer-text font-bold text-sm text-gray-700">
+                    ចំនួនសិស្សស្រី
+                  </label>
+                  <input
+                    type="number"
+                    id="female_kindergarten_students"
+                    className={errorMessages.Kindergarten ? errorInputStyle : inputStyle}
+                    placeholder="ចំនួនសិស្សស្រី"
+                    value={formData.female_kindergarten_students}
+                    onChange={handleChange}
+                    min={0} />
+                </div>
+                </div>
+              <button className="bg-red-500 px-3 py-3 rounded-lg khmer-text text-white mt-3 hover:bg-red-400" onClick={()=>setKidclass(false)}>គ្មានថ្នាក់មតេ្តយ្យ</button>
+              </>
+              : 
+              <button className="bg-green-500 px-3 py-3 rounded-lg khmer-text text-white hover:bg-green-400" onClick={()=>setKidclass(true)}>បញ្ចូលថ្នាក់មត្តេយ្យ</button>}
             </div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             
             {/* Grade 1 Section */}
@@ -634,12 +634,12 @@ const Usermangedata = () => {
           <div className="flex justify-end mt-8">
             <button
               type="submit"
-              className="w-[180px] h-[50px] bg-blue-700 rounded-xl hover:bg-blue-400 transition-all duration-300 shadow-lg text-white font-bold">
-              Save
+              className="w-[180px] h-[50px] bg-blue-600 rounded-xl hover:bg-blue-400 transition-all duration-300 shadow-lg text-white font-bold khmer-text">
+              រក្សាទុក
             </button>
             <button
               type="button"
-              className="ml-4 w-[180px] h-[50px] bg-red-700 rounded-xl hover:bg-red-400 transition-all duration-300 shadow-lg text-white font-bold"
+              className="ml-4 w-[180px] h-[50px] bg-red-600 rounded-xl hover:bg-red-400 transition-all duration-300 shadow-lg text-white font-bold"
               onClick={handleReset}>
               Reset
             </button>
