@@ -8,6 +8,7 @@ import { PrivateRoute } from "../dashboard/Landing";
 import AddStudentClass from "./AddStudentClass";
 import DisplayData from "./DisplayData";
 import InfrastructureForm from "./InfrastructureForm";
+import AddBuilding from "./build/AddBuilding";
 
 const Userlanding = () => {
   const [user, setUser] = useState({});
@@ -61,6 +62,7 @@ const Userlanding = () => {
               path="/infrastructure"
               element={<PrivateRoute element={<InfrastructureForm/>} />}
             />
+            <Route path ="/add-building" element={<PrivateRoute element={<AddBuilding/>} />} />
             <Route
               path="/data-display"
               element={<PrivateRoute element={<DisplayData />} />}

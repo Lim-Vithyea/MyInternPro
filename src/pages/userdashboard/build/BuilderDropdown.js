@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-
-import { useState } from "react";
+import "../../../index.css";
 
 const BuilderDropdown = ({ title, items = [] }) => {
   const [open, setOpen] = useState(false);
@@ -24,7 +23,7 @@ const BuilderDropdown = ({ title, items = [] }) => {
               <NavLink
                 key={index}
                 to={item.to}
-                className="dropdown-item block px-4 py-4  hover:bg-gray-600 rounded-lg khmer-text"
+                className="dropdown-item block px-4 py-2  hover:bg-gray-600 rounded-lg khmer-text"
               >
                 {item.label}
               </NavLink>
