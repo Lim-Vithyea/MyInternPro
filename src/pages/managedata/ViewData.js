@@ -62,7 +62,7 @@ const ViewData = () => {
             <label htmlFor="schoolid" className="block text-sm font-medium text-gray-700 khmer-text">សាលារៀន</label>
             <select name="schoolid" id="schoolid" onChange={handleSearchChange} value={sid}
               className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
-              <option value="" ><span className="khmer-text">ជ្រើសរើសសាសារៀន</span></option>
+              <option value="" >ជ្រើសរើសសាសារៀន</option>
               {schools.map((school) => (<option className="khmer-text" key={school.id} value={school.sid}>{school.schoolname}</option>))}
             </select>
           </div>
@@ -92,9 +92,11 @@ const ViewData = () => {
                 ) : (
                   studentData.map((data) => (
                     <React.Fragment key={data.id}>
+                      <tr>
                         <td className="px-2  border-blue-300 khmer-text text-center pt-4" colSpan="5">
                             <strong className="khmer-text text-blue-500">{data.school_name}</strong>
                         </td>
+                        </tr>
                       {/* Kindergarten Row */}
                       <tr className="khmer-text text-gray-700 bg-gray-200">
                         <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">កម្រិត</th>

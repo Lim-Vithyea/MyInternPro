@@ -5,7 +5,7 @@ const AlertError = () => {
     const [show, setShow] = useState(false);
 
     useEffect(() => {
-    setTimeout(() => setShow(true), 10); // Slight delay for smooth effect
+    setTimeout(() => setShow(true), 100); // Slight delay for smooth effect
   }, []);
 
   return (

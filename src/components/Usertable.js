@@ -9,6 +9,7 @@ import { exportToCSV } from "./ExportCSV";
 import UserEditFunction from "./UserEditFunction";
 import { handleDelete } from "../Services/DeleteUser";
 import  searchIcon from "../asset/search.svg"
+import DeleteAlert from "./DeleteAlert";
 
 const Usertable = () => {
   const [users, setUsers] = useState([]);
@@ -17,7 +18,7 @@ const Usertable = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState("");
   const [isEdit, setEdit] = useState(false);
-  // const [isDelete, setDelete] = useState(false);
+  const [isDelete,setDelete] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null); // Store selected user for editing
   const rowsPerPage = 10;
 
@@ -53,6 +54,15 @@ const Usertable = () => {
       setFilteredUsers(filtered);
     }
   }, [search, users]); // Re-run filtering when search or users data changes
+
+  useEffect(()=>{
+    if(isDelete){
+      const timer = setTimeout(()=>{
+        setDelete(false);
+      },3000)
+      return () => clearTimeout(timer)
+    }
+  },[isDelete])
 
   // Pagination
   const indexOfLastRow = currentPage * rowsPerPage;
@@ -97,7 +107,7 @@ const Usertable = () => {
       {/* Search and Export */}
       <div className="gap-5 md:block lg:flex justify-between">
         <div className="mb-4 flex">
-        <img src={searchIcon} className="w-6 h-6 m-2"/>
+        <img src={searchIcon} className="w-6 h-6 m-2" alt="searchicon"/>
           <input
             type="text"
             placeholder="Search user..."
@@ -131,18 +141,22 @@ const Usertable = () => {
         <table className="min-w-full text-sm text-left rtl:text-right text-black-500">
           <thead className=" text-blue-500 uppercase bg-gray-200 text-[16px]">
             <tr>
-              <th scope="col" className="px-6 py-3 khmer-text">
+              <th scope="col" className="px-6 py-3 khmer-text text-center">
                 ល.រ
               </th>
-              <th scope="col" className="px-6 py-3 khmer-text">
-                ឈ្មោះអ្នកប្រើប្រាស់
+              <th scope="col" className="px-6 py-3 khmer-text text-center">
+                អត្តលេខ
               </th>
               <th scope="col" className="px-6 py-3 khmer-text">
+              ឈ្មោះ
+              </th>
+              <th scope="col" className="px-6 py-3 khmer-text text-center">
+                ប្រភេទ
+              </th>
+              <th scope="col" className="px-6 py-3 khmer-text text-center">
                 លេខកូតសាលារៀន
               </th>
-              <th scope="col" className="px-6 py-3 khmer-text">ប្រភេទ
-              </th>
-              <th scope="col" className="px-6 py-3 khmer-text">
+              <th scope="col" className="px-6 py-3 khmer-text text-center">
                 ឈ្មោះសាលារៀន
               </th>
               <th scope="col" className="px-6 py-3 text-center">
@@ -154,11 +168,12 @@ const Usertable = () => {
             {currentRows.length > 0 ? (
               currentRows.map((user, index) => (
                 <tr key={user.id} className="bg-white border-b border-gray-200 hover:bg-gray-50">
-                  <td className="px-6 py-4">{indexOfFirstRow + index + 1}</td>
-                  <td className="px-6 py-4">{user.username}</td>
-                  <td className="px-6 py-4 text-green-500">{user.school_code}</td>
-                  <td className="px-6 py-4">{user.role}</td>
-                  <td className="px-6 py-4 khmer-text">{user.schoolname}</td>
+                  <td className="px-6 py-4 text-center">{indexOfFirstRow + index + 1}</td>
+                  <td className="px-6 py-4 text-red-500 font-semibold text-center">N/A</td>
+                  <td className="px-6 py-4  ">{user.username}</td>
+                  <td className="px-6 py-4 text-center">{user.role}</td>
+                  <td className="px-6 py-4 text-green-500 text-center ">{user.school_code}</td>
+                  <td className="px-6 py-4 khmer-text text-center">{user.schoolname}</td>
                   <td className="px-6 py-4 text-right">
                     <div className="text-center">
                     <button
@@ -171,7 +186,13 @@ const Usertable = () => {
                     </button>
                     <span className="p-2 text-gray-300">|</span>
                     <button
-                      onClick={ () => handleDelete(user.id)}
+                      onClick={ 
+                        () => 
+                        { 
+                          handleDelete(user.id)
+                          setDelete(true);
+                        }
+                      }
                       className="font-medium text-blue-600 dark:text-red-500 hover:underline">
                       Delete
                     </button>
@@ -190,11 +211,16 @@ const Usertable = () => {
         </table>
       </div>
       {/* Edit Modal */}
+      {isDelete && (
+        <DeleteAlert/>
+      )}
       {isEdit && selectedUser && (
         <UserEditFunction
           user={selectedUser}
           onClose={() => setEdit(false)}
-          refreshData={() => setUsers([...users])}/>
+          refreshData={
+            () => setUsers([...users])
+          }/>
       )}
       {/* Pagination */}
       <div className="flex justify-between mt-4">

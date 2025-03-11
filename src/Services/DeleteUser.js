@@ -8,7 +8,7 @@ export const handleDelete = async (userId) => {
       const response = await axios.delete(`${API}deleteuser/${userId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      alert("User deleted successfully");
+      console.log("User delected successfully")
     } catch (error) {
       console.error("Delete failed:", error);
       alert(error.response?.data?.error || "Delete failed. Please try again.");

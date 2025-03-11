@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import axios from "axios";
 import "../../index.css";
 
@@ -27,6 +27,8 @@ const initialFormData = {
 };
 
 const Usermangedata = () => {
+
+  
   const inputStyle =
     "mt-1 khmer-text font-semibold p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500";
 
@@ -149,7 +151,7 @@ const Usermangedata = () => {
         <form className="khmer-text" onSubmit={handleSubmit}>
           {/* Grid Layout for Grades */}
           {/* Kindergarten Section */}
-          <div className="border-2 p-4 my-2 rounded-md">
+          <div className="border-2 p-4 my-4 rounded-md">
               <p className="block py-4 khmer-text font-bold text-xl text-blue-600">
                 បញ្ជូលចំនួនសិស្សថ្នាក់មត្តេយ្យ<span className="text-red-500 khmer-text">(បើមាន)</span>
               </p>

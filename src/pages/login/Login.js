@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import LoginAlert from "../../components/LoginAlert";
 import "../../index.css"
+import LoginErrorAlert from "../../components/LoginErrorAlert";
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState(false);
+  const [error,setError] = useState(false);
 
   const navigate = useNavigate();
+ 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -43,9 +46,20 @@ const Login = ({ onLogin }) => {
         alert("Please enter valid credentials.");
       }
     } catch {
-      alert("Error");
+      console.log("Error");
+      setError(true);
     }
   };
+  
+  //occur when the error state change when user trying to login 
+  useEffect(()=>{
+    if(error){
+      const timeError = setTimeout(() => {
+        setError(false);
+      }, 2000);
+      return () => clearTimeout(timeError);
+    }
+  },[error]);
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen">
@@ -66,7 +80,7 @@ const Login = ({ onLogin }) => {
         </p>
       </div>
       {/* Right Side */}
-      <div className="flex items-center justify-center w-full md:w-1/2 p-6">
+      <div className="flex items-center justify-center w-full md:w-1/2 p-6 ">
         <div className="p-6 md:p-8 bg-white rounded-lg w-full max-w-md">
           <h1 className="text-xl md:text-2xl font-bold text-center khmer-text">សូមស្វាគមន៏</h1>
           <p className="text-center font-semibold text-lg md:text-xl mt-3 khmer-text">ចូលប្រព័ន្ធ</p>
@@ -99,6 +113,7 @@ const Login = ({ onLogin }) => {
               ចូលប្រព័ន្ធ
             </button>
             {login && <LoginAlert />}
+            {error && <LoginErrorAlert/>}
           </form>
         </div>
       </div>
