@@ -33,40 +33,19 @@ const Userlanding = () => {
       {/* Sidebar */}
       <div
         className={`fixed md:relative bg-gray-800 text-white transition-all duration-300 h-full 
-        ${
-          isSidebarOpen ? "left-0 w-2/3 sm:w-1/3" : "-left-full md:w-[15%]"
-        } md:block`}>
+        ${isSidebarOpen ? "left-0 w-2/3 sm:w-1/3" : "-left-full md:w-[15%]"} md:block`}>
         <Usersidebar />
       </div>
-
       {/* Main Content */}
       <div className="md:ml-60 m-1 min-w-screen transition-all duration-300">
-        <Header
-          schoolname={user.schoolname}
-          image={user.image}
-          username={user.username}
-          onMenuClick={() => setIsSidebarOpen(!isSidebarOpen)}
-        />
-
+        <Header schoolname={user.schoolname} image={user.image} username={user.username} onMenuClick={() => setIsSidebarOpen(!isSidebarOpen)}/>
         <div className=" transition-all duration-300">
           <Routes>
-            <Route
-              path="/userdashboard"
-              element={<PrivateRoute element={<Userdashboard />} />}
-            />
-            <Route
-              path="/add-student-class"
-              element={<PrivateRoute element={<AddStudentClass />} />}
-            />
-            <Route
-              path="/infrastructure"
-              element={<PrivateRoute element={<InfrastructureForm/>} />}
-            />
+            <Route path="/userdashboard" element={<PrivateRoute element={<Userdashboard />} />}/>
+            <Route path="/add-student-class" element={<PrivateRoute element={<AddStudentClass />} />}/>
+            <Route path="/infrastructure" element={<PrivateRoute element={<InfrastructureForm/>} />}/>
             <Route path ="/add-building" element={<PrivateRoute element={<AddBuilding/>} />} />
-            <Route
-              path="/data-display"
-              element={<PrivateRoute element={<DisplayData />} />}
-            />
+            <Route path="/data-display" element={<PrivateRoute element={<DisplayData />} />}/>
             <Route path="*" element={<h1>Not Found</h1>} />
           </Routes>
         </div>

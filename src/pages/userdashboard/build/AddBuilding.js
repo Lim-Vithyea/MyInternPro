@@ -2,7 +2,7 @@ import React from 'react'
 
 function AddBuilding() {
   return (
-    <div>AddBuilding</div>
+    <div className='text-blue-500 text-center font-semibold pt-[300px]' >This section is under development, stay tuned</div>
   )
 }
 

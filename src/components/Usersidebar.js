@@ -8,7 +8,7 @@ import LogoutAlert from "./Alert";
 // import Usermangedata from "../pages/userdashboard/Usermangedata";
 import UserDropdown from "./UserDropdown";
 import dashboardIcon from "../asset/dashboard.svg";
-import BuilderDropdown from "../pages/userdashboard/build/BuilderDropdown";
+import BuilderDropdown from "./BuilderDropdown";
 
 
 const Usersidebar = () => {
@@ -65,10 +65,10 @@ const Usersidebar = () => {
               <NavLink
                 to="/user/userdashboard"
                 className={({ isActive }) =>
-                  `flex items-center px-4 py-3 rounded-lg transition-colors
+                  `flex items-center px-4 py-3 rounded-t-sm transition-colors
                   ${
                     isActive
-                      ? "bg-gray-700 border-2 border-green-500"
+                      ? "bg-gray-600 border-b-2 border-green-500"
                       : "hover:bg-gray-700"
                   }`
                 }>

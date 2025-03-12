@@ -39,7 +39,9 @@ const InfrastructureForm = () => {
         <h1 className="text-blue-700 font-bold khmer-text text-2xl text-start">
                 ហេត្ថារចនាសម្ព័ន្ធសាលារៀន
          </h1>
+         <h4 className="text-gray-400 khmer-text text-start pt-5 italic"><span className="text-red-500 khmer-text">សម្គាល់*:</span> សូមជ្រើសយកចម្លើយ ២ ក្នុង ១សំណួរ*</h4>
         <form className="pt-10" onSubmit={handleSubmit}>
+        
             {facilities.map((facility,index) => (
             <div className="flex flex-col md:flex-row md:items-center md:gap-6" key={facility.id}>
                 {/* Facility Name */}
