@@ -27,8 +27,9 @@ const UserEditFunction = ({ user, onClose, refreshData }) => {
     setLoading(true); 
     try {
       const token = localStorage.getItem("token");
+      const API = process.env.REACT_APP_API_URL;
       const res = await axios.patch(
-        `http://localhost:3002/api/edituser/${user.id}`, 
+        `${API}edituser/${user.id}`, 
         formData,
         { headers: { Authorization: `Bearer ${token}` } }
       );

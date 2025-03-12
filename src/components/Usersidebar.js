@@ -31,20 +31,12 @@ const Usersidebar = () => {
   //  user page items
   const userPageItems2 = [
     { to: "/user/add-student-class", label: "បញ្ជូលទិន្នន័យសិស្ស " },
+    { to: "/user/infrastructure", label: "ហេត្ថារចនាសម្ព័ន្ធ" },
     { to: "/user/data-display", label: "មើលទិន្នន័យ" },
   ];
-
-  // builder items
   const builderItem1 = [
-    {
-      to: "/user/add-building",
-      label: "បញ្ចូលចំនួនអគារ",
-    },
+    { to: "/user/add-building",label: "បញ្ចូលចំនួនអគារ",},
     { to: "/user/infrastructure", label: "ហេត្ថារចនាសម្ព័ន្ធ" }
-    // {
-    //   to: "/user/add-classroom",
-    //   label: "បញ្ចូលចំនួនថ្នាក់",
-    // },
   ];
   return (
     <>
