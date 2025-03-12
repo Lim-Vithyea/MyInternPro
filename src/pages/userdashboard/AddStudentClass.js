@@ -641,9 +641,9 @@ const Usermangedata = () => {
             </button>
             <button
               type="button"
-              className="ml-4 w-[180px] h-[50px] bg-red-600 rounded-xl hover:bg-red-400 transition-all duration-300 shadow-lg text-white font-bold"
+              className="ml-4 w-[180px] h-[50px] bg-red-600 rounded-xl hover:bg-red-400 transition-all duration-300 shadow-lg text-white font-bold khmer-text"
               onClick={handleReset}>
-              Reset
+              ធ្វើឡើងវិញ
             </button>
           </div>
         </form>

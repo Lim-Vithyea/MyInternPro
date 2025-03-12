@@ -211,15 +211,12 @@ const Usertable = () => {
         </table>
       </div>
       {/* Edit Modal */}
-      {isDelete && (
-        <DeleteAlert/>
-      )}
+      {isDelete && (<DeleteAlert/>)}
       {isEdit && selectedUser && (
         <UserEditFunction
           user={selectedUser}
           onClose={() => setEdit(false)}
-          refreshData={
-            () => setUsers([...users])
+          refreshData={() => setUsers([...users])
           }/>
       )}
       {/* Pagination */}
