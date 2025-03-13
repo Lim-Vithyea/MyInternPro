@@ -4,8 +4,8 @@
 import React, { useEffect, useState } from "react";
 import SchoolEditComponent from "./SchoolEditComponenet";
 import { showSchoolData } from "../Services/Showschool";
-import jsPDF from "jspdf";
-import "jspdf-autotable";
+// import jsPDF from "jspdf";
+// import "jspdf-autotable";
 import "../index.css";
 import { exportToCSV } from "./ExportCSV";
 import searchIcon from "../asset/search.svg"
@@ -72,26 +72,26 @@ const Schooltable = () => {
     setEdit(true);
   };
 
-  const exportPDF = () => {
-    const doc = new jsPDF();
-    doc.text("School Data", 14, 10);
-    const tableColumn = ["No", "School Code", "School name"];
-    if (!schoolData || !Array.isArray(schoolData)) {
-      console.error("schoolData is not defined or not an array");
-      return;
-    }
-    const tableRows = schoolData.map((schools, index) => [
-      index + 1,
-      schools.school_code,
-      schools.schoolname,
-    ]);
-    doc.autoTable({
-      head: [tableColumn],
-      body: tableRows,
-      startY: 20,
-    });
-    doc.save("SchoolData.pdf");
-  };
+  // const exportPDF = () => {
+  //   const doc = new jsPDF();
+  //   doc.text("School Data", 14, 10);
+  //   const tableColumn = ["No", "School Code", "School name"];
+  //   if (!schoolData || !Array.isArray(schoolData)) {
+  //     console.error("schoolData is not defined or not an array");
+  //     return;
+  //   }
+  //   const tableRows = schoolData.map((schools, index) => [
+  //     index + 1,
+  //     schools.school_code,
+  //     schools.schoolname,
+  //   ]);
+  //   doc.autoTable({
+  //     head: [tableColumn],
+  //     body: tableRows,
+  //     startY: 20,
+  //   });
+  //   doc.save("SchoolData.pdf");
+  // };
 
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg p-5">
@@ -110,9 +110,9 @@ const Schooltable = () => {
             className="px-4 py-2 w-full max-w-sm border rounded"/>
         </div>
         <div className="flex gap-1 m-2">
-          <button onClick={exportPDF} className="px-3 py-1 bg-green-500 text-white rounded">
+          {/* <button onClick={exportPDF} className="px-3 py-1 bg-green-500 text-white rounded">
             Export as PDF
-          </button>
+          </button> */}
           <button
             onClick={() => {
               if (schoolData.length > 0) {

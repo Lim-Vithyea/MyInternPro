@@ -80,23 +80,23 @@ const Usertable = () => {
     }
   };
   // Export PDF
-  const exportPDF = () => {
-    const doc = new jsPDF();
-    doc.text("User Data", 14, 10); // Title
-    const tableColumn = ["No", "Username", "Role", "School Name"];
-    const tableRows = users.map((user, index) => [
-      index + 1,
-      user.username,
-      user.role,
-      user.schoolname,
-    ]);
-    doc.autoTable({
-      head: [tableColumn],
-      body: tableRows,
-      startY: 20,
-    });
-    doc.save("UserData.pdf");
-  };
+  // const exportPDF = () => {
+  //   const doc = new jsPDF();
+  //   doc.text("User Data", 14, 10); // Title
+  //   const tableColumn = ["No", "Username", "Role", "School Name"];
+  //   const tableRows = users.map((user, index) => [
+  //     index + 1,
+  //     user.username,
+  //     user.role,
+  //     user.schoolname,
+  //   ]);
+  //   doc.autoTable({
+  //     head: [tableColumn],
+  //     body: tableRows,
+  //     startY: 20,
+  //   });
+  //   doc.save("UserData.pdf");
+  // };
 
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg p-5">
@@ -118,9 +118,9 @@ const Usertable = () => {
         </div>
         {/* Buttons container */}
         <div className="flex gap-1 m-2">
-          <button onClick={exportPDF} className="px-3 py-1 bg-green-500 text-white rounded">
+          {/*<button onClick={exportPDF} className="px-3 py-1 bg-green-500 text-white rounded">
             Export as PDF
-          </button>
+          </button>*/}
           <button
             onClick={() => {
               if (users.length > 0) {
@@ -186,7 +186,7 @@ const Usertable = () => {
                     </button>
                     <span className="p-2 text-gray-300">|</span>
                     <button
-                      onClick={ 
+                      onClick = { 
                         () => 
                         { 
                           handleDelete(user.id)

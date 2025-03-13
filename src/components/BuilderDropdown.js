@@ -23,7 +23,7 @@ const BuilderDropdown = ({ title, items = [] }) => {
               <NavLink
                 key={index}
                 to={item.to}
-                className="dropdown-item block px-4 py-2  hover:bg-gray-600 rounded-sm khmer-text">
+                className="dropdown-item block px-4 py-2 hover:bg-gray-600 rounded-sm khmer-text">
                 {item.label}
               </NavLink>
             ))
