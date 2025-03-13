@@ -86,7 +86,7 @@ const Sidebar = () => {
                       ? "bg-gray-700 border-2 border-green-500"
                       : "hover:bg-gray-700"
                   }`
-                }><img src={dashboardIcon} className="w-6 h-6"/>
+                }><img src={dashboardIcon} className="w-6 h-6" alt="iconfordashboard"/>
                  <span className="ml-3 text-sm md:text-base khmer-text">តារាងទិន្នន័យ</span>
               </NavLink>
             </li>

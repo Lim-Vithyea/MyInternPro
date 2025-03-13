@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import { showUserData } from "../Services/Showuser";
-import jsPDF from "jspdf";
-import "jspdf-autotable";
+// import jsPDF from "jspdf";
+// import "jspdf-autotable";
 import "../index.css";
 import { exportToCSV } from "./ExportCSV";
 import UserEditFunction from "./UserEditFunction";

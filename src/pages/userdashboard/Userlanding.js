@@ -13,14 +13,14 @@ import AddBuilding from "./build/AddBuilding";
 const Userlanding = () => {
   const [user, setUser] = useState({});
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [dropdownData, setDropdownData] = useState([]);
+  // const [dropdownData, setDropdownData] = useState([]);
 
   useEffect(() => {
     const getUserData = async () => {
       try {
         const data = await fetchUserData();
         setUser(data);
-        setDropdownData(data.dropdownData || []);
+        // setDropdownData(data.dropdownData || []);
       } catch (error) {
         console.error("Error fetching user data:", error);
       }

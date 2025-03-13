@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { countStudent } from "../Services/CountStudent";
 import { CountStudentforAdmin } from "../Services/CountStudentforAdmin";
 
 // Register required chart components

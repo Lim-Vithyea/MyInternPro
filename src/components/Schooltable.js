@@ -101,7 +101,7 @@ const Schooltable = () => {
       {err && <p className="text-red-500 text-center">{err}</p>}
       <div className="gap-5 md:block lg:flex justify-between">
         <div className="mb-4 flex">
-          <img src={searchIcon} className="w-6 h-6 m-2"/>
+          <img src={searchIcon} className="w-6 h-6 m-2" alt="searchicon"/>
           <input
             type="text"
             placeholder="Search school..."
