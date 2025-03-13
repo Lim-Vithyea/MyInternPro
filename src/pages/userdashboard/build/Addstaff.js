@@ -3,7 +3,7 @@ import "../../../index.css";
 const StaffForm = () => {
   return (
     <div className="w-full mx-auto p-6 bg-white shadow-lg  rounded  khmer-text-lg">
-      <h2 className="text-3xl font-bold mx-2 mb-4 mt-2 text-blue-​700 khmer-text">បញ្ជូលចំនួនបុគ្គលិក</h2>
+      <h2 className="text-2xl font-bold mx-2 mb-4 mt-2 text-blue-​700 khmer-text">បញ្ជូលចំនួនបុគ្គលិក</h2>
       <hr class="h-0.5 bg-gradient-to-b rounded from-blue-500 to-purple-500 border-0 my-6"/>
 
 
