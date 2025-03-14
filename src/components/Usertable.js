@@ -8,7 +8,7 @@ import "../index.css";
 import { exportToCSV } from "./ExportCSV";
 import UserEditFunction from "./UserEditFunction";
 import { handleDelete } from "../Services/DeleteUser";
-import  searchIcon from "../asset/search.svg"
+import  searchIcon from "../asset/search.svg";
 import DeleteAlert from "./DeleteAlert";
 
 const Usertable = () => {
@@ -80,23 +80,23 @@ const Usertable = () => {
     }
   };
   // Export PDF
-  // const exportPDF = () => {
-  //   const doc = new jsPDF();
-  //   doc.text("User Data", 14, 10); // Title
-  //   const tableColumn = ["No", "Username", "Role", "School Name"];
-  //   const tableRows = users.map((user, index) => [
-  //     index + 1,
-  //     user.username,
-  //     user.role,
-  //     user.schoolname,
-  //   ]);
-  //   doc.autoTable({
-  //     head: [tableColumn],
-  //     body: tableRows,
-  //     startY: 20,
-  //   });
-  //   doc.save("UserData.pdf");
-  // };
+      // const exportPDF = () => {
+      //   const doc = new jsPDF();
+      //   doc.text("User Data", 14, 10); // Title
+      //   const tableColumn = ["No", "Username", "Role", "School Name"];
+      //   const tableRows = users.map((user, index) => [
+      //     index + 1,
+      //     user.username,
+      //     user.role,
+      //     user.schoolname,
+      //   ]);
+      //   doc.autoTable({
+      //     head: [tableColumn],
+      //     body: tableRows,
+      //     startY: 20,
+      //   });
+      //   doc.save("UserData.pdf");
+      // };
 
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg p-5">

@@ -1,9 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import LogoutAlert from "./Alert";
 // import Usermangedata from "../pages/userdashboard/Usermangedata";
 import UserDropdown from "./UserDropdown";
@@ -32,10 +30,11 @@ const Usersidebar = () => {
   const userPageItems2 = [
     { to: "/user/add-student-class", label: "បញ្ជូលទិន្នន័យសិស្ស " },
     { to: "/user/infrastructure", label: "ហេត្ថារចនាសម្ព័ន្ធ" },
-    { to: "/user/data-display", label: "មើលទិន្នន័យ" },
+    { to: "/user/add-staff",label: "បញ្ចូលចំនួនបុគ្គលិក",},
+    
   ];
   const builderItem1 = [
-    { to: "/user/add-staff",label: "បញ្ចូលចំនួនបុគ្គលិក",},
+    { to: "/user/data-display", label: "មើលទិន្នន័យ" },
     { to: "/user/infrastructure", label: "ហេត្ថារចនាសម្ព័ន្ធ" }
   ];
   return (

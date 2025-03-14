@@ -30,18 +30,17 @@ const InfrastructureForm = () => {
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
-        console.log("It's works")
+        console.log("It's works");
     }
 
 
   return (
-    <div className="w-[98%] mx-auto mt-4 bg-white rounded-xl p-6 sm:p-8 lg:p-10 shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px]">
+    <div className="w-[99%] mx-auto mt-4 bg-white rounded-xl p-6 sm:p-8 lg:p-10 shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px]">
         <h1 className="text-blue-700 font-bold khmer-text text-2xl text-start">
                 ហេត្ថារចនាសម្ព័ន្ធសាលារៀន
          </h1>
          <h4 className="text-gray-400 khmer-text text-start pt-5 italic"><span className="text-red-500 khmer-text">សម្គាល់*:</span> សូមជ្រើសយកចម្លើយ ២ ក្នុង ១សំណួរ*</h4>
         <form className="pt-10" onSubmit={handleSubmit}>
-        
             {facilities.map((facility,index) => (
             <div className="flex flex-col md:flex-row md:items-center md:gap-6" key={facility.id}>
                 {/* Facility Name */}

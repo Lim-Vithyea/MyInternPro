@@ -132,7 +132,7 @@ const Usermangedata = () => {
   };
 
   return (
-    <div className="w-[98%] mx-auto mt-2 bg-white rounded-xl p-6 sm:p-8 lg:p-10 shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px]">
+    <div className="w-[99%] mx-auto mt-2 bg-white rounded-xl p-6 sm:p-8 lg:p-10 shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px]">
       <h1 className="font-bold text-2xl text-blue-700 khmer-text text-start">
         បញ្ជូលចំនួនសិស្សតាមថ្នាក់ស្ដង់ដាសាលាបឋមសិក្សាគំរូ
       </h1>
@@ -151,7 +151,7 @@ const Usermangedata = () => {
         <form className="khmer-text" onSubmit={handleSubmit}>
           {/* Grid Layout for Grades */}
           {/* Kindergarten Section */}
-          <div className="border-2 p-4 my-4 rounded-md">
+          <div className="border-2 p-4 my-4 rounded-md shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px]">
               <p className="block py-4 khmer-text font-bold text-xl text-blue-600">
                 បញ្ជូលចំនួនសិស្សថ្នាក់មត្តេយ្យ<span className="text-red-500 khmer-text">(បើមាន)</span>
               </p>
@@ -218,7 +218,7 @@ const Usermangedata = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             
             {/* Grade 1 Section */}
-            <div className="border-2 p-4 rounded-md">
+            <div className="border-2 p-4 rounded-md shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px]">
               <p className="block py-4 khmer-text font-bold text-xl text-blue-600">
                 បញ្ជូលចំនួនសិស្សថ្នាក់ទី ១
               </p>
@@ -287,7 +287,7 @@ const Usermangedata = () => {
             </div>
 
             {/* Grade 2 Section */}
-            <div className="border-2 p-4 rounded-md">
+            <div className="border-2 p-4 rounded-md shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px]">
               <p className="block py-4 khmer-text font-bold text-xl text-blue-600">
                 បញ្ជូលចំនួនសិស្សថ្នាក់ទី ២
               </p>
@@ -356,7 +356,7 @@ const Usermangedata = () => {
             </div>
 
             {/* Grade 3 Section */}
-            <div className="border-2 p-4 rounded-md">
+            <div className="border-2 p-4 rounded-md shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px]">
               <p className="block py-4 khmer-text font-bold text-xl text-blue-600">
                 បញ្ជូលចំនួនសិស្សថ្នាក់ទី ៣
               </p>
@@ -425,7 +425,7 @@ const Usermangedata = () => {
             </div>
 
             {/* Grade 4 Section */}
-            <div className="border-2 p-4 rounded-md">
+            <div className="border-2 p-4 rounded-md shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px]">
               <p className="block py-4 khmer-text font-bold text-xl text-blue-600">
                 បញ្ជូលចំនួនសិស្សថ្នាក់ទី ៤
               </p>
@@ -494,7 +494,7 @@ const Usermangedata = () => {
             </div>
 
             {/* Grade 5 Section */}
-            <div className="border-2 p-4 rounded-md">
+            <div className="border-2 p-4 rounded-md shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px]">
               <p className="block py-4 khmer-text font-bold text-xl text-blue-600">
                 បញ្ជូលចំនួនសិស្សថ្នាក់ទី ៥
               </p>
@@ -563,7 +563,7 @@ const Usermangedata = () => {
             </div>
 
             {/* Grade 6 Section */}
-            <div className="border-2 p-4 rounded-md">
+            <div className="border-2 p-4 rounded-md shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px]">
               <p className="block py-4 khmer-text font-bold text-xl text-blue-600">
                 បញ្ជូលចំនួនសិស្សថ្នាក់ទី ៦
               </p>
@@ -636,12 +636,12 @@ const Usermangedata = () => {
           <div className="flex justify-end mt-8">
             <button
               type="submit"
-              className="w-[180px] h-[50px] bg-blue-600 rounded-xl hover:bg-blue-400 transition-all duration-300 shadow-lg text-white font-bold khmer-text">
+              className="w-[180px] h-[50px] bg-blue-600 rounded-xl hover:bg-blue-400 transition-all duration-300 text-white font-bold khmer-text shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px]">
               រក្សាទុក
             </button>
             <button
               type="button"
-              className="ml-4 w-[180px] h-[50px] bg-red-600 rounded-xl hover:bg-red-400 transition-all duration-300 shadow-lg text-white font-bold khmer-text"
+              className="ml-4 w-[180px] h-[50px] bg-red-600 rounded-xl hover:bg-red-400 transition-all duration-300 shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] text-white font-bold khmer-text"
               onClick={handleReset}>
               ធ្វើឡើងវិញ
             </button>
