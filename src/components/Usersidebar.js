@@ -35,7 +35,7 @@ const Usersidebar = () => {
     { to: "/user/data-display", label: "មើលទិន្នន័យ" },
   ];
   const builderItem1 = [
-    { to: "/user/add-building",label: "បញ្ចូលចំនួនអគារ",},
+    { to: "/user/add-staff",label: "បញ្ចូលចំនួនបុគ្គលិក",},
     { to: "/user/infrastructure", label: "ហេត្ថារចនាសម្ព័ន្ធ" }
   ];
   return (

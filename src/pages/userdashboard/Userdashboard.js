@@ -43,9 +43,9 @@ const Userdashboard = () => {
   return (
     <div className="w-[100%] flex flex-row">
       <div className="w-full">
-        <h1 className="font-bold text-blue-500 text-2xl text-center py-2">
+        {/* <h1 className="font-bold text-blue-500 text-2xl text-center py-2">
           Dashboard
-        </h1>
+        </h1> */}
         <div
           className="w-[95%] md:w-[98%] min-h-[400px] mx-auto my-2 rounded-xl 
           shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]

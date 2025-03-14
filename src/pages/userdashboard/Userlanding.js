@@ -8,7 +8,7 @@ import { PrivateRoute } from "../dashboard/Landing";
 import AddStudentClass from "./AddStudentClass";
 import DisplayData from "./DisplayData";
 import InfrastructureForm from "./InfrastructureForm";
-import AddBuilding from "./build/AddBuilding";
+import Addstaff from "./build/Addstaff";
 
 const Userlanding = () => {
   const [user, setUser] = useState({});
