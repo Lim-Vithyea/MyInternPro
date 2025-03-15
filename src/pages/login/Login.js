@@ -4,6 +4,7 @@ import axios from "axios";
 import LoginAlert from "../../components/LoginAlert";
 import "../../index.css"
 import LoginErrorAlert from "../../components/LoginErrorAlert";
+import LoginIcon from "../../asset/login_icon.svg"
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState("");
@@ -109,8 +110,9 @@ const Login = ({ onLogin }) => {
               />
             </div>
             <button type="submit"
-              className=" khmer-text w-full mt-4 bg-blue-700 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+              className=" khmer-text flex justify-center w-full mt-4 bg-blue-700 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
               ចូលប្រព័ន្ធ
+              <img src={LoginIcon} className="w-5 h-5 pt-[4px]"/>
             </button>
             {login && <LoginAlert />}
             {error && <LoginErrorAlert/>}

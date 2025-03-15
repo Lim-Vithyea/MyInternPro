@@ -1,4 +1,6 @@
 import React from "react";
+import SaveIcon from "../../asset/save-svgrepo-com.svg";
+import Class from "../../asset/class.svg";
 
 const facilities = [
   { id: "lab", name: "បន្ទប់ពិសោធន៍" },
@@ -35,10 +37,15 @@ const InfrastructureForm = () => {
 
 
   return (
-    <div className="w-[99%] mx-auto mt-4 bg-white rounded-xl p-6 sm:p-8 lg:p-10 shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px]">
+    <div className="w-[99%] mx-auto mt-2 bg-white rounded p-6 sm:p-8 lg:p-10 shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px]">
+        <div className="flex ">
+            <img src={Class} className="w-10 h-10 mr-2"/>
         <h1 className="text-blue-700 font-bold khmer-text text-2xl text-start">
                 ហេត្ថារចនាសម្ព័ន្ធសាលារៀន
          </h1>
+
+        </div>
+        
          <h4 className="text-gray-400 khmer-text text-start pt-5 italic"><span className="text-red-500 khmer-text">សម្គាល់*:</span> សូមជ្រើសយកចម្លើយ ២ ក្នុង ១សំណួរ*</h4>
         <form className="pt-10" onSubmit={handleSubmit}>
             {facilities.map((facility,index) => (
@@ -66,9 +73,10 @@ const InfrastructureForm = () => {
                 {/* Submit Button */}
                 <div className="py-10 flex justify-center md:justify-end px-4">
                 <button
-                    className="w-[150px] h-[50px] bg-blue-700 font-semibold text-white rounded-lg cursor-pointer hover:bg-blue-500 transition-all duration-300 khmer-text"
+                    className="w-[150px] h-[50px] flex justify-center items-center bg-blue-700 font-semibold text-white rounded-lg cursor-pointer hover:bg-blue-500 transition-all duration-300 khmer-text"
                     type="submit">
                     រក្សាទុក
+                    <img src={SaveIcon} className="w-5 h-5 ml-[2px] "/>
                 </button>
             </div>
             </form>

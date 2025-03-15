@@ -8,6 +8,7 @@ import DetailCard from "../../components/Detailcard";
 import femaleicon from "../../asset/female.svg"
 import person from "../../asset/person.svg"
 import group from "../../asset/group.svg"
+import SchoolImg from "../../asset/school_icon.svg"
 
 const Userdashboard = () => {
   const [user, setUser] = useState({});
@@ -50,9 +51,12 @@ const Userdashboard = () => {
           className="w-[95%] md:w-[98%] min-h-[400px] mx-auto my-2 rounded-xl 
           shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]
           transition-all duration-300">
-          <h1 className="p-4 md:p-5 font-bold text-lg sm:text-xs md:text-xl lg:text-2xl khmer-text">
-            {user.schoolname}
-          </h1>
+            <div className="flex">
+              <h1 className="p-4 md:p-5 font-bold text-lg sm:text-xs md:text-xl lg:text-2xl khmer-text">
+              {user.schoolname}
+              </h1>
+              <img src={SchoolImg} className="w-10 h-10 mt-1 lg:mt-4 "/>
+            </div>
           <div className="flex justify-center items-center p-2 sm:p-4">
             <div className="w-full max-w-[300px] h-auto aspect-square sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%]">
               <GenderPieChart />
