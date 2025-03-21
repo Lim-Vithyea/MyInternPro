@@ -86,19 +86,9 @@ const Usersidebar = () => {
             />
             <BuilderDropdown
               className="ms-3 khmer-text"
-              title="បញ្ចូលទិន្នន័យអគារ"
+              title="📁​ មើលទិន្នន័យ"
               items={builderItem1}
             />
-            {/* <li>
-              <NavLink
-                to="/user/usermanagedata"
-                className={({ isActive }) => 
-                  `flex items-center px-4 py-3 rounded-lg transition-colors
-                  ${isActive ? 'bg-gray-700 border-2 border-green-500' : 'hover:bg-gray-700'}`
-                }>
-                <span className="ms-3">📁 Manage</span>
-              </NavLink>
-            </li> */}
           </ul>
           <div className="flex justify-center">
             <div className="absolute bottom-6 text-center">
