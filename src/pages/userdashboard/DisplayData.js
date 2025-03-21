@@ -17,6 +17,7 @@ function DisplayData() {
         );
         setStudentData(response.data);
         console.log(response.data);
+        
       } catch (err) {
         setError("Error fetching data: " + err.message);
       } 
@@ -28,17 +29,28 @@ function DisplayData() {
     }
   }, [error]);
 
+
+  const handleExportCSV = (e) =>{
+    e.preventDefault();
+    console.log("it's worked");
+  }
+
+
   return (
     <div className="w-full p-1">
       <div className="flex justify-between items-center mb-1">
         <h2 className="p-2 font-bold text-blue-700 khmer-text sm:text-xs md:text-xl lg:text-2xl">
           ទិន្នន័យសិស្សតាមថ្នាក់
         </h2>
+        <button 
+        className="px-5 py-3 bg-green-500 text-white font-medium rounded-md"
+        onClick={handleExportCSV}
+        >Export to CSV</button>
       </div>
       <div className="w-full shadow-lg rounded-lg overflow-hidden">
-  <h2 className=" p-2 font-bold text-blue-600 khmer-text text-center sm:text-xs md:text-xl lg:text-xl">
-    ទិន្នន័យសិស្សតាមថ្នាក់
-  </h2>
+        <h2 className=" p-2 font-bold text-blue-600 khmer-text text-center sm:text-xs md:text-xl lg:text-xl">
+          ទិន្នន័យសិស្សតាមថ្នាក់
+        </h2>
   {/* Responsive Wrapper */}
   <div className="overflow-x-auto sm:text-xs md:text-xs lg:text-lg">
     <table className="min-w-max w-full bg-white ">
@@ -49,6 +61,7 @@ function DisplayData() {
           <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">ចំនួនសិស្សសរុប</th>
           <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">ចំនួនសិស្សស្រី</th>
           <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">សរុប</th>
+          <th className=" border-2 border-blue-300 text-center text-blue-500 khmer-text">ថ្ងៃបង្កើត</th>
         </tr>
       </thead>
       <tbody>
@@ -78,6 +91,9 @@ function DisplayData() {
                    }
                   <span className="khmer-text text-blue-500 khmer-text"> នាក់</span>
                 </td>
+                <td className=" border-2 border-blue-300 text-blue-500 khmer-text" rowSpan="7">
+                    {new Date(data.created_date).toLocaleDateString('en-GB')}
+                    </td>
               </tr>        
               {/* Grades Rows */}
               {[1, 2, 3, 4, 5, 6].map((grade) => (

@@ -6,9 +6,9 @@ import IconSave from "../../asset/save-svgrepo-com.svg";
 import Study from "../../asset/student.svg";
 
 const initialFormData = {
-  kindergarten: "",
-  total_kindergarten_students: "",
-  female_kindergarten_students: "",
+  kindergarten: 0,
+  total_kindergarten_students: 0,
+  female_kindergarten_students: 0,
   grade1: "",
   total_grade1: "",
   female_grade1: "",
@@ -46,10 +46,7 @@ const Usermangedata = () => {
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [id]: value,
-    }));
+    setFormData((prevData) => ({...prevData,[id]: value,}));
   };
 
   const handleSubmit = async (e) => {
@@ -98,7 +95,6 @@ const Usermangedata = () => {
 
     let formIsValid = true;
     const errors = {};
-
     for (let grade of grades) {
       if (parseInt(grade.girls) > parseInt(grade.total)) {
         errors[
@@ -107,7 +103,6 @@ const Usermangedata = () => {
         formIsValid = false;
       }
     }
-
     if (!formIsValid) {
       setErrorMessages(errors);
       return;
@@ -137,7 +132,7 @@ const Usermangedata = () => {
   return (
     <div className="w-[99%] mx-auto mt-2 bg-white rounded p-6 sm:p-8 lg:p-10 shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px]">
       <div className="flex">
-        <img src={Study} className="w-10 h-10 "/>
+        <img src={Study} className="w-10 h-10 " alt="icon"/>
         <h1 className="font-bold text-2xl mt-2 ml-2 text-blue-700 khmer-text text-start">
           បញ្ជូលចំនួនសិស្សតាមថ្នាក់ស្ដង់ដាសាលាបឋមសិក្សាគំរូ
         </h1>
@@ -169,7 +164,7 @@ const Usermangedata = () => {
                 <label
                   htmlFor="kindergarten"
                   className="block py-4 khmer-text font-bold text-ms text-gray-700">
-                  ថ្នាក់មត្តេយ្យ
+                  ចំនួនថ្នាក់មត្តេយ្យ
                 </label>
                 <input
                   type="number"
@@ -232,7 +227,7 @@ const Usermangedata = () => {
                 <label
                   htmlFor="grade1"
                   className="block py-4 khmer-text font-bold text-sm text-gray-700">
-                  ថ្នាក់ទី១
+                  ចំនួនថ្នាក់ទី១
                 </label>
                 <input
                   type="number"
@@ -301,7 +296,7 @@ const Usermangedata = () => {
                 <label
                   htmlFor="grade2"
                   className="block py-4 khmer-text font-bold text-sm text-gray-700">
-                  ថ្នាក់ទី២
+                  ចំនួនថ្នាក់ទី២
                 </label>
                 <input
                   type="number"
@@ -370,7 +365,7 @@ const Usermangedata = () => {
                 <label
                   htmlFor="grade3"
                   className="block py-4 khmer-text font-bold text-sm text-gray-700">
-                  ថ្នាក់ទី៣
+                  ចំនួនថ្នាក់ទី៣
                 </label>
                 <input
                   type="number"
@@ -439,7 +434,7 @@ const Usermangedata = () => {
                 <label
                   htmlFor="grade4"
                   className="block py-4 khmer-text font-bold text-sm text-gray-700">
-                  ថ្នាក់ទី៤
+                  ចំនួនថ្នាក់ទី៤
                 </label>
                 <input
                   type="number"
@@ -508,7 +503,7 @@ const Usermangedata = () => {
                 <label
                   htmlFor="grade5"
                   className="block py-4 khmer-text font-bold text-sm text-gray-700">
-                  ថ្នាក់ទី៥
+                  ចំនួនថ្នាក់ទី៥
                 </label>
                 <input
                   type="number"
@@ -577,7 +572,7 @@ const Usermangedata = () => {
                 <label
                   htmlFor="grade6"
                   className="block py-4 khmer-text font-bold text-sm text-gray-700">
-                  ថ្នាក់ទី៦
+                  ចំនួនថ្នាក់ទី៦
                 </label>
                 <input
                   type="number"
@@ -644,14 +639,14 @@ const Usermangedata = () => {
               type="submit"
               className="w-[180px] h-[50px]  flex justify-center items-center bg-blue-600 rounded-xl hover:bg-blue-400 transition-all duration-300 text-white font-bold khmer-text shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px]">
               រក្សាទុក
-              <img src={IconSave} className="w-5 h-5 ml-[2px]"/>
+              <img src={IconSave} className="w-5 h-5 ml-[2px]" alt="icon"/>
             </button>
             <button
               type="button"
               className="ml-4 w-[180px] flex justify-center items-center text-center h-[50px] bg-red-600 rounded-xl hover:bg-red-400 transition-all duration-300 shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] text-white font-bold khmer-text"
               onClick={handleReset}>
               ធ្វើឡើងវិញ
-              <img src={IconReset} className="w-5 h-5 ml-[4px]"/>
+              <img src={IconReset} className="w-5 h-5 ml-[4px]" alt="icon"/>
             </button>
           </div>
         </form>

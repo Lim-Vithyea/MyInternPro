@@ -16,10 +16,7 @@ function App() {
       <div>
         <Routes>
           {isAuthenticated && (
-            <Route
-              path="*"
-              element={<Login onLogin={handleLogin} />}
-            />
+            <Route path="*" element={<Login onLogin={handleLogin} />}/>
           )}
           {isAuthenticated && 
           <>

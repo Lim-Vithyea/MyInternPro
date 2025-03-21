@@ -13,7 +13,7 @@ const [schoolData, setSchoolData] = useState({
 const handleChange = (e) =>{
     const { name, value } = e.target;
     setSchoolData({ ...schoolData, [name]: value });
-}
+} 
 
 const handleSubmit = async (e) => {
   e.preventDefault();
