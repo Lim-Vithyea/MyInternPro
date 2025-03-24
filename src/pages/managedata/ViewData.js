@@ -5,7 +5,7 @@ import { getSchool } from "../../Services/Getschool";
 import "../../index.css"
 
 const ViewData = () => {
-const [studentData, setStudent] = useState([]);
+  const [studentData, setStudent] = useState([]);
   const [sid, setSid] = useState('');
   const [schools, setSchools] = useState([]);
   const [loading, setLoading] = useState(false); 
@@ -75,14 +75,6 @@ const [studentData, setStudent] = useState([]);
                 </option>
               ))}
             </datalist>
-              <datalist id="schoolList">
-                {schools.map((school) => (
-                  <option key={school.id} value={school.schoolname} data-value={school.id}>
-                    {school.schoolname}
-                  </option>
-                ))}
-              </datalist>
-
           </div>
         </div>
         <div className="w-full  rounded-lg overflow-hidden">
@@ -122,6 +114,7 @@ const [studentData, setStudent] = useState([]);
                         <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">ចំនួនសិស្សសរុប</th>
                         <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">ចំនួនសិស្សស្រី</th>
                         <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">សរុប</th>
+                        <th className=" border-2 border-blue-300 text-center text-blue-500 khmer-text">ថ្ងៃបង្កើត</th>
                         </tr>
                       <tr className="hover:bg-gray-50 text-center sm:text-xs md:text-xs lg:text-lg">
                         <td className="px-2 py-3 border-2 border-blue-300 khmer-text">ថ្នាក់មត្តេយ្យ</td>
@@ -138,6 +131,9 @@ const [studentData, setStudent] = useState([]);
                            data.total_grade6
                           }
                           <span className="khmer-text text-blue-500"> នាក់</span>
+                        </td>
+                        <td className=" border-2 border-blue-300 text-blue-500 khmer-text" rowSpan="7">
+                      	  {new Date(data.created_date).toLocaleDateString('en-GB')}
                         </td>
                       </tr>
 

@@ -1,7 +1,8 @@
 import React from "react";
 import SaveIcon from "../../asset/save-svgrepo-com.svg";
 import Class from "../../asset/class.svg";
-import Building from "../../asset/bulinding.svg"
+import AddBuilding from "./build/AddBuilding";
+
 
 const facilities = [
   { id: "lab", name: "បន្ទប់ពិសោធន៍" },
@@ -40,8 +41,10 @@ const InfrastructureForm = () => {
 
 
   return (
-    <div>
-        <div className="w-[99%] mx-auto mt-2 bg-white rounded p-6 sm:p-8 lg:p-10 shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px]">
+    <div className="pt-5">
+        <details className="border-2 p-4 rounded-md shadow-sm">
+            <summary className="khmer-text text-blue-500 text-xl">ហេត្ថារចនាសម្ព័ន្ធសាលារៀន</summary>
+        <div className="w-[99%] mx-auto mt-2 bg-white rounded p-6 sm:p-8 lg:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
             <div className="flex ">
                 <img src={Class} className="w-10 h-10 mr-2" alt="icon"/>
             <h1 className="text-blue-700 font-bold khmer-text text-2xl text-start">
@@ -89,12 +92,9 @@ const InfrastructureForm = () => {
                 </div>
             </form>
         </div>
-        <div className="w-[99%] mx-auto mt-2 bg-white rounded p-6 sm:p-8 lg:p-10 shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px]">
-        <div className="flex ">
-                <img src={Building} className="w-10 h-10 mr-2" alt="icon"/>
-                <h1 className="khmer-text text-blue-500 text-2xl font-bold">ទិន្នន័យអគារ</h1>
-            </div>
-                
+        </details>
+        <div className="py-3">
+        <AddBuilding/>
         </div>
     </div>
 
