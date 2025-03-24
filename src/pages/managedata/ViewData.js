@@ -1,11 +1,11 @@
 
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import axios from "axios";
 import { getSchool } from "../../Services/Getschool";
 import "../../index.css"
 
 const ViewData = () => {
-  const [studentData, setStudent] = useState([]);
+const [studentData, setStudent] = useState([]);
   const [sid, setSid] = useState('');
   const [schools, setSchools] = useState([]);
   const [loading, setLoading] = useState(false); 
@@ -58,13 +58,31 @@ const ViewData = () => {
       <div className="w-[98%] mx-auto my-6 bg-white p-6 rounded-xl shadow-lg">
         <h1 className="font-bold text-2xl text-blue-700 khmer-text">មើលទិន្នន័យ</h1>
         <div className="w-[30%] py-5 ">
-          <div>
+        <div>
             <label htmlFor="schoolid" className="block text-sm font-medium text-gray-700 khmer-text">សាលារៀន</label>
-            <select name="schoolid" id="schoolid" onChange={handleSearchChange} value={sid}
-              className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
-              <option value="" >ជ្រើសរើសសាសារៀន</option>
-              {schools.map((school) => (<option className="khmer-text" key={school.id} value={school.sid}>{school.schoolname}</option>))}
-            </select>
+            <input 
+              list="schoolList" 
+              name="schoolid" 
+              id="schoolid" 
+              onChange={handleSearchChange} 
+              value={sid} 
+              className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              placeholder="ជ្រើសរើសសាសារៀន" />
+            <datalist id="schoolList">
+              {schools.map((school) => (
+                <option key={school.id} value={school.sid}>
+                  {school.schoolname}
+                </option>
+              ))}
+            </datalist>
+              <datalist id="schoolList">
+                {schools.map((school) => (
+                  <option key={school.id} value={school.schoolname} data-value={school.id}>
+                    {school.schoolname}
+                  </option>
+                ))}
+              </datalist>
+
           </div>
         </div>
         <div className="w-full  rounded-lg overflow-hidden">
