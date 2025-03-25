@@ -58,9 +58,10 @@ function DisplayData() {
         <tr className="khmer-text text-gray-700 ">
           <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">កម្រិត</th>
           <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">ចំនួនថ្នាក់</th>
-          <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">ចំនួនសិស្សសរុប</th>
-          <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">ចំនួនសិស្សស្រី</th>
-          <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">សរុប</th>
+          <th className=" border-2 border-blue-300 text-center text-blue-500 khmer-text">ចំនួនសិស្សសរុប</th>
+          <th className=" border-2 border-blue-300 text-center text-blue-500 khmer-text">ចំនួនសិស្សស្រី</th>
+          <th className=" border-2 border-blue-300 text-center text-blue-500 khmer-text">សរុប</th>
+          <th className=" border-2 border-blue-300 text-center text-blue-500 khmer-text">បន្ទប់សរុប</th>
           <th className=" border-2 border-blue-300 text-center text-blue-500 khmer-text">ថ្ងៃបង្កើត</th>
         </tr>
       </thead>
@@ -91,6 +92,16 @@ function DisplayData() {
                    }
                   <span className="khmer-text text-blue-500 khmer-text"> នាក់</span>
                 </td>
+                <td className=" border-2 border-blue-300 text-blue-500 khmer-text" rowSpan="7">
+                  {
+                    data.grade1 + 
+                    data.grade2 + 
+                    data.grade3 + 
+                    data.grade4 +
+                    data.grade5 + 
+                    data.grade6 + 
+                    data.kindergarten
+                  } បន្ទប់</td>
                 <td className=" border-2 border-blue-300 text-blue-500 khmer-text" rowSpan="7">
                     {new Date(data.created_date).toLocaleDateString('en-GB')}
                     </td>

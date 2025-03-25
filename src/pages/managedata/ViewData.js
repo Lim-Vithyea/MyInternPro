@@ -111,17 +111,18 @@ const ViewData = () => {
                       <tr className="khmer-text text-gray-700 bg-gray-200">
                         <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">កម្រិត</th>
                         <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">ចំនួនថ្នាក់</th>
-                        <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">ចំនួនសិស្សសរុប</th>
-                        <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">ចំនួនសិស្សស្រី</th>
-                        <th className="px-2 py-3 border-2 border-blue-300 text-center text-blue-500 khmer-text">សរុប</th>
+                        <th className=" border-2 border-blue-300 text-center text-blue-500 khmer-text">ចំនួនសិស្សសរុប</th>
+                        <th className=" border-2 border-blue-300 text-center text-blue-500 khmer-text">ចំនួនសិស្សស្រី</th>
+                        <th className=" border-2 border-blue-300 text-center text-blue-500 khmer-text">សរុប</th>
+                        <th className=" border-2 border-blue-300 text-center text-blue-500 khmer-text">បន្ទប់សរុប</th>
                         <th className=" border-2 border-blue-300 text-center text-blue-500 khmer-text">ថ្ងៃបង្កើត</th>
                         </tr>
                       <tr className="hover:bg-gray-50 text-center sm:text-xs md:text-xs lg:text-lg">
                         <td className="px-2 py-3 border-2 border-blue-300 khmer-text">ថ្នាក់មត្តេយ្យ</td>
                         <td className="px-2 py-3 border-2 border-blue-300 khmer-text">{data.kindergarten} បន្ទប់</td>
-                        <td className="px-2 py-3 border-2 border-blue-300 text-blue-500 khmer-text">{data.total_kindergarten_students} នាក់</td>
-                        <td className="px-2 py-3 border-2 border-blue-300 text-pink-500 khmer-text">{data.female_kindergarten_students} នាក់</td>
-                        <td className="px-2 py-3 border-2 border-blue-300 text-blue-500 khmer-text" rowSpan="7">
+                        <td className=" border-2 border-blue-300 text-blue-500 khmer-text">{data.total_kindergarten_students} នាក់</td>
+                        <td className=" border-2 border-blue-300 text-pink-500 khmer-text">{data.female_kindergarten_students} នាក់</td>
+                        <td className=" border-2 border-blue-300 text-blue-500 khmer-text" rowSpan="7">
                           {data.total_kindergarten_students + 
                            data.total_grade1 + 
                            data.total_grade2 + 
@@ -132,6 +133,16 @@ const ViewData = () => {
                           }
                           <span className="khmer-text text-blue-500"> នាក់</span>
                         </td>
+                        <td className=" border-2 border-blue-300 text-blue-500 khmer-text" rowSpan="7">
+                          {
+                            data.grade1 + 
+                            data.grade2 + 
+                            data.grade3 + 
+                            data.grade4 +
+                            data.grade5 + 
+                            data.grade6 + 
+                            data.kindergarten
+                          } បន្ទប់</td>
                         <td className=" border-2 border-blue-300 text-blue-500 khmer-text" rowSpan="7">
                       	  {new Date(data.created_date).toLocaleDateString('en-GB')}
                         </td>

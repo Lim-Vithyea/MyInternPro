@@ -39,6 +39,7 @@ const Usersidebar = () => {
   ];
   return (
     <>
+    <div className="overflow-y-auto">
       <button
         onClick={toggleSidebar}
         className="fixed top-2 left-2 z-0 md:hidden p-2 text-white rounded-md font-bold bg-blue-500 text-xl">
@@ -110,6 +111,7 @@ const Usersidebar = () => {
           className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden"
           onClick={toggleSidebar}></div>
       )}
+      </div>
     </>
   );
 };
