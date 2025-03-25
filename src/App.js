@@ -16,14 +16,17 @@ function App() {
       <div>
         <Routes>
           {isAuthenticated && (
+            <>
             <Route path="*" element={<Login onLogin={handleLogin} />}/>
+            <Route path="/landing/*" element={<Landing/>} />
+            <Route path="/user/*" element={<Userlanding />} />
+            </>
           )}
-          {isAuthenticated && 
+          {/* {isAuthenticated && 
           <>
-          <Route path="/landing/*" element={<Landing/>} />
-          <Route path="/user/*" element={<Userlanding />} />
+          
           </>
-          }
+          } */}
         </Routes>
       </div>
     </BrowserRouter>

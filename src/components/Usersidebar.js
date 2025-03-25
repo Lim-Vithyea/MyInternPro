@@ -29,13 +29,13 @@ const Usersidebar = () => {
   //  user page items
   const userPageItems2 = [
     { to: "/user/add-student-class", label: "បញ្ជូលទិន្នន័យសិស្ស " },
-    { to: "/user/infrastructure", label: "ហេត្ថារចនាសម្ព័ន្ធ" },
+    { to: "/user/infrastructure", label: "ហេដ្ឋារចនាសម្ព័ន្ធ" },
     { to: "/user/add-staff",label: "បញ្ចូលចំនួនបុគ្គលិក",},
     
   ];
   const builderItem1 = [
     { to: "/user/data-display", label: "មើលទិន្នន័យ" },
-    { to: "/user/infrastructure", label: "ហេត្ថារចនាសម្ព័ន្ធ" }
+    { to: "/user/infrastructure", label: "ហេដ្ឋារចនាសម្ព័ន្ធ" }
   ];
   return (
     <>

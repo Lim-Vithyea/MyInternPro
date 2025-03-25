@@ -12,7 +12,7 @@ const Header = ({ image, username, schoolname }) => {
       </div>
       <div className="flex items-center gap-3">
         <h1 className="text-xs sm:text-sm md:text-md lg:text-lg">
-          Hello, <span className="text-blue-500 font-bold">{username}</span>
+          <span className="khmer-text">សួស្តី</span>, <span className="text-blue-500 font-bold">{username}</span>
         </h1>
         <img
           src={image || "/images/pf.jpg"}

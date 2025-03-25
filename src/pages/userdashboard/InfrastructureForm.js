@@ -1,7 +1,9 @@
 import React from "react";
-import SaveIcon from "../../asset/save-svgrepo-com.svg";
 import Class from "../../asset/class.svg";
 import AddBuilding from "./build/AddBuilding";
+import BuildingTable from "./build/BuildingTable";
+import SaveBtn from "../../components/SaveBtn";
+import BuildingCondition from "./build/BuildingCondition";
 
 
 const facilities = [
@@ -41,14 +43,19 @@ const InfrastructureForm = () => {
 
 
   return (
-    <div className="pt-5">
+    <>
+    <div className="pt-4">
+    <BuildingTable/>
+    <BuildingCondition/>
+    </div>
+    <div className="pt-3">
         <details className="border-2 p-4 rounded-md shadow-sm">
-            <summary className="khmer-text text-blue-500 text-xl">ហេត្ថារចនាសម្ព័ន្ធសាលារៀន</summary>
+            <summary className="khmer-text text-blue-500 text-xl">ហេដ្ឋារចនាសម្ព័ន្ធសាលារៀន</summary>
         <div className="w-[99%] mx-auto mt-2 bg-white rounded p-6 sm:p-8 lg:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
             <div className="flex ">
                 <img src={Class} className="w-10 h-10 mr-2" alt="icon"/>
             <h1 className="text-blue-700 font-bold khmer-text text-2xl text-start">
-                    ហេត្ថារចនាសម្ព័ន្ធសាលារៀន
+                    ហេដ្ឋារចនាសម្ព័ន្ធសាលារៀន
             </h1>
             </div>
             <h4 className="text-gray-400 khmer-text text-start pt-5 italic"><span className="text-red-500 khmer-text">សម្គាល់*:</span> សូមជ្រើសយកចម្លើយ ២ ក្នុង ១សំណួរ*</h4>
@@ -82,22 +89,15 @@ const InfrastructureForm = () => {
                     </div>
                 ))}
                 {/* Submit Button */}
-                <div className="py-10 flex justify-center md:justify-end px-4">
-                    <button
-                        className="w-[150px] h-[50px] flex justify-center items-center bg-blue-700 font-semibold text-white rounded-lg cursor-pointer hover:bg-blue-500 transition-all duration-300 khmer-text"
-                        type="submit">
-                        រក្សាទុក
-                        <img src={SaveIcon} className="w-5 h-5 ml-[2px] "alt="icon"/>
-                    </button>
-                </div>
+                <SaveBtn/>
             </form>
         </div>
         </details>
         <div className="py-3">
-        <AddBuilding/>
+        
         </div>
     </div>
-
+    </>
   );
 };
 

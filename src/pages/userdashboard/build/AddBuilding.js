@@ -2,7 +2,7 @@
 import React from "react";
 import Building from "../../../asset/bulinding.svg";
 import BuildingTypeCard from "../../../components/BuildingCard";
-import SaveIcon from "../../../asset/save-svgrepo-com.svg"
+import SaveBtn from "../../../components/SaveBtn";
 
 function AddBuilding() {
   return (
@@ -22,19 +22,11 @@ function AddBuilding() {
             <BuildingTypeCard title="ឈើប្រក់ក្បឿង/ស័ង្គសី" buildingId="wood_buildings" roomId="wood_rooms"/>
             <BuildingTypeCard title="រោងដោល (ចំនួនអគារ និងបន្ទប់)" buildingId="shed_buildings" roomId="shed_rooms"/>
           </div>
-          <div className="flex justify-end">
-            <button
-                className="w-[150px] h-[50px] flex justify-center items-center bg-blue-700 font-semibold text-white rounded-lg cursor-pointer hover:bg-blue-500 transition-all duration-300 khmer-text"
-                type="submit"> រក្សាទុក
-              <img src={SaveIcon} className="w-5 h-5 ml-[2px] "alt="icon"/>
-            </button>
-          </div>
+          <SaveBtn/>
         </form>
     </div>
     </details>
   );
 }
-
-// Reusable Building Type Card Componen
 
 export default AddBuilding;
