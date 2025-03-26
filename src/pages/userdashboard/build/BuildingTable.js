@@ -11,8 +11,9 @@ const BuildingTable = () => {
         <summary className="khmer-text text-lg sm:text-xl text-blue-500">
           បញ្ចូលទិន្នន័យអគារ
         </summary>
-        <div className="overflow-x-auto p-1">
+        <div className="overflow-x-auto p-1 pt-4">
           <form>
+          <h1 className='text-red-500 khmer-text pb-2 italic opacity-80 text-[13px]'>សម្គាល់: <span className="khmer-text">បើគ្មានសូមបញ្ចូល​</span> 0</h1>
             {/* Table */}
             <div className="overflow-x-auto">
               <table className="min-w-[600px] w-full border-2 border-gray-200 khmer-text text-xs khmer-text sm:text-sm md:text-base lg:text-[15px]">

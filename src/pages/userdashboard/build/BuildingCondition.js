@@ -33,13 +33,18 @@ const BuildingCondition = () => {
     //         console.error("Error saving data:", error);
     //     }
     // };
+    const handleSubmit =(e)=>{
+        e.preventDefault();
+        console.log(formData);
+    }
 
     return (
         <div className="pt-4 overflow-x-auto">
             <details className="border-2 p-4 rounded-md shadow-sm">
-                <summary className="khmer-text text-lg sm:text-xl text-blue-500">ស្ថានភាពអគារ</summary>
+                <summary className="khmer-text text-lg sm:text-xl text-blue-500">ស្ថានភាពអគារសិក្សា</summary>
                 <div className="pt-4">
-                    <form>
+                    <form onSubmit={handleSubmit}>
+                        <h1 className='text-red-500 khmer-text pb-2 italic opacity-80 text-[13px]'>សម្គាល់: <span className="khmer-text">បើគ្មានសូមបញ្ចូល​</span> 0</h1>
                         <div className="overflow-x-auto">
                             <table className="min-w-[600px] w-full border-gray-300 border-2 khmer-text text-xs sm:text-sm md:text-base">
                                 {/* Table Header */}
