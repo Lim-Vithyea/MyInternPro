@@ -11,7 +11,7 @@ const UserDropdown = ({ title, items = [] }) => {
     <div className="dropdown">
       <button
         onClick={toggleDropdown}
-        className={`dropdown-button flex items-center justify-between w-full px-4 py-3 rounded-t-sm transition-colors hover:bg-gray-700 khmer-text ${open ? "bg-gray-600 border-b-2 border-green-500" : ""}`}>
+        className={`dropdown-button flex items-center justify-between w-full px-4 py-2 rounded-t-sm transition-colors hover:bg-gray-700 khmer-text ${open ? "bg-gray-600 border-b-2 border-green-500" : ""}`}>
         {title}
         <span className="">{open ? "▲" : "▼"}</span>
       </button>

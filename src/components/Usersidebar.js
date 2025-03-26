@@ -49,18 +49,19 @@ const Usersidebar = () => {
         className={`fixed top-0 left-0 z-40 w-64 h-screen bg-[#1B1B69] text-white transition-transform duration-500 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0 md:w-[15%]`}>
-        <div className="h-full px-4 py-6 overflow-y-auto">
-          <div className="flex justify-center">
+        <div className="h-full px-4 pt-6 overflow-y-auto">
+          <div className="flex justify-center h-[15%]">
             <img
               src="/images/P10.png"
               alt="Emblem"
               className="w-[100px] h-[100px]"
             />
           </div>
-          <p className="text-lg font-bold text-center khmer-text pt-5 pb-6">
+          <p className="text-lg font-bold text-center khmer-text pb-3">
             នាយកដ្ឋានបឋមសិក្សា
           </p>
-          <ul className="space-y-4 font-medium">
+          <div className="">
+          <ul className="space-y-4 font-medium ">
             <li>
               <NavLink
                 to="/user/userdashboard"
@@ -91,8 +92,9 @@ const Usersidebar = () => {
               items={builderItem1}
             />
           </ul>
-          <div className="flex justify-center">
-            <div className="absolute bottom-6 text-center">
+          </div>
+          <div className="flex justify-center h-[15%]">
+            <div className="fixed bottom-6 text-center">
               <p className="text-xs text-gray-300 font-semibold">
                 Created by Chea
               </p>

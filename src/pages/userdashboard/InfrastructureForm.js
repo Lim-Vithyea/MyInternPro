@@ -1,6 +1,5 @@
 import React from "react";
 import Class from "../../asset/class.svg";
-import AddBuilding from "./build/AddBuilding";
 import BuildingTable from "./build/BuildingTable";
 import SaveBtn from "../../components/SaveBtn";
 import BuildingCondition from "./build/BuildingCondition";
