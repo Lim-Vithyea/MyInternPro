@@ -3,6 +3,7 @@ import Class from "../../asset/class.svg";
 import BuildingTable from "./build/BuildingTable";
 import SaveBtn from "../../components/SaveBtn";
 import BuildingCondition from "./build/BuildingCondition";
+import SuccessMessage from "../../components/SuccessMessage";
 
 
 const facilities = [
@@ -35,16 +36,9 @@ const answer2 = [
 
 const InfrastructureForm = () => {
     const [facilitiesState, setFacilitiesState] = useState({});
+    const [successMessage, setSuccessMessage] = useState(false);
+    const [inputError, setInputError] = useState(false)
 
-    // const handleChange = (e) => {
-    //     const checked = e.target.checked;
-    //         setFacilitiesState((prev) => ({
-    //             ...prev,[facility.id]: {
-    //                 ...prev[facility.id],
-    //                         [option.value]: checked,
-    //                     },
-    //         }));
-    //   };
     const handleCheckboxChange = (facilityId, optionValue, checked) => {
         setFacilitiesState((prev) => ({
           ...prev,
@@ -55,15 +49,25 @@ const InfrastructureForm = () => {
         }));
       };
       
-
     const handleSubmit = async (e) =>{
         e.preventDefault();
+        const missingSelections = facilities.filter((facility) => {
+            const selected = facilitiesState[facility.id];
+            return !selected || Object.values(selected).every((val) => !val);
+          });
+          if (missingSelections.length > 0) {
+            // alert("សូមជ្រើសយកចម្លើយយ៉ាងហោចណាស់ 1 សម្រាប់សំណួរ(ៗ)៖\n" + 
+            //   missingSelections.map(f => `- ${f.name}`).join('\n'));
+            // Proceed if all have at least one checked
+            console.log("Valid data:", facilitiesState);
+            setInputError(true)
+            return;
+          }
+        setSuccessMessage(true);
         console.log(facilitiesState);
 
     }
     
-    
-
   return (
     <>
     <div className="pt-4">
@@ -75,11 +79,15 @@ const InfrastructureForm = () => {
             <summary className="khmer-text text-blue-500 text-xl">ហេដ្ឋារចនាសម្ព័ន្ធសាលារៀន</summary>
         <div className="w-[99%] mx-auto mt-2 bg-white rounded p-6 sm:p-8 lg:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
             <div className="flex ">
-                <img src={Class} className="w-10 h-10 mr-2" alt="icon"/>
-            <h1 className="text-blue-700 font-bold khmer-text text-2xl text-start">
-                    ហេដ្ឋារចនាសម្ព័ន្ធសាលារៀន
-            </h1>
+            <img src={Class} className="w-10 h-10 mr-2" alt="icon"/>
+            <h1 className="text-blue-700 font-bold khmer-text text-2xl text-start">ហេដ្ឋារចនាសម្ព័ន្ធសាលារៀន</h1>
             </div>
+            <SuccessMessage successMessage={successMessage}/>
+            {inputError && (
+                <div className="mt-4 p-4 bg-red-100 text-red-500 rounded khmer-text">
+                    សូមជ្រើសយកចម្លើយយ៉ាងហោចណាស់ ២ សម្រាប់សំណួរនីមួយៗ
+                </div>
+            )}
             <h4 className="text-gray-400 khmer-text text-start pt-5 italic"><span className="text-red-500 khmer-text">សម្គាល់*:</span> សូមជ្រើសយកចម្លើយ ២ ក្នុង ១សំណួរ*</h4>
             <form className="pt-10" onSubmit={handleSubmit}>
                 {facilities.map((facility, index) => (
@@ -103,7 +111,7 @@ const InfrastructureForm = () => {
                                     value={option.value}
                                     className="w-5 h-5"
                                     checked={facilitiesState[facility.id]?.[option.value] || false}
-                                    onChange={(e) => handleCheckboxChange(facility.id,option.value,e.target.value)}/>
+                                    onChange={(e) => handleCheckboxChange(facility.id, option.value, e.target.value)}/>
                                     <label className={`${option.color} khmer-text`}>{option.label}</label>
                                 </div>
                                 ))}
@@ -113,7 +121,7 @@ const InfrastructureForm = () => {
                     </div>
                 ))}
                 {/* Submit Button */}
-                <SaveBtn/>
+                <SaveBtn disable={successMessage}/>
             </form>
         </div>
         </details>

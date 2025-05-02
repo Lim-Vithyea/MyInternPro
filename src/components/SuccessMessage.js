@@ -4,7 +4,7 @@ const SuccessMessage = ({successMessage}) => {
   return (
     <>
     {successMessage && (
-        <div className="mt-4 p-2 bg-green-100 text-green-700 rounded">
+        <div className="mt-4 p-4 bg-green-100 text-green-700 rounded">
             Data insert successfully
         </div>
      )}

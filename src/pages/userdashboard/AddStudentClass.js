@@ -43,6 +43,7 @@ const Usermangedata = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [kidclass, setKidclass] = useState(false);
+  const [isSubmitting,setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -52,6 +53,7 @@ const Usermangedata = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessages({});
+    setIsSubmitting(true);
     setSuccessMessage("");
     setErrorMessage("");
 
@@ -637,7 +639,7 @@ const Usermangedata = () => {
           <div className="flex justify-end mt-8">
             <button
               type="submit"
-              className="w-[180px] h-[50px]  flex justify-center items-center bg-blue-600 rounded-xl hover:bg-blue-400 transition-all duration-300 text-white font-bold khmer-text shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px]">
+              className={`w-[180px] h-[50px] ${isSubmitting ? "opacity-20 cursor-not-allowed": ""}  flex justify-center items-center bg-blue-600 rounded-xl hover:bg-blue-400 transition-all duration-300 text-white font-bold khmer-text shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px]`}>
               រក្សាទុក
               <img src={IconSave} className="w-5 h-5 ml-[2px]" alt="icon"/>
             </button>
