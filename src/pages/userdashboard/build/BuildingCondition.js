@@ -91,7 +91,7 @@ const BuildingCondition = () => {
                                 </tbody>
                             </table>
                         </div>
-                        <SaveBtn disable={isSubmitting}/>
+                        { !successMessage && <SaveBtn disable={successMessage}/>}
                     </form>
                 </div>
             </details>

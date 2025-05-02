@@ -37,7 +37,8 @@ const answer2 = [
 const InfrastructureForm = () => {
     const [facilitiesState, setFacilitiesState] = useState({});
     const [successMessage, setSuccessMessage] = useState(false);
-    const [inputError, setInputError] = useState(false)
+    const [inputError, setInputError] = useState(false);
+    const [isSubmitting,setIsSubmitting] = useState(false);
 
     const handleCheckboxChange = (facilityId, optionValue, checked) => {
         setFacilitiesState((prev) => ({
@@ -64,6 +65,7 @@ const InfrastructureForm = () => {
             return;
           }
         setSuccessMessage(true);
+        setIsSubmitting(true);
         console.log(facilitiesState);
 
     }
@@ -111,7 +113,7 @@ const InfrastructureForm = () => {
                                     value={option.value}
                                     className="w-5 h-5"
                                     checked={facilitiesState[facility.id]?.[option.value] || false}
-                                    onChange={(e) => handleCheckboxChange(facility.id, option.value, e.target.value)}/>
+                                    onChange={(e) => handleCheckboxChange(facility.id, option.value, e.target.checked)}/>
                                     <label className={`${option.color} khmer-text`}>{option.label}</label>
                                 </div>
                                 ))}
@@ -121,7 +123,9 @@ const InfrastructureForm = () => {
                     </div>
                 ))}
                 {/* Submit Button */}
-                <SaveBtn disable={successMessage}/>
+                { !isSubmitting &&
+                    <SaveBtn disable={successMessage}/>
+                }
             </form>
         </div>
         </details>

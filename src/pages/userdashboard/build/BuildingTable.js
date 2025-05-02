@@ -304,7 +304,7 @@ const BuildingTable = () => {
             </div>
 
             <div className="pt-4">
-              <SaveBtn disable={successMessage}/>
+              { !successMessage && <SaveBtn disable={successMessage}/>}
             </div>
           </form>
         </div>
