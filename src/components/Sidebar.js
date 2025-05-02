@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { fetchUserData } from "../pages/setting/Serviceuser";
 import LogoutAlert from "./Alert";
 import DropdownManage from "./DropdownManage";
-import dashboardIcon from "../asset/dashboard.svg"
+import dashboardIcon from "../asset/dashboard.svg";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +24,6 @@ const Sidebar = () => {
   }, []);
 
   const toggleSidebar = () => setIsOpen(!isOpen);
-
   const handleLogout = () => {
     localStorage.removeItem("token");
     setShowAlert(true);

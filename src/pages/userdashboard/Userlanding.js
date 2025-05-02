@@ -9,7 +9,6 @@ import AddStudentClass from "./AddStudentClass";
 import DisplayData from "./DisplayData";
 import InfrastructureForm from "./InfrastructureForm";
 import Addstaff from "./build/Addstaff";
-import AddBuilding from "../userdashboard/build/AddBuilding"
 
 const Userlanding = () => {
   const [user, setUser] = useState({});
@@ -43,10 +42,10 @@ const Userlanding = () => {
         <div className=" transition-all duration-300">
           <Routes>
             <Route path="/userdashboard" element={<PrivateRoute element={<Userdashboard />} />}/>
-            <Route path="/add-student-class" element={<PrivateRoute element={<AddStudentClass />} />}/>
-            <Route path="/infrastructure" element={<PrivateRoute element={<InfrastructureForm/>} />}/>
-            <Route path ="/add-staff" element={<PrivateRoute element={<Addstaff/>} />} />
-            <Route path="/data-display" element={<PrivateRoute element={<DisplayData />} />}/>
+            <Route path="/add-student-class" element={<PrivateRoute element={<AddStudentClass />}/>}/>
+            <Route path="/infrastructure" element={<PrivateRoute element={<InfrastructureForm/>}/>}/>
+            <Route path ="/add-staff" element={<PrivateRoute element={<Addstaff/>}/>}/>
+            <Route path="/data-display" element={<PrivateRoute element={<DisplayData />}/>}/>
             <Route path="*" element={<h1>Not Found</h1>} />
           </Routes>
         </div>

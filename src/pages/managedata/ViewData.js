@@ -103,7 +103,7 @@ const ViewData = () => {
                   studentData.map((data) => (
                     <React.Fragment key={data.id}>
                       <tr>
-                        <td className="px-2  border-blue-300 khmer-text text-center pt-4" colSpan="5">
+                        <td className="px-2  border-blue-300 khmer-text text-center pt-4" colSpan="7">
                             <strong className="khmer-text text-blue-500">{data.school_name}</strong>
                         </td>
                         </tr>

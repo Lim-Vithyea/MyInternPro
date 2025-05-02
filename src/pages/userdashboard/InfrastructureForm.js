@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Class from "../../asset/class.svg";
 import BuildingTable from "./build/BuildingTable";
 import SaveBtn from "../../components/SaveBtn";
@@ -34,12 +34,35 @@ const answer2 = [
 ]
 
 const InfrastructureForm = () => {
+    const [facilitiesState, setFacilitiesState] = useState({});
+
+    // const handleChange = (e) => {
+    //     const checked = e.target.checked;
+    //         setFacilitiesState((prev) => ({
+    //             ...prev,[facility.id]: {
+    //                 ...prev[facility.id],
+    //                         [option.value]: checked,
+    //                     },
+    //         }));
+    //   };
+    const handleCheckboxChange = (facilityId, optionValue, checked) => {
+        setFacilitiesState((prev) => ({
+          ...prev,
+          [facilityId]: {
+            ...prev[facilityId],
+            [optionValue]: checked,
+          },
+        }));
+      };
+      
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
-        console.log("It's works");
-    }
+        console.log(facilitiesState);
 
+    }
+    
+    
 
   return (
     <>
@@ -74,14 +97,16 @@ const InfrastructureForm = () => {
                             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 border-b-2 border-gray-300 py-5 ">
                             {[...answer1, ...answer2].map((option) => (
                                 <div className="flex items-center gap-2" key={option.value}>
-                                <input
+                                    <input
                                     type="checkbox"
-                                    name={facility.id}
+                                    name={`${facility.id}-${option.value}`}
                                     value={option.value}
-                                    className="w-5 h-5"/>
-                                <label className={`${option.color} khmer-text`}>{option.label}</label>
+                                    className="w-5 h-5"
+                                    checked={facilitiesState[facility.id]?.[option.value] || false}
+                                    onChange={(e) => handleCheckboxChange(facility.id,option.value,e.target.value)}/>
+                                    <label className={`${option.color} khmer-text`}>{option.label}</label>
                                 </div>
-                            ))}
+                                ))}
                             </div>
                         </div>
                         </div>

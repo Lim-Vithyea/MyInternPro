@@ -17,8 +17,7 @@ const Header = ({ image, username, schoolname }) => {
         <img
           src={image || "/images/pf.jpg"}
           alt="Profile"
-          className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-blue-500 object-cover"
-        />
+          className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-blue-500 object-cover"/>
       </div>
     </div>
   );
